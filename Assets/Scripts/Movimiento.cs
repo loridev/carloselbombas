@@ -5,16 +5,23 @@ using UnityEngine;
 public class Movimiento : MonoBehaviour
 {
     public float velocidad;
-    public Rigidbody rb;
-    // Start is called before the first frame update
+    public CharacterController controlador;
+
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        rb.velocity = new Vector3(Input.GetAxis("Horizontal") * velocidad, rb.velocity.y, Input.GetAxis("Vertical") * velocidad);
+        float horizontal = Input.GetAxisRaw("Horizontal");
+        float vertical = Input.GetAxisRaw("Vertical");
+        Vector3 direccion = new Vector3(horizontal, 0f, vertical).normalized;
+        
+        if (direccion.magnitude >= 0.1f)
+        {
+            controlador.Move(direccion * velocidad * Time.deltaTime);
+        }
     }
 }
