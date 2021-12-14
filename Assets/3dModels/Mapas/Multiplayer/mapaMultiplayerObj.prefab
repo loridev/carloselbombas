@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1655140551030923151}
   m_Layer: 0
-  m_Name: mapaNormalObj
+  m_Name: mapaMultiplayerObj
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
