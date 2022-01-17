@@ -1,0 +1,24 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="style.uss" />
+    <ui:VisualElement name="principalcontainer" class="d principalcontainer">
+        <ui:VisualElement name="backcontainer" class="backcontainer">
+            <ui:Button text="Button" display-tooltip-when-elided="true" />
+        </ui:VisualElement>
+        <ui:VisualElement name="titlecontainer" class="titulocontainer" style="width: 20%;">
+            <ui:Label text="Mundo" display-tooltip-when-elided="true" name="titletext" class="titulo" />
+            <ui:VisualElement name="lineadivsoria" class="lineadivisoriatitulo" />
+        </ui:VisualElement>
+        <ui:VisualElement name="buttoncontainer" class="containerbotonesgrandes" style="height: 40%; margin-bottom: 10px;">
+            <ui:Button text="Button" display-tooltip-when-elided="true" class="botongrande botonmundo" />
+            <ui:Button text="Button" display-tooltip-when-elided="true" class="botonmundo" />
+            <ui:Button text="Button" display-tooltip-when-elided="true" class="botonmundo" />
+            <ui:Button text="Button" display-tooltip-when-elided="true" class="botonmundo" />
+        </ui:VisualElement>
+        <ui:VisualElement name="contrarreloj" style="width: 100%; height: 10%; flex-direction: row; justify-content: space-around;">
+            <ui:Button text="Button" display-tooltip-when-elided="true" class="botonmundo" />
+            <ui:Button text="Button" display-tooltip-when-elided="true" class="botonmundo" />
+            <ui:Button text="Button" display-tooltip-when-elided="true" class="botonmundo" />
+            <ui:Button text="Button" display-tooltip-when-elided="true" class="botongrande botonmundo" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
