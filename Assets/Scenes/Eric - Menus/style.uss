@@ -1,6 +1,6 @@
 .test {
-    width: 30%;
-    height: 10%;
+    width: 20%;
+    height: 15%;
     left: auto;
     align-items: center;
 }
