@@ -4,5 +4,17 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Eric - Menus/Menu principal/Menu principal.unity
+    guid: 9c2c61ed544651541ac120ea85c759bb
+  - enabled: 1
+    path: Assets/Scenes/Eric - Menus/Individual/Menu Individual.unity
+    guid: 7771a3a914df53d44ac13f5a1c6c840e
+  - enabled: 1
+    path: Assets/Scenes/Eric - Menus/Multijugador/Multijugador.unity
+    guid: 2b10a09307ca44c4f857ef769d7808df
+  - enabled: 1
+    path: Assets/Scenes/Eric - Menus/Mundos/Mundos.unity
+    guid: b7e4f0787a09dc841a78418b569b895b
   m_configObjects: {}

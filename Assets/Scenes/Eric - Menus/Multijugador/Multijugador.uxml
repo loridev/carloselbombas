@@ -2,7 +2,7 @@
     <Style src="/Assets/Scenes/Eric - Menus/Mundos/style.uss" />
     <ui:VisualElement name="container" class="principalcontainer">
         <ui:VisualElement name="backcontainer" class="backcontainer">
-            <ui:Button text="Button" display-tooltip-when-elided="true" />
+            <ui:Button text="Button" display-tooltip-when-elided="true" name="botonatras" />
         </ui:VisualElement>
         <ui:VisualElement name="titlecontainer" class="titulocontainer" style="height: 20%;">
             <ui:Label text="Multijugador" display-tooltip-when-elided="true" name="title" class="titulo" />

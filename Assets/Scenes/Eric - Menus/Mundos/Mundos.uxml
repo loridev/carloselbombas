@@ -2,7 +2,7 @@
     <Style src="style.uss" />
     <ui:VisualElement name="principalcontainer" class="d principalcontainer">
         <ui:VisualElement name="backcontainer" class="backcontainer">
-            <ui:Button text="Button" display-tooltip-when-elided="true" />
+            <ui:Button text="Button" display-tooltip-when-elided="true" name="botonatras" />
         </ui:VisualElement>
         <ui:VisualElement name="titlecontainer" class="titulocontainer" style="width: 20%;">
             <ui:Label text="Mundo" display-tooltip-when-elided="true" name="titletext" class="titulo" />
