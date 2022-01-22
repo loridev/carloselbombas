@@ -1,43 +1,52 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
 using UnityEngine.SceneManagement;
 
 public class MenuPrincipal : MonoBehaviour
 {
-    public Button botonIndiv;
-    public Button botonMult;
-    public Button botonPerfil;
-    public Button botonClasif;
-    public Button botonSkin;
-    public Button botonControles;
-    public Button botonAjustes;
-    // Start is called before the first frame update
-    void Start()
+    public Transform ventana;
+    public CanvasGroup velo;
+
+    public void CargarModoIndiv()
     {
-        VisualElement root = GetComponent<UIDocument>().rootVisualElement;
+        SceneManager.LoadScene("MenuIndiv");
+    }
 
-        botonIndiv = root.Q<Button>("Individual");
-        botonMult = root.Q<Button>("Multijugador");
-        botonPerfil = root.Q<Button>("UserButton");
-        botonClasif = root.Q<Button>("clasif");
-        botonSkin = root.Q<Button>("skin");
-        botonControles = root.Q<Button>("controles");
-        botonAjustes = root.Q<Button>("ajustes");
+    public void CargarModoMulti()
+    {
+        SceneManager.LoadScene("MenuMulti");
+    }
 
-        botonIndiv.clicked += RedirModoIndiv;
-        botonMult.clicked += RedirModoMult;
+    public void CargarClasificaciones()
+    {
+        SceneManager.LoadScene("MenuClasificacion");
+    }
+
+    public void CargarMenuPersonalizaciones()
+    {
 
     }
 
-    void RedirModoIndiv()
+    public void AbrirPopup()
     {
-        SceneManager.LoadScene("Menu Individual");
+        velo.gameObject.SetActive(true);
+        velo.alpha = 0;
+        velo.LeanAlpha(0.5f, 0.2f);
+
+        ventana.localPosition = new Vector2(0, -Screen.height);
+        ventana.LeanMoveLocalY(0, 0.5f).setEaseOutExpo().delay = 0.1f;
     }
 
-    void RedirModoMult()
+    public void CerrarPopup()
     {
-        SceneManager.LoadScene("Multijugador");
+        velo.LeanAlpha(0, 0.5f);
+        ventana.LeanMoveLocalY(-Screen.height, 0.5f).setEaseInExpo().setOnComplete(completado);
+    }
+
+    void completado()
+    {
+        velo.gameObject.SetActive(false);
+        ventana.gameObject.SetActive(false);
     }
 }

@@ -6,15 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Eric - Menus/Menu principal/Menu principal.unity
-    guid: 9c2c61ed544651541ac120ea85c759bb
+    path: Assets/Scenes/Eric - Menus2/MenuPrincipal.unity
+    guid: ef1d0e08791f7a941ba84757eefc0efa
   - enabled: 1
-    path: Assets/Scenes/Eric - Menus/Individual/Menu Individual.unity
-    guid: 7771a3a914df53d44ac13f5a1c6c840e
+    path: Assets/Scenes/Eric - Menus2/MenuIndiv.unity
+    guid: 89397b5fb0818ab4492c97f8c43f29a9
   - enabled: 1
-    path: Assets/Scenes/Eric - Menus/Multijugador/Multijugador.unity
-    guid: 2b10a09307ca44c4f857ef769d7808df
+    path: Assets/Scenes/Eric - Menus2/MenuMundos.unity
+    guid: e6cd1c2cd18f6c34cbe6725157eb5ad2
   - enabled: 1
-    path: Assets/Scenes/Eric - Menus/Mundos/Mundos.unity
-    guid: b7e4f0787a09dc841a78418b569b895b
+    path: Assets/Scenes/Eric - Menus2/MenuMulti.unity
+    guid: d5d7cd79485863446a537a45754af4a9
   m_configObjects: {}
