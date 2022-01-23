@@ -25,7 +25,12 @@ public class MenuPrincipal : MonoBehaviour
 
     public void CargarMenuPersonalizaciones()
     {
+        SceneManager.LoadScene("MenuPersonalizacion");
+    }
 
+    public void CargarMenuControles()
+    {
+        SceneManager.LoadScene("MenuControles");
     }
 
     public void AbrirPopup()

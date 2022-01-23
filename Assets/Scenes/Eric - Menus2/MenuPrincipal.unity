@@ -2001,6 +2001,7 @@ GameObject:
   - component: {fileID: 874085082}
   - component: {fileID: 874085081}
   - component: {fileID: 874085080}
+  - component: {fileID: 874085083}
   m_Layer: 5
   m_Name: BotonSkin
   m_TagString: Untagged
@@ -2070,7 +2071,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 874085081}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 874085083}
+        m_TargetAssemblyTypeName: MenuPrincipal, Assembly-CSharp
+        m_MethodName: CargarMenuPersonalizaciones
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &874085081
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2109,6 +2122,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 874085078}
   m_CullTransparentMesh: 1
+--- !u!114 &874085083
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 874085078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1699e38672a3b3b498a3cdc4901229ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ventana: {fileID: 0}
+  velo: {fileID: 0}
 --- !u!1 &889824541
 GameObject:
   m_ObjectHideFlags: 0
@@ -2974,6 +3001,7 @@ GameObject:
   - component: {fileID: 1351786832}
   - component: {fileID: 1351786831}
   - component: {fileID: 1351786830}
+  - component: {fileID: 1351786833}
   m_Layer: 5
   m_Name: BotonLeader
   m_TagString: Untagged
@@ -3043,7 +3071,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1351786831}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1351786833}
+        m_TargetAssemblyTypeName: MenuPrincipal, Assembly-CSharp
+        m_MethodName: CargarClasificaciones
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1351786831
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3082,6 +3122,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1351786828}
   m_CullTransparentMesh: 1
+--- !u!114 &1351786833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1351786828}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1699e38672a3b3b498a3cdc4901229ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ventana: {fileID: 0}
+  velo: {fileID: 0}
 --- !u!1 &1356766370
 GameObject:
   m_ObjectHideFlags: 0
@@ -5011,6 +5065,7 @@ GameObject:
   - component: {fileID: 2024326530}
   - component: {fileID: 2024326529}
   - component: {fileID: 2024326528}
+  - component: {fileID: 2024326531}
   m_Layer: 5
   m_Name: BotonControles
   m_TagString: Untagged
@@ -5080,7 +5135,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2024326529}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2024326531}
+        m_TargetAssemblyTypeName: MenuPrincipal, Assembly-CSharp
+        m_MethodName: CargarMenuControles
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2024326529
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5119,6 +5186,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2024326526}
   m_CullTransparentMesh: 1
+--- !u!114 &2024326531
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2024326526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1699e38672a3b3b498a3cdc4901229ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ventana: {fileID: 0}
+  velo: {fileID: 0}
 --- !u!1 &2059687249
 GameObject:
   m_ObjectHideFlags: 0

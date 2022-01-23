@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - TituloMundo
+  - TabActivo
+  - ContenedorActivo
+  - TabNoActivo
+  - ContenedorNoActivo
   layers:
   - Default
   - TransparentFX
