@@ -203,9 +203,9 @@ GameObject:
   - component: {fileID: 4538347875629000977}
   - component: {fileID: 1851254916383214132}
   - component: {fileID: 267613857095027769}
-  - component: {fileID: 6800522727615262700}
   - component: {fileID: 1628637170028478164}
   - component: {fileID: 1628637170028478167}
+  - component: {fileID: 6760051617603536664}
   m_Layer: 0
   m_Name: CarlosfullequipScaleOk
   m_TagString: Untagged
@@ -283,19 +283,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &6800522727615262700
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4305222971606537627}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!143 &1628637170028478164
 CharacterController:
   m_ObjectHideFlags: 0
@@ -328,6 +315,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   velocidad: 12
   controlador: {fileID: 1628637170028478164}
+--- !u!65 &6760051617603536664
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4305222971606537627}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.3405145, y: 2.6559203, z: 1.0000002}
+  m_Center: {x: 0.01481688, y: -0.56132877, z: 1.148402e-17}
 --- !u!1 &6012306605592577328
 GameObject:
   m_ObjectHideFlags: 0
