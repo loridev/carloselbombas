@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class NPCComun : MonoBehaviour
 {
-    public float speed = 5.0f;
+    public float speed = .0f;
     public bool isVertical;
 
     // Start is called before the first frame update
@@ -27,7 +27,10 @@ public class NPCComun : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log("Hola");
         speed = -speed;
+        
+        
         // transform.RotateAround(transform.position, transform.up);
         // transform.Rotate(0, 180, 0, Space.Self);
         // transform.rotation = new Vector3(0, 180, 0);

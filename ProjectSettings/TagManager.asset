@@ -9,6 +9,7 @@ TagManager:
   - ContenedorActivo
   - TabNoActivo
   - ContenedorNoActivo
+  - Muro
   layers:
   - Default
   - TransparentFX
