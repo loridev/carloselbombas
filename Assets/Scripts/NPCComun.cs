@@ -10,19 +10,16 @@ public class NPCComun : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        if (!isVertical)
+        {
+            transform.Rotate(0, 90, 0, Space.Self);
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (isVertical)
-        {
-            transform.Translate(Vector3.forward * Time.deltaTime * speed);
-        } else
-        {
-            transform.Translate(Vector3.right * Time.deltaTime * speed);
-        }
+        transform.Translate(Vector3.forward * Time.deltaTime * speed);
     }
 
     private void OnTriggerEnter(Collider other)
