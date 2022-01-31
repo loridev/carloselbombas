@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class GeneracionMapa : MonoBehaviour
 {
+    public Transform[] powerUps;
+    public Transform[] powerDowns;
+
     public Transform prefabCelda;
     public Transform prebabPared;
     public Transform prefabCarlos;
