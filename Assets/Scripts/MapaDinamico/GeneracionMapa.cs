@@ -8,7 +8,8 @@ public class GeneracionMapa : MonoBehaviour
     public Transform prefabCelda;
     public Transform prebabPared;
     public Transform prefabCarlos;
-    public Transform prefabNPC;
+    public Transform prefabNpcFinal;
+    public Transform prefabNpcComun;
 
     public Material texturaSuelo;
 
@@ -55,7 +56,12 @@ public class GeneracionMapa : MonoBehaviour
 
                 if (i == ancho - 2 && j == 1)
                 {
-                    robotijo = Instantiate(prefabNPC, new Vector3(posicion.x, 1, posicion.z), Quaternion.identity);
+                    robotijo = Instantiate(prefabNpcFinal, new Vector3(posicion.x, 1, posicion.z), Quaternion.identity);
+                }
+
+                if (i == ancho / 2 && j == alto / 2)
+                {
+                    Instantiate(prefabNpcComun, new Vector3(posicion.x, 1, posicion.z), Quaternion.identity);
                 }
 
 
@@ -68,7 +74,7 @@ public class GeneracionMapa : MonoBehaviour
 
     private void AsignarCarlosRobotijo()
     {
-        robotijo.GetComponent<AIDestinationSetter>().target = carlos.transform;
+        robotijo.GetComponent<AIDestinationSetter>().target = carlos;
     }
 }
 
