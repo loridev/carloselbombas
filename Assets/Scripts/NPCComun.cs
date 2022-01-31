@@ -27,17 +27,7 @@ public class NPCComun : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Hola");
-        speed = -speed;
-        
-        
-        // transform.RotateAround(transform.position, transform.up);
-        // transform.Rotate(0, 180, 0, Space.Self);
-        // transform.rotation = new Vector3(0, 180, 0);
-        // gameObject.transform.rotation.eulerAngles = new Vector3(0, 180, 0);
-        // transform.rotation = Quaternion (0,90,0,0);
-        // transform.rotation = Quaternion.Euler(0, 180, 0);
-
-
+        transform.Rotate(0, 180, 0, Space.Self);
+        // speed = -speed;
     }
 }
