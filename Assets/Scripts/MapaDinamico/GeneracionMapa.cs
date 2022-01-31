@@ -12,6 +12,7 @@ public class GeneracionMapa : MonoBehaviour
     public Transform prefabNpcComun;
 
     public Material texturaSuelo;
+    public Material texturaPared;
 
     public int ancho;
     public int alto;
@@ -46,7 +47,8 @@ public class GeneracionMapa : MonoBehaviour
                 Transform obj = Instantiate(prefabCelda, posicion, Quaternion.identity);
                 if (i == 0 || i == ancho - 1 || j == 0 || j == alto - 1)
                 {
-                    Instantiate(prebabPared, posicion, Quaternion.identity);
+                    Transform pared = Instantiate(prebabPared, posicion, Quaternion.identity);
+                    pared.GetComponent<Renderer>().material = texturaPared;
                 }
 
                 if (i == 1 && j == alto - 2)

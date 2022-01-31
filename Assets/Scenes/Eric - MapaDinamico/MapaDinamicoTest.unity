@@ -416,11 +416,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefabCelda: {fileID: 6749168954796504676, guid: 307fee33c2462754d84e1f2c8e19be84, type: 3}
-  prebabPared: {fileID: 4038584273114939424, guid: 669a859e87b179a4da315085aba58f0e, type: 3}
+  prebabPared: {fileID: 1151540309577347458, guid: 5c651e75dce121747a322f9d6211b905, type: 3}
   prefabCarlos: {fileID: 4538347875629000977, guid: aea44e4faab6b4ee69410d1b58d7bc1b, type: 3}
   prefabNpcFinal: {fileID: 3353867616600478801, guid: e9519b9be8e97424da71c7ea3ee9293a, type: 3}
   prefabNpcComun: {fileID: 8832749435269383052, guid: c3e3eff8b95c63b419c0b062f20ff525, type: 3}
   texturaSuelo: {fileID: 2100000, guid: 82b3a75aca7ed6f4abe443d8019d9ddb, type: 2}
+  texturaPared: {fileID: 2100000, guid: 9b56e06f8d3f8584597ec8a11bd1f200, type: 2}
   ancho: 10
   alto: 10
 --- !u!4 &799273133
@@ -437,3 +438,68 @@ Transform:
   m_Father: {fileID: 474280929}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &9031275864275103738
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1151540309577347458, guid: 5c651e75dce121747a322f9d6211b905, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1151540309577347458, guid: 5c651e75dce121747a322f9d6211b905, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.8179737
+      objectReference: {fileID: 0}
+    - target: {fileID: 1151540309577347458, guid: 5c651e75dce121747a322f9d6211b905, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -101.33294
+      objectReference: {fileID: 0}
+    - target: {fileID: 1151540309577347458, guid: 5c651e75dce121747a322f9d6211b905, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 75.643906
+      objectReference: {fileID: 0}
+    - target: {fileID: 1151540309577347458, guid: 5c651e75dce121747a322f9d6211b905, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1151540309577347458, guid: 5c651e75dce121747a322f9d6211b905, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1151540309577347458, guid: 5c651e75dce121747a322f9d6211b905, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1151540309577347458, guid: 5c651e75dce121747a322f9d6211b905, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1151540309577347458, guid: 5c651e75dce121747a322f9d6211b905, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1151540309577347458, guid: 5c651e75dce121747a322f9d6211b905, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1151540309577347458, guid: 5c651e75dce121747a322f9d6211b905, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2163419387628902117, guid: 5c651e75dce121747a322f9d6211b905, type: 3}
+      propertyPath: m_Name
+      value: MuroMundo
+      objectReference: {fileID: 0}
+    - target: {fileID: 8081504858890533347, guid: 5c651e75dce121747a322f9d6211b905, type: 3}
+      propertyPath: m_Size.y
+      value: 9.01001
+      objectReference: {fileID: 0}
+    - target: {fileID: 8081504858890533347, guid: 5c651e75dce121747a322f9d6211b905, type: 3}
+      propertyPath: m_Center.y
+      value: -1.1450195
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5c651e75dce121747a322f9d6211b905, type: 3}
