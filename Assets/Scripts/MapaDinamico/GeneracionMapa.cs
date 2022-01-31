@@ -24,6 +24,9 @@ public class GeneracionMapa : MonoBehaviour
     private Transform carlos;
     private Transform robotijo;
 
+    private AstarPath scriptAi;
+    private RecastGraph boundsAi;
+
     void Start()
     {
         GenerarMapa();
@@ -75,6 +78,11 @@ public class GeneracionMapa : MonoBehaviour
                     }
                 }
 
+                if (i == ancho / 3 && j == alto / 3)
+                {
+                    Instantiate(powerDowns[1], new Vector3(posicion.x, 1, posicion.z), Quaternion.identity);
+                }
+
 
                 obj.GetComponent<Renderer>().material = texturaSuelo;
                 obj.name = "Celda " + i + "-" + j;
@@ -85,7 +93,7 @@ public class GeneracionMapa : MonoBehaviour
 
     private void AsignarCarlosRobotijo()
     {
-        robotijo.GetComponent<AIDestinationSetter>().target = carlos;
+        AstarPath.active.Scan();
     }
 }
 
