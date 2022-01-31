@@ -63,7 +63,13 @@ public class GeneracionMapa : MonoBehaviour
 
                 if (i == ancho / 2 && j == alto / 2)
                 {
-                    Instantiate(prefabNpcComun, new Vector3(posicion.x, 0, posicion.z), Quaternion.identity);
+                    if (prefabNpcComun.name == "topo 1")
+                    {
+                        Instantiate(prefabNpcComun, new Vector3(posicion.x, 1, posicion.z), Quaternion.identity);
+                    } else
+                    {
+                        Instantiate(prefabNpcComun, new Vector3(posicion.x, 0, posicion.z), Quaternion.identity);
+                    }
                 }
 
 

@@ -339,7 +339,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
-  isVertical: 1
+  isVertical: 0
 --- !u!65 &5405833972504892770
 BoxCollider:
   m_ObjectHideFlags: 0
