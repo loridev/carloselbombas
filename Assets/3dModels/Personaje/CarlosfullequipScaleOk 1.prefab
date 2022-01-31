@@ -207,7 +207,7 @@ GameObject:
   - component: {fileID: 1628637170028478167}
   - component: {fileID: 6760051617603536664}
   m_Layer: 0
-  m_Name: CarlosfullequipScaleOk
+  m_Name: CarlosfullequipScaleOk 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
