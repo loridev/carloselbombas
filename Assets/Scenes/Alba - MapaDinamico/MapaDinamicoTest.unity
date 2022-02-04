@@ -338,8 +338,8 @@ Camera:
   m_GameObject: {fileID: 753263466}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0.6666667, g: 0.8741902, b: 0.9607843, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -379,13 +379,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 753263466}
-  m_LocalRotation: {x: 0.44864652, y: 0.01394384, z: -0.0069920793, w: 0.89357316}
-  m_LocalPosition: {x: 6.709811, y: 8.367722, z: -1.6710358}
+  m_LocalRotation: {x: 0.5039921, y: 0.0035903186, z: 0.0029458322, w: 0.8636958}
+  m_LocalPosition: {x: 4.33, y: 6.46, z: -0.52}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 60.525, y: 1.068, z: 1.014}
 --- !u!1 &799273131
 GameObject:
   m_ObjectHideFlags: 0
@@ -415,12 +415,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9e6a9ae2bf5c784e857fdfe117e0ae7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  powerUps: []
+  powerDowns: []
   prefabCelda: {fileID: 6749168954796504676, guid: 307fee33c2462754d84e1f2c8e19be84, type: 3}
-  prebabPared: {fileID: 4038584273114939424, guid: 669a859e87b179a4da315085aba58f0e, type: 3}
+  prebabPared: {fileID: 1151540309577347458, guid: 5c651e75dce121747a322f9d6211b905, type: 3}
   prefabCarlos: {fileID: 4538347875629000977, guid: aea44e4faab6b4ee69410d1b58d7bc1b, type: 3}
   prefabNpcFinal: {fileID: 3353867616600478801, guid: e9519b9be8e97424da71c7ea3ee9293a, type: 3}
   prefabNpcComun: {fileID: 8832749435269383052, guid: c3e3eff8b95c63b419c0b062f20ff525, type: 3}
   texturaSuelo: {fileID: 2100000, guid: 82b3a75aca7ed6f4abe443d8019d9ddb, type: 2}
+  texturaPared: {fileID: 2100000, guid: 363270fb71ae7aa45ac7c91408bbe012, type: 2}
   ancho: 10
   alto: 10
 --- !u!4 &799273133
