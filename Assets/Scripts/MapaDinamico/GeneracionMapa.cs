@@ -10,6 +10,7 @@ public class GeneracionMapa : MonoBehaviour
 
     public Transform prefabCelda;
     public Transform prebabPared;
+    public Transform prefabCaja;
     public Transform prefabCarlos;
     public Transform prefabNpcFinal;
     public Transform prefabNpcComun;
@@ -17,8 +18,10 @@ public class GeneracionMapa : MonoBehaviour
     public Material texturaSuelo;
     public Material texturaPared;
 
+
     public int ancho;
     public int alto;
+
     private Celda[,] celdas;
 
     private Transform carlos;
@@ -30,7 +33,6 @@ public class GeneracionMapa : MonoBehaviour
     void Start()
     {
         GenerarMapa();
-        AsignarCarlosRobotijo();
     }
 
 
@@ -55,6 +57,11 @@ public class GeneracionMapa : MonoBehaviour
                 {
                     Transform pared = Instantiate(prebabPared, posicion, Quaternion.identity);
                     pared.GetComponent<Renderer>().material = texturaPared;
+                }
+
+                if (i == 2 && j == 2)
+                {
+                    Instantiate(prefabCaja, new Vector3(posicion.x, 0.25f, posicion.z), Quaternion.identity);
                 }
 
                 if (i == 1 && j == alto - 2)
@@ -89,6 +96,8 @@ public class GeneracionMapa : MonoBehaviour
                 celdas[i, j] = new Celda(false, posicion, obj);
             }
         }
+
+        AsignarCarlosRobotijo();
     }
 
     private void AsignarCarlosRobotijo()

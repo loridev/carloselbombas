@@ -1,0 +1,156 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4955872081363630453
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4955872081363630451}
+  - component: {fileID: 4955872081363630450}
+  m_Layer: 0
+  m_Name: Mapa
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4955872081363630451
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4955872081363630453}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 2.84667, y: -1.9650726, z: -3.2636566}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4955872081634097727}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4955872081363630450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4955872081363630453}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9e6a9ae2bf5c784e857fdfe117e0ae7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  powerUps:
+  - {fileID: 428872, guid: c94c9663157ba6b4789e48cb910660ca, type: 3}
+  - {fileID: 447988, guid: 76d08fe3c4761c0458eb8ac71c8af02b, type: 3}
+  - {fileID: 439498, guid: 53d7cb64d159d664d9e71896068c7b71, type: 3}
+  - {fileID: 428872, guid: 22f2978186192ef47883b3965601baca, type: 3}
+  - {fileID: 491876, guid: 58498e7e4e80e6543b44fabd27aa4e35, type: 3}
+  - {fileID: 447988, guid: cbb04dfd7d7f50a4190d42dbfdce7d0a, type: 3}
+  - {fileID: 492858, guid: 900cc89815f4f7a478c98bc712a6934f, type: 3}
+  powerDowns:
+  - {fileID: 405930, guid: 33ab4d9b5d404ff47997f905b076016f, type: 3}
+  - {fileID: 443576, guid: 16e48e2483e21d447b4e1ca911c9bd7e, type: 3}
+  - {fileID: 439498, guid: 4b9f90fedad5a594d9352f3224db8691, type: 3}
+  - {fileID: 405930, guid: 713ee6e0f39477843a69f60189959bf0, type: 3}
+  - {fileID: 428872, guid: 479c3c1a92ae76b4fb6a18dd644a3ed2, type: 3}
+  prefabCelda: {fileID: 6749168954796504676, guid: 307fee33c2462754d84e1f2c8e19be84, type: 3}
+  prebabPared: {fileID: 1151540309577347458, guid: 5c651e75dce121747a322f9d6211b905, type: 3}
+  prefabCaja: {fileID: 187356076435918556, guid: c20f16713bf3da242bb00040bb66afbd, type: 3}
+  prefabCarlos: {fileID: 4538347875629000977, guid: aea44e4faab6b4ee69410d1b58d7bc1b, type: 3}
+  prefabNpcFinal: {fileID: 3353867616600478801, guid: e9519b9be8e97424da71c7ea3ee9293a, type: 3}
+  prefabNpcComun: {fileID: 8282962549086801570, guid: 49f102a8509744ab9975ca7c17e26a61, type: 3}
+  texturaSuelo: {fileID: 2100000, guid: 00494841d457c5e40beb347b6483f7c9, type: 2}
+  texturaPared: {fileID: 2100000, guid: 9b56e06f8d3f8584597ec8a11bd1f200, type: 2}
+  ancho: 8
+  alto: 8
+--- !u!1 &4955872081634097665
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4955872081634097727}
+  - component: {fileID: 4955872081634097726}
+  m_Layer: 0
+  m_Name: MapaDinamico
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4955872081634097727
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4955872081634097665}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.8179737, y: -101.33294, z: 75.643906}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4955872081363630451}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4955872081634097726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4955872081634097665}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78396926cbbfc4ac3b48fc5fc34a87d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 1
+  data:
+    dataString: UEsDBBQAAAgIAAAIIew3SkAZ4AEAAMMDAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQGVU01z2jAQ/Ssen9sMJoaSHkuY9FCgY+eQSaaHxVrbmsgSlSUgMPz37voDnGkuOcl6u++t9u36FGYlWMgc2gSE9HX4PYhuJl+CMDPaGW+XcFhYayzhY0ZRqVQeka6jm4iAPahX2Cj8ibIoXZfVg3Mlq02TyooVHFJltsy9HbX3hSjwF+rClcxsQKkTLKTRXZVbwlBIZ+yjVNiB0XhGsOuAp/+Q5wvia2Qet+WsR0IsKtyBdg8WtmXqbQ4ZLo1g2fDerIxL8K+XFkPOhZqMIcG5UUoKtKyTg6pxGFxiXb6r0Ace0VqQ+qOIxSEj6+STPn6PDqTiLlqj6lf6PgXhDpRvXJnFwZkbhmLZBl/+8LUtmEK1vXjFBlrjwJGnrciBJ0LoW3ce+WzkcmMzFD+M16Keoya5zzC6gl1+NOoZcU8hqCHVpdmzaWvvlNR49YEDK5rF3GiNGb94aHhP64Z2pWkEi7VL6cjKtVZvT88DGmpexRXsKuLOvXNSF1du4aV47204ncU4mU3yOBZiE0+mX/NNFE3vvkVjQeBdtAmbLqSWToL6TfrK9c7Qeg/mraFqFBPMaLJBs3K8V8LC/kEeKzPYAalzk2a0F3rdalzapo0ARd6KRfMfpNi0wNTwdA7P/wBQSwMEFAAACAgAAAgh7Ih1Z5luAAAAegAAAAkAJABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQGrVipLLSrOzM9TslIw0TPSMzTXUVBKL0osyCgGihiCOKWZKSB2tJKZhUmqqYVpmolJSkqSiamZblqSoaGZpbmhUQpQ0NIwSSkWqL6ksiDVLzE3FaInILEkIy0zLyUzL10vKDU5sbjEHWS4UmwtAFBLAQItABQAAAgIAAAIIew3SkAZ4AEAAMMDAAALACQAAAAAAAAAAAAAAAAAAABncmFwaDAuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLAQItABQAAAgIAAAIIeyIdWeZbgAAAHoAAAAJACQAAAAAAAAAAAAAAC0CAABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFQSwUGAAAAAAIAAgC4AAAA5gIAAAAA
+    upgradeData: 
+    file_cachedStartup: {fileID: 0}
+    data_cachedStartup: 
+    cacheStartup: 0
+  showNavGraphs: 1
+  showUnwalkableNodes: 1
+  debugMode: 0
+  debugFloor: 0
+  debugRoof: 1
+  manualDebugFloorRoof: 0
+  showSearchTree: 0
+  unwalkableNodeDebugSize: 0.3
+  logPathResults: 1
+  maxNearestNodeDistance: 100
+  scanOnStartup: 1
+  fullGetNearestSearch: 0
+  prioritizeGraphs: 0
+  prioritizeGraphsLimit: 1
+  colorSettings:
+    _SolidColor: {r: 0.11764706, g: 0.4, b: 0.7882353, a: 0.9}
+    _UnwalkableNode: {r: 1, g: 0, b: 0, a: 0.5}
+    _BoundsHandles: {r: 0.29, g: 0.454, b: 0.741, a: 0.9}
+    _ConnectionLowLerp: {r: 0, g: 1, b: 0, a: 0.5}
+    _ConnectionHighLerp: {r: 1, g: 0, b: 0, a: 0.5}
+    _MeshEdgeColor: {r: 0, g: 0, b: 0, a: 0.5}
+    _AreaColors:
+    - {r: 0, g: 0, b: 0, a: 0}
+  tagNames: []
+  heuristic: 2
+  heuristicScale: 1
+  threadCount: 1
+  maxFrameTime: 1
+  batchGraphUpdates: 0
+  graphUpdateBatchingInterval: 0.2
+  euclideanEmbedding:
+    mode: 0
+    seed: 0
+    pivotPointRoot: {fileID: 0}
+    spreadOutCount: 1
+  showGraphs: 1
