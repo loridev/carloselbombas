@@ -23,7 +23,7 @@ public class Movimiento : MonoBehaviour
     {
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
-        Vector3 direccion = new Vector3(horizontal, 0f, vertical).normalized;
+        Vector3 direccion = new Vector3(horizontal, 90f, vertical).normalized;
 
         if (direccion.magnitude >= 0.1f)
         {
