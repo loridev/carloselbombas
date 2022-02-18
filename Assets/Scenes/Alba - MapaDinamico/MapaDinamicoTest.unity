@@ -306,6 +306,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4955872081363630450, guid: f3ab0d2f9d1e9f04b9e2097254e6df18, type: 3}
+      propertyPath: alto
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4955872081363630450, guid: f3ab0d2f9d1e9f04b9e2097254e6df18, type: 3}
+      propertyPath: ancho
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 4955872081634097665, guid: f3ab0d2f9d1e9f04b9e2097254e6df18, type: 3}
       propertyPath: m_Name
       value: MapaDinamico

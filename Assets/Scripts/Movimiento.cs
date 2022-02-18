@@ -23,12 +23,32 @@ public class Movimiento : MonoBehaviour
     {
         float horizontal = Input.GetAxisRaw("J1_H");
         float vertical = Input.GetAxisRaw("J1_V");
-        Vector3 direccion = new Vector3(horizontal, 90f, vertical).normalized;
+        Vector3 direccion = new Vector3(horizontal, 0f, vertical).normalized;
 
         if (direccion.magnitude >= 0.1f)
         {
+            Vector3 vectorRotacion = transform.rotation.eulerAngles;
             controlador.Move(direccion * velocidad * Time.deltaTime);
-            transform.rotation = Quaternion.LookRotation(direccion);
+
+            if (horizontal < 0)
+            {
+                vectorRotacion.y = 180;
+            }
+            if (horizontal > 0)
+            {
+                vectorRotacion.y = 0;
+            }
+            if (vertical < 0)
+            {
+                vectorRotacion.y = 90;
+            }
+            if (vertical > 0)
+            {
+                vectorRotacion.y = 270;
+            }
+
+            transform.rotation = Quaternion.Euler(vectorRotacion);
+
         }
 
         /*
