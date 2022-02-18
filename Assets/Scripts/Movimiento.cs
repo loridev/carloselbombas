@@ -21,8 +21,8 @@ public class Movimiento : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float horizontal = Input.GetAxisRaw("Horizontal");
-        float vertical = Input.GetAxisRaw("Vertical");
+        float horizontal = Input.GetAxisRaw("J1_H");
+        float vertical = Input.GetAxisRaw("J1_V");
         Vector3 direccion = new Vector3(horizontal, 90f, vertical).normalized;
 
         if (direccion.magnitude >= 0.1f)
