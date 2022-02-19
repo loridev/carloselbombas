@@ -6,6 +6,7 @@ public class Movimiento : MonoBehaviour
 {
     public float velocidad;
     private CharacterController controlador;
+    public static string vista;
     //public float speed;
     // float velocityY = 0;
     // CharacterController controller;
@@ -33,18 +34,22 @@ public class Movimiento : MonoBehaviour
             if (horizontal < 0)
             {
                 vectorRotacion.y = 180;
+                vista = "izq";
             }
             if (horizontal > 0)
             {
                 vectorRotacion.y = 0;
+                vista = "der";
             }
             if (vertical < 0)
             {
                 vectorRotacion.y = 90;
+                vista = "abajo";
             }
             if (vertical > 0)
             {
                 vectorRotacion.y = 270;
+                vista = "arriba";
             }
 
             transform.rotation = Quaternion.Euler(vectorRotacion);

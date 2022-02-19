@@ -10,6 +10,8 @@ TagManager:
   - TabNoActivo
   - ContenedorNoActivo
   - Muro
+  - ground
+  - Bomba
   layers:
   - Default
   - TransparentFX

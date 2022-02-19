@@ -22,13 +22,12 @@ public class GeneracionMapa : MonoBehaviour
     public int ancho;
     public int alto;
 
-    private Celda[,] celdas;
+    public static Celda[,] celdas;
 
     private Transform carlos;
     private Transform robotijo;
 
-    private AstarPath scriptAi;
-    private RecastGraph boundsAi;
+    public static AstarPath scriptAi;
 
     void Start()
     {
@@ -71,7 +70,7 @@ public class GeneracionMapa : MonoBehaviour
 
                 if (i == ancho - 2 && j == 1)
                 {
-                    robotijo = Instantiate(prefabNpcFinal, new Vector3(posicion.x, 1, posicion.z), Quaternion.identity);
+                    //robotijo = Instantiate(prefabNpcFinal, new Vector3(posicion.x, 1, posicion.z), Quaternion.identity);
                 }
 
                 if (i == ancho / 2 && j == alto / 2)
