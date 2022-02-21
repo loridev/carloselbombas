@@ -16,6 +16,7 @@ public class ComportamientoBomba : MonoBehaviour
             Rigidbody rb = gameObject.AddComponent(typeof(Rigidbody)) as Rigidbody;
             rb.useGravity = false;
             rb.isKinematic = true;
+            gameObject.GetComponent<BoxCollider>().isTrigger = false;
         }
     }
 }

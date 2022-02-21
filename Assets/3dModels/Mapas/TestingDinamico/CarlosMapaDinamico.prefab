@@ -311,7 +311,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4305222971606537627}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1.3405145, y: 10.853536, z: 1.0000002}
@@ -361,6 +361,10 @@ MonoBehaviour:
   fuerzaBateNormal: 0
   fuerzaBateCargado: 0
   tiempoCargaBate: 3
+  cargando: 0
+  alcanceBomba: 0
+  duracionBomba: 0
+  limiteBombas: 0
 --- !u!1 &6012306605592577328
 GameObject:
   m_ObjectHideFlags: 0

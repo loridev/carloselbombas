@@ -12,6 +12,18 @@ TagManager:
   - Muro
   - ground
   - Bomba
+  - PDalcancebomba
+  - PDcantbombas
+  - PDcargabate
+  - PDnobombas
+  - PDtiempodetonacion
+  - PDvelocidad
+  - PUalcancebomba
+  - PUbombadiagonal
+  - PUcantbombas
+  - PUcargabate
+  - PUtiempodetonacion
+  - PUvelocidad
   layers:
   - Default
   - TransparentFX

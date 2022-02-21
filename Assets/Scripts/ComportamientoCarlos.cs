@@ -112,4 +112,14 @@ public class ComportamientoCarlos : MonoBehaviour
     {
 
     }
+
+    private void GestionarTrigger(string tag)
+    {
+        Debug.Log(tag);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        GestionarTrigger(other.tag);
+    }
 }
