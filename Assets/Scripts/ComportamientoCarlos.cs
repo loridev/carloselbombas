@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//TODO: CARLOS EN BATE GIRA Y LE PEGA A TODO LO DE ALREDEDOR
 public class ComportamientoCarlos : MonoBehaviour
 {
     
@@ -114,13 +115,71 @@ public class ComportamientoCarlos : MonoBehaviour
 
     }
 
-    private void GestionarTrigger(string tag)
+    private void GestionarPowerUps(string tag)
     {
-        Debug.Log(tag);
+        string[] separador = new[] { "PU" };
+
+        switch (tag.Split(separador, System.StringSplitOptions.None)[1]) {
+            case "alcancebomba":
+                ++alcanceBomba;
+                break;
+            case "bombadiagonal":
+                // diagonal = true
+                break;
+            case "cantbombas":
+                ++limiteBombas;
+                break;
+            case "cargabate":
+                --tiempoCargaBate;
+                break;
+            case "tiempodetonacion":
+                --duracionBomba;
+                break;
+            case "velocidad":
+                ++velocidad;
+                break;
+        }
+    }
+
+    private void GestionarPowerDowns(string tag)
+    {
+        string[] separador = new[] { "PD" };
+
+        switch (tag.Split(separador, System.StringSplitOptions.None)[1])
+        {
+            case "alcancebomba":
+                --alcanceBomba;
+                break;
+            case "nobombas":
+                // diagonal = true
+                break;
+            case "cantbombas":
+                --limiteBombas;
+                break;
+            case "cargabate":
+                ++tiempoCargaBate;
+                Debug.Log(tag.Split(separador, System.StringSplitOptions.None)[1]);
+                break;
+            case "tiempodetonacion":
+                ++duracionBomba;
+                break;
+            case "velocidad":
+                --velocidad;
+                break;
+        }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        GestionarTrigger(other.tag);
+        if (other.tag.StartsWith("PU"))
+        {
+            GestionarPowerUps(other.tag);
+            Destroy(other.gameObject);
+
+        } else if (other.tag.StartsWith("PD"))
+        {
+            GestionarPowerDowns(other.tag);
+            Destroy(other.gameObject);
+        }
     }
 }
