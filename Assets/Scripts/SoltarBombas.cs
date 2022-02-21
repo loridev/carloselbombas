@@ -44,19 +44,22 @@ public class SoltarBombas : MonoBehaviour
                 ++GetComponent<ComportamientoCarlos>().bombasEnMapa;
                 Transform bomba = Instantiate(projectilePrefab, new Vector3(celdaCercana.posicionCelda.x, 0.25f, celdaCercana.posicionCelda.z), projectilePrefab.transform.rotation).transform;
                 celdaCercana.ocupado = true;
-                explosionBomba(bomba, GetComponent<ComportamientoCarlos>().alcanceBomba, GetComponent<ComportamientoCarlos>().duracionBomba);
+                explosionBomba(bomba,celdaCercana, GetComponent<ComportamientoCarlos>().alcanceBomba, GetComponent<ComportamientoCarlos>().duracionBomba);
                 Debug.Log("hola");
             }
         }
     }
 
-    private void explosionBomba(Transform bomba, int alcanceBomba, int duracionBomba)
+    private void explosionBomba(Transform bomba, Celda celda, int alcanceBomba, int duracionBomba)
     {
         Debug.Log("bomba colocada");
-        Debug.Log(alcanceBomba);
-        Debug.Log(duracionBomba);
 
-        --GetComponent<ComportamientoCarlos>().bombasEnMapa;
+        Debug.Log(celda.posicionCelda);
+
+        
+
+
+        // --GetComponent<ComportamientoCarlos>().bombasEnMapa;
     }
 }
 
