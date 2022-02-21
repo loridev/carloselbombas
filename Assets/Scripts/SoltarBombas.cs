@@ -31,19 +31,32 @@ public class SoltarBombas : MonoBehaviour
                     celdaCercana = celda;
                 }
 
-                Debug.Log(distancia);
-                Debug.Log(celda.obj.name);
+                // Debug.Log(distancia);
+                // Debug.Log(celda.obj.name);
             }
 
-            Debug.Log(minDistancia);
-            Debug.Log(celdaCercana.obj.name);
+            // Debug.Log(minDistancia);
+            // Debug.Log(celdaCercana.obj.name);
 
-            if (!celdaCercana.ocupado && !GetComponent<ComportamientoCarlos>().cargando)
+            if (!celdaCercana.ocupado && !GetComponent<ComportamientoCarlos>().cargando
+                && GetComponent<ComportamientoCarlos>().bombasEnMapa < GetComponent<ComportamientoCarlos>().limiteBombas)
             {
-                Instantiate(projectilePrefab, new Vector3(celdaCercana.posicionCelda.x, 0.25f, celdaCercana.posicionCelda.z), projectilePrefab.transform.rotation);
+                ++GetComponent<ComportamientoCarlos>().bombasEnMapa;
+                Transform bomba = Instantiate(projectilePrefab, new Vector3(celdaCercana.posicionCelda.x, 0.25f, celdaCercana.posicionCelda.z), projectilePrefab.transform.rotation).transform;
                 celdaCercana.ocupado = true;
+                explosionBomba(bomba, GetComponent<ComportamientoCarlos>().alcanceBomba, GetComponent<ComportamientoCarlos>().duracionBomba);
+                Debug.Log("hola");
             }
         }
+    }
+
+    private void explosionBomba(Transform bomba, int alcanceBomba, int duracionBomba)
+    {
+        Debug.Log("bomba colocada");
+        Debug.Log(alcanceBomba);
+        Debug.Log(duracionBomba);
+
+        --GetComponent<ComportamientoCarlos>().bombasEnMapa;
     }
 }
 

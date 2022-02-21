@@ -361,6 +361,10 @@ MonoBehaviour:
   fuerzaBateNormal: 0
   fuerzaBateCargado: 0
   tiempoCargaBate: 3
+  cargando: 0
+  alcanceBomba: 2
+  duracionBomba: 5
+  limiteBombas: 0
 --- !u!1 &6012306605592577328
 GameObject:
   m_ObjectHideFlags: 0

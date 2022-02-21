@@ -22,6 +22,7 @@ public class ComportamientoCarlos : MonoBehaviour
     public int alcanceBomba;
     public int duracionBomba;
     public int limiteBombas;
+    public int bombasEnMapa;
 
 
 
