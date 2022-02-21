@@ -4908,7 +4908,7 @@ GameObject:
   - component: {fileID: 447988}
   m_Layer: 0
   m_Name: BombaDiagonal
-  m_TagString: Untagged
+  m_TagString: PUbombadiagonal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
