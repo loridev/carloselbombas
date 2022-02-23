@@ -58,29 +58,74 @@ public class SoltarBombas : MonoBehaviour
 
         Vector3 posCelda = celda.posicionCelda;
 
-        bool seguirArriba = true;
-
         List<Celda> celdasExplosion = new List<Celda>();
 
-        Vector3 supuestaPosicionUp = new Vector3(0, 0, 0);
+        bool seguirUp = true;
+        bool seguirDown = true;
+        bool seguirRight = true;
+        bool seguirLeft = true;
 
+        Vector3 supuestaPosicionUp = new Vector3(0, 0, 0);
+        Vector3 supuestaPosicionDown = new Vector3(0, 0, 0);
+        Vector3 supuestaPosicionRight = new Vector3(0, 0, 0);
+        Vector3 supuestaPosicionLeft = new Vector3(0, 0, 0);
 
         for (int i = 1; i <= alcanceBomba; i++)
         {
-            if (seguirArriba)
+            // UP
+            if (seguirUp)
             {
                 supuestaPosicionUp = new Vector3(posCelda.x + i, posCelda.y, posCelda.z);
             }
-            Vector3 supuestaposicionDown = new Vector3(posCelda.x - i, posCelda.y, posCelda.z);
 
             Celda celdaUp = EncontrarCelda(supuestaPosicionUp);
 
-            if (seguirArriba) celdasExplosion.Add(celdaUp);
+            if (seguirUp) celdasExplosion.Add(celdaUp);
 
-            seguirArriba = !celdaUp.ocupado && celdaUp != null;
+            seguirUp = !celdaUp.ocupado && celdaUp != null;
 
+            // DOWN
+            if (seguirDown)
+            {
+                supuestaPosicionDown = new Vector3(posCelda.x - i, posCelda.y, posCelda.z);
+            }
 
+            Celda celdaDown = EncontrarCelda(supuestaPosicionDown);
+
+            if (seguirDown) celdasExplosion.Add(celdaDown);
+
+            seguirDown = !celdaDown.ocupado && celdaDown != null;
+
+            // RIGHT
+            if (seguirRight)
+            {
+                supuestaPosicionDown = new Vector3(posCelda.x, posCelda.y, posCelda.z + i);
+            }
+
+            Celda celdaRight = EncontrarCelda(supuestaPosicionRight);
+
+            if (seguirRight) celdasExplosion.Add(celdaRight);
+
+            seguirRight = !celdaRight.ocupado && celdaRight != null;
+
+            // LEFT
+            if (seguirLeft)
+            {
+                supuestaPosicionLeft = new Vector3(posCelda.x, posCelda.y, posCelda.z - i);
+            }
+
+            Celda celdaLeft = EncontrarCelda(supuestaPosicionLeft);
+
+            if (seguirLeft) celdasExplosion.Add(celdaLeft);
+
+            seguirLeft = !celdaLeft.ocupado && celdaLeft != null;
         }
+
+        for (int i = 1; i < celdasExplosion.Count; i++)
+        {
+            Debug.Log(celdasExplosion[i].posicionCelda);
+        }
+        
 
         // Restar la bomba una vez explotada:
         // --GetComponent<ComportamientoCarlos>().bombasEnMapa;
