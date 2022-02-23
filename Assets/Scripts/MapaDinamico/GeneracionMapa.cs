@@ -86,13 +86,13 @@ public class GeneracionMapa : MonoBehaviour
 
                 if (i == ancho / 3 && j == alto / 3)
                 {
-                    Instantiate(powerDowns[1], new Vector3(posicion.x, 1, posicion.z), Quaternion.identity);
+                    Instantiate(powerDowns[4], new Vector3(posicion.x, 1, posicion.z), Quaternion.identity);
                 }
 
 
                 obj.GetComponent<Renderer>().material = texturaSuelo;
                 obj.name = "Celda " + i + "-" + j;
-                celdas[i, j] = new Celda(false, posicion, obj);
+                celdas[i, j] = new Celda(false, posicion, obj, null);
             }
         }
 
@@ -110,11 +110,12 @@ public class Celda
     public bool ocupado;
     public Vector3 posicionCelda;
     public Transform obj;
-
-    public Celda(bool ocupado, Vector3 posicionCelda, Transform obj)
+    public Transform objTipoCelda;
+    public Celda(bool ocupado, Vector3 posicionCelda, Transform obj, Transform objTipoCelda)
     {
         this.ocupado = ocupado;
         this.posicionCelda = posicionCelda;
         this.obj = obj;
+        this.objTipoCelda = objTipoCelda;
     }
 }

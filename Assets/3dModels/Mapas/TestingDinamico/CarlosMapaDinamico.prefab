@@ -357,7 +357,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72edb437c672af54e8f22b393dcdb467, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocidadInicial: 5
+  velocidadInicial: 1
   fuerzaBateNormal: 0
   fuerzaBateCargado: 0
   tiempoCargaBate: 3

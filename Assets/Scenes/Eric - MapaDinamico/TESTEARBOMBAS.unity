@@ -231,6 +231,30 @@ PrefabInstance:
       propertyPath: ancho
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 4955872081363630450, guid: f3ab0d2f9d1e9f04b9e2097254e6df18, type: 3}
+      propertyPath: powerUps.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4955872081363630450, guid: f3ab0d2f9d1e9f04b9e2097254e6df18, type: 3}
+      propertyPath: powerDowns.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4955872081363630450, guid: f3ab0d2f9d1e9f04b9e2097254e6df18, type: 3}
+      propertyPath: powerUps.Array.data[3]
+      value: 
+      objectReference: {fileID: 491876, guid: 58498e7e4e80e6543b44fabd27aa4e35, type: 3}
+    - target: {fileID: 4955872081363630450, guid: f3ab0d2f9d1e9f04b9e2097254e6df18, type: 3}
+      propertyPath: powerUps.Array.data[4]
+      value: 
+      objectReference: {fileID: 447988, guid: cbb04dfd7d7f50a4190d42dbfdce7d0a, type: 3}
+    - target: {fileID: 4955872081363630450, guid: f3ab0d2f9d1e9f04b9e2097254e6df18, type: 3}
+      propertyPath: powerUps.Array.data[5]
+      value: 
+      objectReference: {fileID: 492858, guid: 900cc89815f4f7a478c98bc712a6934f, type: 3}
+    - target: {fileID: 4955872081363630450, guid: f3ab0d2f9d1e9f04b9e2097254e6df18, type: 3}
+      propertyPath: powerDowns.Array.data[5]
+      value: 
+      objectReference: {fileID: 428872, guid: 22f2978186192ef47883b3965601baca, type: 3}
     - target: {fileID: 4955872081634097665, guid: f3ab0d2f9d1e9f04b9e2097254e6df18, type: 3}
       propertyPath: m_Name
       value: MapaDinamico
