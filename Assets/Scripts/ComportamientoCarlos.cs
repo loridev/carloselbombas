@@ -137,6 +137,7 @@ public class ComportamientoCarlos : MonoBehaviour
                 break;
             case "velocidad":
                 ++velocidad;
+                ++velocidadInicial;
                 break;
         }
     }
@@ -151,7 +152,7 @@ public class ComportamientoCarlos : MonoBehaviour
                 --alcanceBomba;
                 break;
             case "nobombas":
-                // diagonal = true
+                // contador limite bombas 0
                 break;
             case "cantbombas":
                 --limiteBombas;
@@ -165,6 +166,8 @@ public class ComportamientoCarlos : MonoBehaviour
                 break;
             case "velocidad":
                 --velocidad;
+                --velocidadInicial;
+                Debug.Log(velocidad);
                 break;
         }
     }
@@ -175,7 +178,6 @@ public class ComportamientoCarlos : MonoBehaviour
         {
             GestionarPowerUps(other.tag);
             Destroy(other.gameObject);
-
         } else if (other.tag.StartsWith("PD"))
         {
             GestionarPowerDowns(other.tag);
