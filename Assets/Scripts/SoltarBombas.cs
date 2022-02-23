@@ -56,10 +56,42 @@ public class SoltarBombas : MonoBehaviour
 
         Debug.Log(celda.posicionCelda);
 
-        
+        Vector3 posCelda = celda.posicionCelda;
+
+        bool seguirArriba = true;
+
+        List<Celda> celdasExplosion = new List<Celda>();
+
+        Vector3 supuestaPosicionUp = new Vector3(0, 0, 0);
 
 
+        for (int i = 1; i <= alcanceBomba; i++)
+        {
+            if (seguirArriba)
+            {
+                supuestaPosicionUp = new Vector3(posCelda.x + i, posCelda.y, posCelda.z);
+            }
+            Vector3 supuestaposicionDown = new Vector3(posCelda.x - i, posCelda.y, posCelda.z);
+
+            Celda celdaUp = EncontrarCelda(supuestaPosicionUp);
+
+            if (seguirArriba) celdasExplosion.Add(celdaUp);
+
+            seguirArriba = !celdaUp.ocupado && celdaUp != null;
+
+
+        }
+
+        // Restar la bomba una vez explotada:
         // --GetComponent<ComportamientoCarlos>().bombasEnMapa;
+    }
+
+    private Celda EncontrarCelda(Vector3 posicion)
+    {
+        foreach (Celda celda in celdas)
+        {
+            if (celda.posicionCelda == posicion) return celda;
+        } return null;
     }
 }
 
