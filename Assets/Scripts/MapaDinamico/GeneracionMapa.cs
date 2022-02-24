@@ -84,9 +84,9 @@ public class GeneracionMapa : MonoBehaviour
                     }
                 }
 
-                if (i == ancho / 3 && j == alto / 3)
+                if (i == ancho / 2 && j == alto / 2)
                 {
-                    Instantiate(powerDowns[4], new Vector3(posicion.x, 1, posicion.z), Quaternion.identity);
+                    Instantiate(powerDowns[2], new Vector3(posicion.x - 0.75f, 1, posicion.z - 0.25f), Quaternion.identity);
                 }
 
 

@@ -357,15 +357,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72edb437c672af54e8f22b393dcdb467, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocidadInicial: 1
+  velocidadInicial: 5
   fuerzaBateNormal: 0
   fuerzaBateCargado: 0
   tiempoCargaBate: 3
   cargando: 0
-  alcanceBomba: 2
+  alcanceBomba: 1
   duracionBomba: 5
   limiteBombas: 3
   bombasEnMapa: 0
+  siguienteDiagonal: 0
 --- !u!1 &6012306605592577328
 GameObject:
   m_ObjectHideFlags: 0

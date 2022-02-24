@@ -24,6 +24,7 @@ public class ComportamientoCarlos : MonoBehaviour
     public int duracionBomba;
     public int limiteBombas;
     public int bombasEnMapa;
+    public bool siguienteDiagonal;
 
 
 
@@ -124,7 +125,7 @@ public class ComportamientoCarlos : MonoBehaviour
                 if (alcanceBomba < 7) ++alcanceBomba;
                 break;
             case "bombadiagonal":
-                // diagonal = true
+                siguienteDiagonal = true;
                 break;
             case "cantbombas":
                 if (limiteBombas < 6) ++limiteBombas;
@@ -155,7 +156,7 @@ public class ComportamientoCarlos : MonoBehaviour
                 if (alcanceBomba > 2) --alcanceBomba;
                 break;
             case "nobombas":
-                // contador limite bombas 0
+                StartCoroutine(NoBombas());
                 break;
             case "cantbombas":
                 if (limiteBombas > 1) --limiteBombas;
@@ -188,4 +189,14 @@ public class ComportamientoCarlos : MonoBehaviour
             Destroy(other.gameObject);
         }
     }
+
+    private IEnumerator NoBombas()
+    {
+        int limiteBombasAux = limiteBombas;
+        limiteBombas = 0;
+        yield return new WaitForSeconds(5);
+        limiteBombas = limiteBombasAux;
+    }
+
+
 }

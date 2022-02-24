@@ -232,6 +232,14 @@ PrefabInstance:
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4955872081363630450, guid: f3ab0d2f9d1e9f04b9e2097254e6df18, type: 3}
+      propertyPath: texturaPared
+      value: 
+      objectReference: {fileID: 2100000, guid: 058595cb07ad23946a0a151be620489b, type: 2}
+    - target: {fileID: 4955872081363630450, guid: f3ab0d2f9d1e9f04b9e2097254e6df18, type: 3}
+      propertyPath: texturaSuelo
+      value: 
+      objectReference: {fileID: 2100000, guid: f70d582ac8795e94fbba81f1bda57848, type: 2}
+    - target: {fileID: 4955872081363630450, guid: f3ab0d2f9d1e9f04b9e2097254e6df18, type: 3}
       propertyPath: powerUps.Array.size
       value: 6
       objectReference: {fileID: 0}
