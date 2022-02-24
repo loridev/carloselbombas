@@ -121,23 +121,26 @@ public class ComportamientoCarlos : MonoBehaviour
 
         switch (tag.Split(separador, System.StringSplitOptions.None)[1]) {
             case "alcancebomba":
-                ++alcanceBomba;
+                if (alcanceBomba < 7) ++alcanceBomba;
                 break;
             case "bombadiagonal":
                 // diagonal = true
                 break;
             case "cantbombas":
-                ++limiteBombas;
+                if (limiteBombas < 6) ++limiteBombas;
                 break;
             case "cargabate":
-                --tiempoCargaBate;
+                if (tiempoCargaBate > 2) --tiempoCargaBate;
                 break;
             case "tiempodetonacion":
-                --duracionBomba;
+                if (duracionBomba > 2) --duracionBomba;
                 break;
             case "velocidad":
-                ++velocidad;
-                ++velocidadInicial;
+                if (velocidad < 7)
+                {
+                    ++velocidad;
+                    ++velocidadInicial;
+                }
                 break;
         }
     }
@@ -149,25 +152,26 @@ public class ComportamientoCarlos : MonoBehaviour
         switch (tag.Split(separador, System.StringSplitOptions.None)[1])
         {
             case "alcancebomba":
-                --alcanceBomba;
+                if (alcanceBomba > 2) --alcanceBomba;
                 break;
             case "nobombas":
                 // contador limite bombas 0
                 break;
             case "cantbombas":
-                --limiteBombas;
+                if (limiteBombas > 1) --limiteBombas;
                 break;
             case "cargabate":
-                ++tiempoCargaBate;
-                Debug.Log(tag.Split(separador, System.StringSplitOptions.None)[1]);
+                if (tiempoCargaBate < 7) ++tiempoCargaBate;
                 break;
             case "tiempodetonacion":
-                ++duracionBomba;
+                if (duracionBomba < 7) ++duracionBomba;
                 break;
             case "velocidad":
-                --velocidad;
-                --velocidadInicial;
-                Debug.Log(velocidad);
+                if (velocidad > 2)
+                {
+                    --velocidad;
+                    --velocidadInicial;
+                }
                 break;
         }
     }
