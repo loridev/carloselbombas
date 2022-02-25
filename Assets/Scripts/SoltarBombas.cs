@@ -21,32 +21,20 @@ public class SoltarBombas : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            float minDistancia = float.MaxValue;
-            Celda celdaCercana = null;
+            Celda celdaCerca = null;
 
-            foreach (Celda celda in celdas)
-            {
-                float distancia = Vector3.Distance(transform.position, celda.posicionCelda);
-                if (distancia < minDistancia)
-                {
-                    minDistancia = distancia;
-                    celdaCercana = celda;
-                }
-
-                // Debug.Log(distancia);
-                // Debug.Log(celda.obj.name);
-            }
+            celdaCerca = EncontrarCeldaMasCerca(transform.position);
 
             // Debug.Log(minDistancia);
             // Debug.Log(celdaCercana.obj.name);
 
-            if (!celdaCercana.ocupado && !carlosAtributos.cargando
+            if (!celdaCerca.ocupado && !carlosAtributos.cargando
                 && carlosAtributos.bombasEnMapa < carlosAtributos.limiteBombas)
             {
                 ++GetComponent<ComportamientoCarlos>().bombasEnMapa;
-                Transform bomba = Instantiate(projectilePrefab, new Vector3(celdaCercana.posicionCelda.x, 0.25f, celdaCercana.posicionCelda.z), projectilePrefab.transform.rotation).transform;
-                celdaCercana.ocupado = true;
-                explosionBomba(bomba,celdaCercana, carlosAtributos.alcanceBomba, carlosAtributos.duracionBomba);
+                Transform bomba = Instantiate(projectilePrefab, new Vector3(celdaCerca.posicionCelda.x, 0.25f, celdaCerca.posicionCelda.z), projectilePrefab.transform.rotation).transform;
+                celdaCerca.ocupado = true;
+                explosionBomba(bomba,celdaCerca, carlosAtributos.alcanceBomba, carlosAtributos.duracionBomba);
                 Debug.Log("hola");
             }
         }
@@ -85,12 +73,33 @@ public class SoltarBombas : MonoBehaviour
         // --GetComponent<ComportamientoCarlos>().bombasEnMapa;
     }
 
-    private Celda EncontrarCelda(Vector3 posicion)
+    public Celda EncontrarCelda(Vector3 posicion)
     {
         foreach (Celda celda in celdas)
         {
             if (celda.posicionCelda == posicion) return celda;
         } return null;
+    }
+
+    public Celda EncontrarCeldaMasCerca(Vector3 posicion)
+    {
+        float minDistancia = float.MaxValue;
+        Celda celdaCercana = null;
+
+        foreach (Celda celda in celdas)
+        {
+            float distancia = Vector3.Distance(posicion, celda.posicionCelda);
+            if (distancia < minDistancia)
+            {
+                minDistancia = distancia;
+                celdaCercana = celda;
+            }
+
+            // Debug.Log(distancia);
+            // Debug.Log(celda.obj.name);
+        }
+
+        return celdaCercana;
     }
 
     public Celda[] EncontrarCeldasCerca(string direccion, int distancia, Celda celdaIncial)
