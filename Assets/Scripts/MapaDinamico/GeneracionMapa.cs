@@ -52,10 +52,12 @@ public class GeneracionMapa : MonoBehaviour
                 Transform robotijo;
                 Vector3 posicion = new Vector3(i, 0, j);
                 Transform obj = Instantiate(prefabCelda, posicion, Quaternion.identity);
+                Transform objTipoCelda = null;
                 if (i == 0 || i == ancho - 1 || j == 0 || j == alto - 1)
                 {
                     Transform pared = Instantiate(prebabPared, posicion, Quaternion.identity);
                     pared.GetComponent<Renderer>().material = texturaPared;
+                    objTipoCelda = pared;
                 }
 
                 if (i == 2 && j == 2)
@@ -92,7 +94,7 @@ public class GeneracionMapa : MonoBehaviour
 
                 obj.GetComponent<Renderer>().material = texturaSuelo;
                 obj.name = "Celda " + i + "-" + j;
-                celdas[i, j] = new Celda(false, posicion, obj, null);
+                celdas[i, j] = new Celda(false, posicion, obj, objTipoCelda);
             }
         }
 

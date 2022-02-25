@@ -5,6 +5,7 @@ using UnityEngine;
 //TODO: CARLOS EN BATE GIRA Y LE PEGA A TODO LO DE ALREDEDOR
 public class ComportamientoCarlos : MonoBehaviour
 {
+    private SoltarBombas soltarBombas;
     
     // VELOCIDAD
     public float velocidadInicial;
@@ -26,6 +27,9 @@ public class ComportamientoCarlos : MonoBehaviour
     public int bombasEnMapa;
     public bool siguienteDiagonal;
 
+    // INDIVIDUAL
+    public int vidas;
+
 
 
     // Start is called before the first frame update
@@ -33,6 +37,7 @@ public class ComportamientoCarlos : MonoBehaviour
     {
         controlador = GetComponent<CharacterController>();
         velocidad = velocidadInicial;
+        soltarBombas = GetComponent<SoltarBombas>();
     }
 
     // Update is called once per frame
@@ -56,22 +61,22 @@ public class ComportamientoCarlos : MonoBehaviour
             if (horizontal < 0)
             {
                 vectorRotacion.y = 180;
-                vista = "izq";
+                vista = "left";
             }
             if (horizontal > 0)
             {
                 vectorRotacion.y = 0;
-                vista = "der";
+                vista = "right";
             }
             if (vertical < 0)
             {
                 vectorRotacion.y = 90;
-                vista = "abajo";
+                vista = "up";
             }
             if (vertical > 0)
             {
                 vectorRotacion.y = 270;
-                vista = "arriba";
+                vista = "down";
             }
 
             transform.rotation = Quaternion.Euler(vectorRotacion);
@@ -113,6 +118,16 @@ public class ComportamientoCarlos : MonoBehaviour
 
     private void GolpearBomba(int fuerza)
     {
+        Celda celdaActual = soltarBombas.EncontrarCeldaMasCerca(transform.position);
+        Celda[] celdasDireccion = soltarBombas.EncontrarCeldasCerca(vista, fuerza, celdaActual);
+
+        if (celdasDireccion[0].objTipoCelda)
+        {
+            if (celdasDireccion[0].objTipoCelda.tag == "Bomba")
+            {
+                celdasDireccion[0].objTipoCelda.position = celdasDireccion[celdasDireccion.Length - 1].posicionCelda;
+            }
+        }
 
     }
 
