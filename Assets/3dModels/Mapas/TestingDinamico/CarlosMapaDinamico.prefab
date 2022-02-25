@@ -362,7 +362,7 @@ MonoBehaviour:
   fuerzaBateCargado: 0
   tiempoCargaBate: 3
   cargando: 0
-  alcanceBomba: 1
+  alcanceBomba: 3
   duracionBomba: 5
   limiteBombas: 3
   bombasEnMapa: 0

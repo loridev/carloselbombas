@@ -72,7 +72,7 @@ public class SoltarBombas : MonoBehaviour
 
         Debug.Log(celda.posicionCelda);
 
-        
+        Debug.Log("bomba colocada");
 
         for (int i = 1; i < celdasExplosion.Count; i++)
         {
@@ -104,7 +104,7 @@ public class SoltarBombas : MonoBehaviour
             case "up":
                 for (int i = 1; i <= distancia; i++)
                 {
-                    if (seguir) posSiguiente = new Vector3(celdaIncial.posicionCelda.x + i, celdaIncial.posicionCelda.y, celdaIncial.posicionCelda.z);
+                    if (seguir) posSiguiente = new Vector3(celdaIncial.posicionCelda.x, celdaIncial.posicionCelda.y, celdaIncial.posicionCelda.z + i);
                     celdaSiguiente = EncontrarCelda(posSiguiente);
                     retorno[i - 1] = celdaSiguiente;
                     if (celdaSiguiente.ocupado || celdaSiguiente == null) return retorno;
@@ -113,7 +113,7 @@ public class SoltarBombas : MonoBehaviour
             case "down":
                 for (int i = 1; i <= distancia; i++)
                 {
-                    if (seguir) posSiguiente = new Vector3(celdaIncial.posicionCelda.x - i, celdaIncial.posicionCelda.y, celdaIncial.posicionCelda.z);
+                    if (seguir) posSiguiente = new Vector3(celdaIncial.posicionCelda.x, celdaIncial.posicionCelda.y, celdaIncial.posicionCelda.z - i);
                     celdaSiguiente = EncontrarCelda(posSiguiente);
                     retorno[i - 1] = celdaSiguiente;
                     if (celdaSiguiente.ocupado || celdaSiguiente == null) return retorno;
@@ -122,7 +122,7 @@ public class SoltarBombas : MonoBehaviour
             case "left":
                 for (int i = 1; i <= distancia; i++)
                 {
-                    if (seguir) posSiguiente = new Vector3(celdaIncial.posicionCelda.x, celdaIncial.posicionCelda.y, celdaIncial.posicionCelda.z - i);
+                    if (seguir) posSiguiente = new Vector3(celdaIncial.posicionCelda.x - i, celdaIncial.posicionCelda.y, celdaIncial.posicionCelda.z);
                     celdaSiguiente = EncontrarCelda(posSiguiente);
                     retorno[i - 1] = celdaSiguiente;
                     if (celdaSiguiente.ocupado || celdaSiguiente == null) return retorno;
@@ -131,7 +131,7 @@ public class SoltarBombas : MonoBehaviour
             case "right":
                 for (int i = 1; i <= distancia; i++)
                 {
-                    if (seguir) posSiguiente = new Vector3(celdaIncial.posicionCelda.x, celdaIncial.posicionCelda.y, celdaIncial.posicionCelda.z + i);
+                    if (seguir) posSiguiente = new Vector3(celdaIncial.posicionCelda.x + i, celdaIncial.posicionCelda.y, celdaIncial.posicionCelda.z);
                     celdaSiguiente = EncontrarCelda(posSiguiente);
                     retorno[i - 1] = celdaSiguiente;
                     if (celdaSiguiente.ocupado || celdaSiguiente == null) return retorno;
