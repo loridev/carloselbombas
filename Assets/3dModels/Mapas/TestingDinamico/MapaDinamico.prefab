@@ -65,8 +65,8 @@ MonoBehaviour:
   prefabNpcComun: {fileID: 8282962549086801570, guid: 49f102a8509744ab9975ca7c17e26a61, type: 3}
   texturaSuelo: {fileID: 2100000, guid: 00494841d457c5e40beb347b6483f7c9, type: 2}
   texturaPared: {fileID: 2100000, guid: 9b56e06f8d3f8584597ec8a11bd1f200, type: 2}
-  ancho: 8
-  alto: 8
+  ancho: 10
+  alto: 10
 --- !u!1 &4955872081634097665
 GameObject:
   m_ObjectHideFlags: 0

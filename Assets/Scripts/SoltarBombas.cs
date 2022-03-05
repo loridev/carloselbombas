@@ -34,7 +34,8 @@ public class SoltarBombas : MonoBehaviour
                 ++GetComponent<ComportamientoCarlos>().bombasEnMapa;
                 Transform bomba = Instantiate(projectilePrefab, new Vector3(celdaCerca.posicionCelda.x, 0.25f, celdaCerca.posicionCelda.z), projectilePrefab.transform.rotation).transform;
                 celdaCerca.ocupado = true;
-                explosionBomba(bomba,celdaCerca, carlosAtributos.alcanceBomba, carlosAtributos.duracionBomba);
+                celdaCerca.objTipoCelda = bomba;
+                explosionBomba(bomba, celdaCerca, carlosAtributos.alcanceBomba, carlosAtributos.duracionBomba);
                 Debug.Log("hola");
             }
         }
@@ -62,10 +63,13 @@ public class SoltarBombas : MonoBehaviour
 
         Debug.Log("bomba colocada");
 
-        for (int i = 1; i < celdasExplosion.Count; i++)
+        for (int i = 0; i < celdasExplosion.Count; i++)
         {
-            Debug.Log(celdasExplosion[i].posicionCelda);
-            Instantiate(bomba, celdasExplosion[i].posicionCelda, Quaternion.identity);
+            //Debug.Log(celdasExplosion[i].posicionCelda);
+            if (celdasExplosion[i] != null)
+            {
+                // Instantiate(bomba, new Vector3(celdasExplosion[i].posicionCelda.x, 0.25f, celdasExplosion[i].posicionCelda.z), Quaternion.identity);
+            }
         }
         
 
@@ -105,7 +109,6 @@ public class SoltarBombas : MonoBehaviour
     public Celda[] EncontrarCeldasCerca(string direccion, int distancia, Celda celdaIncial)
     {
         Celda[] retorno = new Celda[distancia];
-        bool seguir = true;
         Vector3 posSiguiente = new Vector3(0, 0, 0);
         Celda celdaSiguiente;
 
@@ -113,37 +116,52 @@ public class SoltarBombas : MonoBehaviour
             case "up":
                 for (int i = 1; i <= distancia; i++)
                 {
-                    if (seguir) posSiguiente = new Vector3(celdaIncial.posicionCelda.x, celdaIncial.posicionCelda.y, celdaIncial.posicionCelda.z + i);
+                    posSiguiente = new Vector3(celdaIncial.posicionCelda.x, celdaIncial.posicionCelda.y, celdaIncial.posicionCelda.z + i);
                     celdaSiguiente = EncontrarCelda(posSiguiente);
-                    retorno[i - 1] = celdaSiguiente;
-                    if (celdaSiguiente.ocupado || celdaSiguiente == null) return retorno;
+                     if (celdaSiguiente != null)
+                     {
+                        if (celdaSiguiente.ocupado || celdaSiguiente.limiteMapa) return retorno;
+                        retorno[i - 1] = celdaSiguiente;
+                     } else return retorno;
                 }
                 break;
             case "down":
                 for (int i = 1; i <= distancia; i++)
                 {
-                    if (seguir) posSiguiente = new Vector3(celdaIncial.posicionCelda.x, celdaIncial.posicionCelda.y, celdaIncial.posicionCelda.z - i);
+                    posSiguiente = new Vector3(celdaIncial.posicionCelda.x, celdaIncial.posicionCelda.y, celdaIncial.posicionCelda.z - i);
                     celdaSiguiente = EncontrarCelda(posSiguiente);
-                    retorno[i - 1] = celdaSiguiente;
-                    if (celdaSiguiente.ocupado || celdaSiguiente == null) return retorno;
+                    if (celdaSiguiente != null)
+                    {
+                        if (celdaSiguiente.ocupado || celdaSiguiente.limiteMapa) return retorno;
+                        retorno[i - 1] = celdaSiguiente;
+                    }
+                    else return retorno;
                 }
                 break;
             case "left":
                 for (int i = 1; i <= distancia; i++)
                 {
-                    if (seguir) posSiguiente = new Vector3(celdaIncial.posicionCelda.x - i, celdaIncial.posicionCelda.y, celdaIncial.posicionCelda.z);
+                    posSiguiente = new Vector3(celdaIncial.posicionCelda.x - i, celdaIncial.posicionCelda.y, celdaIncial.posicionCelda.z);
                     celdaSiguiente = EncontrarCelda(posSiguiente);
-                    retorno[i - 1] = celdaSiguiente;
-                    if (celdaSiguiente.ocupado || celdaSiguiente == null) return retorno;
+                    if (celdaSiguiente != null)
+                    {
+                        if (celdaSiguiente.ocupado || celdaSiguiente.limiteMapa) return retorno;
+                        retorno[i - 1] = celdaSiguiente;
+                    }
+                    else return retorno;
                 }
                 break;
             case "right":
                 for (int i = 1; i <= distancia; i++)
                 {
-                    if (seguir) posSiguiente = new Vector3(celdaIncial.posicionCelda.x + i, celdaIncial.posicionCelda.y, celdaIncial.posicionCelda.z);
+                    posSiguiente = new Vector3(celdaIncial.posicionCelda.x + i, celdaIncial.posicionCelda.y, celdaIncial.posicionCelda.z);
                     celdaSiguiente = EncontrarCelda(posSiguiente);
-                    retorno[i - 1] = celdaSiguiente;
-                    if (celdaSiguiente.ocupado || celdaSiguiente == null) return retorno;
+                    if (celdaSiguiente != null)
+                    {
+                        if (celdaSiguiente.ocupado || celdaSiguiente.limiteMapa) return retorno;
+                        retorno[i - 1] = celdaSiguiente;
+                    }
+                    else return retorno;
                 }
                 break;
         }

@@ -71,12 +71,12 @@ public class ComportamientoCarlos : MonoBehaviour
             if (vertical < 0)
             {
                 vectorRotacion.y = 90;
-                vista = "up";
+                vista = "down";
             }
             if (vertical > 0)
             {
                 vectorRotacion.y = 270;
-                vista = "down";
+                vista = "up";
             }
 
             transform.rotation = Quaternion.Euler(vectorRotacion);
@@ -106,9 +106,7 @@ public class ComportamientoCarlos : MonoBehaviour
             GolpearBomba(fuerzaBateCargado);
             temporizadorCargado = 0;
             cargando = false;
-        }
-
-        if (Input.GetKeyUp("b") && temporizadorCargado < tiempoCargaBate)
+        } else if (Input.GetKeyUp("b") && temporizadorCargado < tiempoCargaBate)
         {
             GolpearBomba(fuerzaBateNormal);
             temporizadorCargado = 0;
@@ -120,12 +118,54 @@ public class ComportamientoCarlos : MonoBehaviour
     {
         Celda celdaActual = soltarBombas.EncontrarCeldaMasCerca(transform.position);
         Celda[] celdasDireccion = soltarBombas.EncontrarCeldasCerca(vista, fuerza, celdaActual);
+        Vector3 supuestaPosBomba = new Vector3(0, 0, 0);
 
-        if (celdasDireccion[0].objTipoCelda)
+        Celda celdaBomba = null;
+
+        switch (vista)
         {
-            if (celdasDireccion[0].objTipoCelda.tag == "Bomba")
+            case "up":
+                supuestaPosBomba = new Vector3(celdaActual.posicionCelda.x, celdaActual.posicionCelda.y, celdaActual.posicionCelda.z + 1);
+                break;
+            case "down":
+                supuestaPosBomba = new Vector3(celdaActual.posicionCelda.x, celdaActual.posicionCelda.y, celdaActual.posicionCelda.z - 1);
+                break;
+            case "left":
+                supuestaPosBomba = new Vector3(celdaActual.posicionCelda.x - 1, celdaActual.posicionCelda.y, celdaActual.posicionCelda.z);
+                break;
+            case "right":
+                supuestaPosBomba = new Vector3(celdaActual.posicionCelda.x + 1, celdaActual.posicionCelda.y, celdaActual.posicionCelda.z);
+                break;
+        }
+
+        List<Celda> celdasColindantes = new List<Celda>();
+        celdaBomba = soltarBombas.EncontrarCeldaMasCerca(supuestaPosBomba);
+        celdasColindantes.AddRange(soltarBombas.EncontrarCeldasCerca(vista, fuerza, celdaBomba));
+
+        for (int i = 0; i < celdasColindantes.Count; i++)
+        {
+            if (celdasColindantes[i] == null) celdasColindantes.Remove(celdasColindantes[i]);
+        }
+
+
+        if (celdaBomba.objTipoCelda != null)
+        {
+            if (celdaBomba.objTipoCelda.tag == "Bomba")
             {
-                celdasDireccion[0].objTipoCelda.position = celdasDireccion[celdasDireccion.Length - 1].posicionCelda;
+                Celda celdaFinal;
+                if (celdasColindantes.Count > fuerza)
+                {
+                    celdaFinal = celdasColindantes[fuerza - 1];
+                } else
+                {
+                    celdaFinal = celdasColindantes[celdasColindantes.Count - 2];
+                }
+                celdaBomba.objTipoCelda.position = new Vector3(celdaFinal.posicionCelda.x, 0.25f, celdaFinal.posicionCelda.z);
+                celdaBomba.ocupado = false;
+                celdaFinal.objTipoCelda = celdaBomba.objTipoCelda;
+                celdaBomba.objTipoCelda = null;
+                celdaFinal.ocupado = true;
+                
             }
         }
 

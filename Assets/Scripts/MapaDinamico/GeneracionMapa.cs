@@ -29,8 +29,9 @@ public class GeneracionMapa : MonoBehaviour
 
     public static AstarPath scriptAi;
 
-    void Start()
+    async void Start()
     {
+        Level nivel = await ApiRequests.GetLevel(1, 2);
         GenerarMapa();
     }
 
@@ -43,11 +44,13 @@ public class GeneracionMapa : MonoBehaviour
     private void GenerarMapa()
     {
         celdas = new Celda[ancho, alto];
+        bool limiteMapa;
 
         for (int i = 0; i < ancho; i++)
         {
             for (int j = 0; j < alto; j++)
             {
+                limiteMapa = false;
                 Transform carlos;
                 Transform robotijo;
                 Vector3 posicion = new Vector3(i, 0, j);
@@ -58,6 +61,7 @@ public class GeneracionMapa : MonoBehaviour
                     Transform pared = Instantiate(prebabPared, posicion, Quaternion.identity);
                     pared.GetComponent<Renderer>().material = texturaPared;
                     objTipoCelda = pared;
+                    limiteMapa = true;
                 }
 
                 if (i == 2 && j == 2)
@@ -94,7 +98,7 @@ public class GeneracionMapa : MonoBehaviour
 
                 obj.GetComponent<Renderer>().material = texturaSuelo;
                 obj.name = "Celda " + i + "-" + j;
-                celdas[i, j] = new Celda(false, posicion, obj, objTipoCelda);
+                celdas[i, j] = new Celda(false, posicion, obj, objTipoCelda, limiteMapa);
             }
         }
 
@@ -113,11 +117,13 @@ public class Celda
     public Vector3 posicionCelda;
     public Transform obj;
     public Transform objTipoCelda;
-    public Celda(bool ocupado, Vector3 posicionCelda, Transform obj, Transform objTipoCelda)
+    public bool limiteMapa;
+    public Celda(bool ocupado, Vector3 posicionCelda, Transform obj, Transform objTipoCelda, bool limiteMapa)
     {
         this.ocupado = ocupado;
         this.posicionCelda = posicionCelda;
         this.obj = obj;
         this.objTipoCelda = objTipoCelda;
+        this.limiteMapa = limiteMapa;
     }
 }
