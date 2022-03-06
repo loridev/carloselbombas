@@ -486,7 +486,7 @@ GameObject:
   - component: {fileID: 660681652}
   m_Layer: 5
   m_Name: BotonMundo1
-  m_TagString: Untagged
+  m_TagString: Mundo1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -632,7 +632,7 @@ GameObject:
   - component: {fileID: 813668927}
   m_Layer: 5
   m_Name: BotonMundo3
-  m_TagString: Untagged
+  m_TagString: Mundo3
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -778,7 +778,7 @@ GameObject:
   - component: {fileID: 821882056}
   m_Layer: 5
   m_Name: BotonMundo2
-  m_TagString: Untagged
+  m_TagString: Mundo2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

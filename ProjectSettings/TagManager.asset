@@ -24,6 +24,19 @@ TagManager:
   - PUcargabate
   - PUtiempodetonacion
   - PUvelocidad
+  - Mundo1
+  - Mundo2
+  - Mundo3
+  - Nivel1
+  - Nivel2
+  - Nivel3
+  - Nivel4
+  - LabelVidas
+  - LabelVelocidad
+  - LabelAlcance
+  - LabelTiempoDet
+  - LabelCargaBat
+  - LabelNumBom
   layers:
   - Default
   - TransparentFX

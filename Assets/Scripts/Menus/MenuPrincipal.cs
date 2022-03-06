@@ -10,11 +10,13 @@ public class MenuPrincipal : MonoBehaviour
 
     public void CargarModoIndiv()
     {
+        Globals.Modo = "Indiv";
         SceneManager.LoadScene("MenuIndiv");
     }
 
     public void CargarModoMulti()
     {
+        Globals.Modo = "Multi";
         SceneManager.LoadScene("MenuMulti");
     }
 

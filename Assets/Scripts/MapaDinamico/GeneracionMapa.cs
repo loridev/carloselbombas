@@ -13,14 +13,13 @@ public class GeneracionMapa : MonoBehaviour
     public Transform prefabCaja;
     public Transform prefabCarlos;
     public Transform prefabNpcFinal;
-    public Transform prefabNpcComun;
+    public Transform[] prefabNpcComunes;
 
-    public Material texturaSuelo;
-    public Material texturaPared;
+    public Material[] texturaSuelos;
+    public Material[] texturaParedes;
 
-
-    public int ancho;
-    public int alto;
+    public GameObject interfazIndividual;
+    public GameObject interfazMultijugador;
 
     public static Celda[,] celdas;
 
@@ -28,24 +27,91 @@ public class GeneracionMapa : MonoBehaviour
     private Transform robotijo;
 
     public static AstarPath scriptAi;
+    private Level nivel;
+
+    public GameObject labelVidas;
+    public GameObject labelVelocidad;
+    public GameObject labelAlcance;
+    public GameObject labelTiempoDet;
+    public GameObject labelCargaBat;
+    public GameObject labelNumBom;
 
     async void Start()
     {
-        Level nivel = await ApiRequests.GetLevel(1, 2);
+        if (Globals.Modo == "Indiv")
+        {
+            interfazIndividual.SetActive(true);
+        } else
+        {
+            interfazMultijugador.SetActive(true);
+        }
+        nivel = await ApiRequests.GetLevel(Globals.WorldNum, Globals.LevelNum);
         GenerarMapa();
     }
 
 
     void Update()
     {
-        
+        ActualizarAtributos();
     }
 
     private void GenerarMapa()
     {
-        celdas = new Celda[ancho, alto];
+        celdas = new Celda[nivel.content.Count + 2, nivel.content.Count + 2];
         bool limiteMapa;
 
+        for (int i = 0; i < nivel.content.Count + 2; i++)
+        {
+            for (int j = 0; j < nivel.content.Count + 2; j++)
+            {
+                limiteMapa = false;
+                Vector3 posicion = new Vector3(i, 0, j);
+                Transform obj = Instantiate(prefabCelda, posicion, Quaternion.identity);
+                Transform objTipoCelda = null;
+
+                if (i == 0 || i == nivel.content.Count + 1 || j == 0 || j == nivel.content.Count + 1)
+                {
+                    Transform pared = Instantiate(prebabPared, posicion, Quaternion.identity);
+                    pared.GetComponent<Renderer>().material = texturaParedes[nivel.worldNum - 1];
+                    objTipoCelda = pared;
+                    limiteMapa = true;
+                } else
+                {
+                    switch (nivel.content[i - 1][j - 1])
+                    {
+                        case "Player":
+                            carlos = Instantiate(prefabCarlos, new Vector3(posicion.x, 1, posicion.z), Quaternion.identity);
+                            break;
+                        case "Wall":
+                            Transform pared = Instantiate(prebabPared, posicion, Quaternion.identity);
+                            pared.GetComponent<Renderer>().material = texturaParedes[nivel.worldNum - 1];
+                            objTipoCelda = pared;
+                            break;
+                        case "Box":
+                            Transform caja = Instantiate(prefabCaja, new Vector3(posicion.x, 0.25f, posicion.z), Quaternion.identity);
+                            objTipoCelda = caja;
+                            break;
+                        case "cNpc":
+                            if (nivel.worldNum != 3)
+                            {
+                                Instantiate(prefabNpcComunes[nivel.worldNum - 1], posicion, Quaternion.identity);
+                            } else
+                            {
+                                Instantiate(prefabNpcComunes[nivel.worldNum - 1], new Vector3(posicion.x, 1, posicion.z), Quaternion.identity);
+                            }
+                            break;
+                        case "fNpc":
+                            robotijo = Instantiate(prefabNpcFinal, new Vector3(posicion.x, 1, posicion.z), Quaternion.identity);
+                            break;
+                    }
+                }
+                obj.GetComponent<Renderer>().material = texturaSuelos[nivel.worldNum - 1];
+                obj.name = "Celda " + i + "-" + j;
+                celdas[i, j] = new Celda(false, posicion, obj, objTipoCelda, limiteMapa);
+            }
+        }
+
+        /*
         for (int i = 0; i < ancho; i++)
         {
             for (int j = 0; j < alto; j++)
@@ -101,8 +167,21 @@ public class GeneracionMapa : MonoBehaviour
                 celdas[i, j] = new Celda(false, posicion, obj, objTipoCelda, limiteMapa);
             }
         }
+        */
 
         AsignarCarlosRobotijo();
+    }
+
+    private void ActualizarAtributos()
+    {
+        ComportamientoCarlos carlosScript = carlos.GetComponent<ComportamientoCarlos>();
+
+        labelVidas.GetComponent<UnityEngine.UI.Text>().text = "" + carlosScript.vidas;
+        labelVelocidad.GetComponent<UnityEngine.UI.Text>().text = carlosScript.velocidadInicial - (carlosScript.velocidadInicial - 1) + "";
+        labelAlcance.GetComponent<UnityEngine.UI.Text>().text = carlosScript.alcanceBomba - 2 + "";
+        labelTiempoDet.GetComponent<UnityEngine.UI.Text>().text = carlosScript.duracionBomba - 4 + "";
+        labelCargaBat.GetComponent<UnityEngine.UI.Text>().text = carlosScript.tiempoCargaBate - 2 + "";
+        labelNumBom.GetComponent<UnityEngine.UI.Text>().text = carlosScript.limiteBombas - carlosScript.bombasEnMapa + "/" + carlosScript.limiteBombas;
     }
 
     private void AsignarCarlosRobotijo()
