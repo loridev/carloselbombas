@@ -28,7 +28,7 @@ public class ComportamientoCarlos : MonoBehaviour
     public bool siguienteDiagonal;
 
     // INDIVIDUAL
-    public int vidas;
+    public int vidas = 3;
 
 
 

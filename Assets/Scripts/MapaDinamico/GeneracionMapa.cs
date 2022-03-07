@@ -13,6 +13,7 @@ public class GeneracionMapa : MonoBehaviour
     public Transform prefabCaja;
     public Transform prefabCarlos;
     public Transform prefabNpcFinal;
+    public Transform prefabFinal;
     public Transform[] prefabNpcComunes;
 
     public Material[] texturaSuelos;
@@ -92,16 +93,21 @@ public class GeneracionMapa : MonoBehaviour
                             objTipoCelda = caja;
                             break;
                         case "cNpc":
+                            Transform npcSpawn;
                             if (nivel.worldNum != 3)
                             {
-                                Instantiate(prefabNpcComunes[nivel.worldNum - 1], posicion, Quaternion.identity);
+                                npcSpawn = Instantiate(prefabNpcComunes[nivel.worldNum - 1], posicion, Quaternion.identity);
                             } else
                             {
-                                Instantiate(prefabNpcComunes[nivel.worldNum - 1], new Vector3(posicion.x, 1, posicion.z), Quaternion.identity);
+                                npcSpawn = Instantiate(prefabNpcComunes[nivel.worldNum - 1], new Vector3(posicion.x, 1, posicion.z), Quaternion.identity);
                             }
+                            npcSpawn.GetComponent<NPCComun>().isVertical = i % 2 == 0;
                             break;
                         case "fNpc":
                             robotijo = Instantiate(prefabNpcFinal, new Vector3(posicion.x, 1, posicion.z), Quaternion.identity);
+                            break;
+                        case "Exit":
+                            Instantiate(prefabFinal, new Vector3(posicion.x, 0.35f, posicion.z), Quaternion.identity);
                             break;
                     }
                 }

@@ -19,7 +19,7 @@ public class SelectNivel : MonoBehaviour
                 Globals.LevelNum = 3;
                 break;
             case "Nivel4":
-                Globals.LevelNum = 3;
+                Globals.LevelNum = 4;
                 break;
         }
 

@@ -4,39 +4,7 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - TituloMundo
-  - TabActivo
-  - ContenedorActivo
-  - TabNoActivo
-  - ContenedorNoActivo
-  - Muro
-  - ground
-  - Bomba
-  - PDalcancebomba
-  - PDcantbombas
-  - PDcargabate
-  - PDnobombas
-  - PDtiempodetonacion
-  - PDvelocidad
-  - PUalcancebomba
-  - PUbombadiagonal
-  - PUcantbombas
-  - PUcargabate
-  - PUtiempodetonacion
-  - PUvelocidad
-  - Mundo1
-  - Mundo2
-  - Mundo3
-  - Nivel1
-  - Nivel2
-  - Nivel3
-  - Nivel4
-  - LabelVidas
-  - LabelVelocidad
-  - LabelAlcance
-  - LabelTiempoDet
-  - LabelCargaBat
-  - LabelNumBom
+  - Shootable
   layers:
   - Default
   - TransparentFX
@@ -45,10 +13,10 @@ TagManager:
   - Water
   - UI
   - 
-  - Suelo
-  - Obstaculos
   - 
-  - 
+  - Lighting
+  - Ground
+  - Postprocessing
   - 
   - 
   - 
@@ -71,6 +39,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Fire
+    uniqueID: 3804908061
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
