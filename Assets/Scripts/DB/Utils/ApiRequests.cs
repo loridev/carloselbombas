@@ -11,7 +11,7 @@ public class ApiRequests
 {
     public static async Task<Level> GetLevel(int worldNum, int levelNum)
     {
-        string url = "https://caboomgame.herokuapp.com/api/v1/levels/" + worldNum + "-" + levelNum;
+        string url = "https://carloselbombas.herokuapp.com/api/v1/levels/" + worldNum + "-" + levelNum;
 
         HttpClient client = new HttpClient();
 
