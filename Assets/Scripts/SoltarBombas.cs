@@ -8,6 +8,7 @@ public class SoltarBombas : MonoBehaviour
     public GameObject projectilePrefab;
     private Celda[,] celdas;
     private ComportamientoCarlos carlosAtributos;
+    public Transform particulaExplosion;
     // Start is called before the first frame update
     void Start()
     {
@@ -57,24 +58,29 @@ public class SoltarBombas : MonoBehaviour
             celdasExplosion.AddRange(EncontrarCeldasCerca("left", alcanceBomba, celda));
             celdasExplosion.AddRange(EncontrarCeldasCerca("right", alcanceBomba, celda));
         }
-        Debug.Log("bomba colocada");
 
-        Debug.Log(celda.posicionCelda);
-
-        Debug.Log("bomba colocada");
-
+        // Poner particulas de la bomba
         for (int i = 0; i < celdasExplosion.Count; i++)
         {
             //Debug.Log(celdasExplosion[i].posicionCelda);
             if (celdasExplosion[i] != null)
             {
-                // Instantiate(bomba, new Vector3(celdasExplosion[i].posicionCelda.x, 0.25f, celdasExplosion[i].posicionCelda.z), Quaternion.identity);
+                Instantiate(particulaExplosion, new Vector3(celdasExplosion[i].posicionCelda.x, 0.25f, celdasExplosion[i].posicionCelda.z), Quaternion.identity);
+                if (celdasExplosion[i].objTipoCelda != null)
+                {
+                    Destroy(celdasExplosion[i].objTipoCelda.gameObject);
+                    celdasExplosion[i].ocupado = false;
+                    celdasExplosion[i].objTipoCelda = null;
+                }
             }
         }
+        // Quitar particulas y bomba (hacer otro script)
+
+
         
 
         // Restar la bomba una vez explotada:
-        // --GetComponent<ComportamientoCarlos>().bombasEnMapa;
+        --GetComponent<ComportamientoCarlos>().bombasEnMapa;
     }
 
     public Celda EncontrarCelda(Vector3 posicion)
@@ -120,7 +126,15 @@ public class SoltarBombas : MonoBehaviour
                     celdaSiguiente = EncontrarCelda(posSiguiente);
                      if (celdaSiguiente != null)
                      {
-                        if (celdaSiguiente.ocupado || celdaSiguiente.limiteMapa) return retorno;
+                        if (celdaSiguiente.objTipoCelda != null)
+                        {
+                            if (celdaSiguiente.objTipoCelda.tag == "Pared") return retorno;
+                        }
+                        if (celdaSiguiente.ocupado)
+                        {
+                            retorno[i - 1] = celdaSiguiente;
+                            return retorno;
+                        }
                         retorno[i - 1] = celdaSiguiente;
                      } else return retorno;
                 }
@@ -132,7 +146,15 @@ public class SoltarBombas : MonoBehaviour
                     celdaSiguiente = EncontrarCelda(posSiguiente);
                     if (celdaSiguiente != null)
                     {
-                        if (celdaSiguiente.ocupado || celdaSiguiente.limiteMapa) return retorno;
+                        if (celdaSiguiente.objTipoCelda != null)
+                        {
+                            if (celdaSiguiente.objTipoCelda.tag == "Pared") return retorno;
+                        }
+                        if (celdaSiguiente.ocupado)
+                        {
+                            retorno[i - 1] = celdaSiguiente;
+                            return retorno;
+                        }
                         retorno[i - 1] = celdaSiguiente;
                     }
                     else return retorno;
@@ -145,7 +167,15 @@ public class SoltarBombas : MonoBehaviour
                     celdaSiguiente = EncontrarCelda(posSiguiente);
                     if (celdaSiguiente != null)
                     {
-                        if (celdaSiguiente.ocupado || celdaSiguiente.limiteMapa) return retorno;
+                        if (celdaSiguiente.objTipoCelda != null)
+                        {
+                            if (celdaSiguiente.objTipoCelda.tag == "Pared") return retorno;
+                        }
+                        if (celdaSiguiente.ocupado)
+                        {
+                            retorno[i - 1] = celdaSiguiente;
+                            return retorno;
+                        }
                         retorno[i - 1] = celdaSiguiente;
                     }
                     else return retorno;
@@ -158,7 +188,15 @@ public class SoltarBombas : MonoBehaviour
                     celdaSiguiente = EncontrarCelda(posSiguiente);
                     if (celdaSiguiente != null)
                     {
-                        if (celdaSiguiente.ocupado || celdaSiguiente.limiteMapa) return retorno;
+                        if (celdaSiguiente.objTipoCelda != null)
+                        {
+                            if (celdaSiguiente.objTipoCelda.tag == "Pared") return retorno;
+                        }
+                        if (celdaSiguiente.ocupado)
+                        {
+                            retorno[i - 1] = celdaSiguiente;
+                            return retorno;
+                        }
                         retorno[i - 1] = celdaSiguiente;
                     }
                     else return retorno;

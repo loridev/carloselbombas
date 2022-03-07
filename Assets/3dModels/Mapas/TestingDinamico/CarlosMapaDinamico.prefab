@@ -330,6 +330,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 7122613738557865657, guid: 6ffe188eb8aea482999a42373f054134,
     type: 3}
+  particulaExplosion: {fileID: 4441266138185142, guid: 25c7aa9ad705fe143a4d71c1c8deb7d4,
+    type: 3}
 --- !u!54 &4292488163792215300
 Rigidbody:
   m_ObjectHideFlags: 0
