@@ -5,6 +5,31 @@ TagManager:
   serializedVersion: 2
   tags:
   - Shootable
+  - Nivel3
+  - TituloMundo
+  - Nivel1
+  - Nivel2
+  - LabelVidas
+  - LabelTiempoDet
+  - LabelVelocidad
+  - LabelNumBom
+  - LabelAlcance
+  - LabelCargaBat
+  - ground
+  - PDalcancebomba
+  - PDcantbombas
+  - PDcargabate
+  - PDnobombas
+  - PDtiempodetonacion
+  - PDvelocidad
+  - PUalcancebomba
+  - PUbombadiagonal
+  - PUcantbombas
+  - PUcargabate
+  - PUtiempodetonacion
+  - PUvelocidad
+  - Bomba
+  - Pared
   layers:
   - Default
   - TransparentFX
