@@ -69,6 +69,7 @@ public class GeneracionMapa : MonoBehaviour
                 Vector3 posicion = new Vector3(i, 0, j);
                 Transform obj = Instantiate(prefabCelda, posicion, Quaternion.identity);
                 Transform objTipoCelda = null;
+                bool ocupado = false;
 
                 if (i == 0 || i == nivel.content.Count + 1 || j == 0 || j == nivel.content.Count + 1)
                 {
@@ -76,6 +77,7 @@ public class GeneracionMapa : MonoBehaviour
                     pared.GetComponent<Renderer>().material = texturaParedes[nivel.worldNum - 1];
                     objTipoCelda = pared;
                     limiteMapa = true;
+                    ocupado = true;
                 } else
                 {
                     switch (nivel.content[i - 1][j - 1])
@@ -87,10 +89,12 @@ public class GeneracionMapa : MonoBehaviour
                             Transform pared = Instantiate(prebabPared, posicion, Quaternion.identity);
                             pared.GetComponent<Renderer>().material = texturaParedes[nivel.worldNum - 1];
                             objTipoCelda = pared;
+                            ocupado = true;
                             break;
                         case "Box":
                             Transform caja = Instantiate(prefabCaja, new Vector3(posicion.x, 0.25f, posicion.z), Quaternion.identity);
                             objTipoCelda = caja;
+                            ocupado = true;
                             break;
                         case "cNpc":
                             Transform npcSpawn;
@@ -113,7 +117,7 @@ public class GeneracionMapa : MonoBehaviour
                 }
                 obj.GetComponent<Renderer>().material = texturaSuelos[nivel.worldNum - 1];
                 obj.name = "Celda " + i + "-" + j;
-                celdas[i, j] = new Celda(false, posicion, obj, objTipoCelda, limiteMapa);
+                celdas[i, j] = new Celda(ocupado, posicion, obj, objTipoCelda, limiteMapa);
             }
         }
 
@@ -180,14 +184,17 @@ public class GeneracionMapa : MonoBehaviour
 
     private void ActualizarAtributos()
     {
-        ComportamientoCarlos carlosScript = carlos.GetComponent<ComportamientoCarlos>();
+        if (carlos != null)
+        {
+            ComportamientoCarlos carlosScript = carlos.GetComponent<ComportamientoCarlos>();
 
-        labelVidas.GetComponent<UnityEngine.UI.Text>().text = "" + carlosScript.vidas;
-        labelVelocidad.GetComponent<UnityEngine.UI.Text>().text = carlosScript.velocidadInicial - (carlosScript.velocidadInicial - 1) + "";
-        labelAlcance.GetComponent<UnityEngine.UI.Text>().text = carlosScript.alcanceBomba - 2 + "";
-        labelTiempoDet.GetComponent<UnityEngine.UI.Text>().text = carlosScript.duracionBomba - 4 + "";
-        labelCargaBat.GetComponent<UnityEngine.UI.Text>().text = carlosScript.tiempoCargaBate - 2 + "";
-        labelNumBom.GetComponent<UnityEngine.UI.Text>().text = carlosScript.limiteBombas - carlosScript.bombasEnMapa + "/" + carlosScript.limiteBombas;
+            labelVidas.GetComponent<UnityEngine.UI.Text>().text = "" + carlosScript.vidas;
+            labelVelocidad.GetComponent<UnityEngine.UI.Text>().text = carlosScript.velocidadInicial - (carlosScript.velocidadInicial - 1) + "";
+            labelAlcance.GetComponent<UnityEngine.UI.Text>().text = carlosScript.alcanceBomba - 2 + "";
+            labelTiempoDet.GetComponent<UnityEngine.UI.Text>().text = carlosScript.duracionBomba - 4 + "";
+            labelCargaBat.GetComponent<UnityEngine.UI.Text>().text = carlosScript.tiempoCargaBate - 2 + "";
+            labelNumBom.GetComponent<UnityEngine.UI.Text>().text = carlosScript.limiteBombas - carlosScript.bombasEnMapa + "/" + carlosScript.limiteBombas;
+        }
     }
 
     private void AsignarCarlosRobotijo()
