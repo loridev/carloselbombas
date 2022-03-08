@@ -36,13 +36,14 @@ public class SoltarBombas : MonoBehaviour
                 Transform bomba = Instantiate(projectilePrefab, new Vector3(celdaCerca.posicionCelda.x, 0.25f, celdaCerca.posicionCelda.z), projectilePrefab.transform.rotation).transform;
                 celdaCerca.ocupado = true;
                 celdaCerca.objTipoCelda = bomba;
-                explosionBomba(bomba, celdaCerca, carlosAtributos.alcanceBomba, carlosAtributos.duracionBomba);
+                StartCoroutine(EsperarExplosion(bomba, celdaCerca, carlosAtributos.alcanceBomba, carlosAtributos.duracionBomba));
+                // explosionBomba(bomba, celdaCerca, carlosAtributos.alcanceBomba, carlosAtributos.duracionBomba);
                 Debug.Log("hola");
             }
         }
     }
 
-    private void explosionBomba(Transform bomba, Celda celda, int alcanceBomba, int duracionBomba)
+    private void explosionBomba(Transform bomba, Celda celda, int alcanceBomba)
     {
         bool siguienteDiagonal = carlosAtributos.siguienteDiagonal;
         List<Celda> celdasExplosion = new List<Celda>();
@@ -81,6 +82,15 @@ public class SoltarBombas : MonoBehaviour
 
         // Restar la bomba una vez explotada:
         --GetComponent<ComportamientoCarlos>().bombasEnMapa;
+    }
+
+    private IEnumerator EsperarExplosion(Transform bomba, Celda celda, int alcanceBomba, int duracionBomba)
+    {
+        yield return new WaitForSeconds(duracionBomba);
+        explosionBomba(bomba, celda, alcanceBomba);
+        Destroy(bomba.gameObject);
+        celda.objTipoCelda = null;
+        celda.ocupado = false;
     }
 
     public Celda EncontrarCelda(Vector3 posicion)
