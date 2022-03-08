@@ -140,12 +140,17 @@ public class ComportamientoCarlos : MonoBehaviour
 
         List<Celda> celdasColindantes = new List<Celda>();
         celdaBomba = soltarBombas.EncontrarCeldaMasCerca(supuestaPosBomba);
+
         celdasColindantes.AddRange(soltarBombas.EncontrarCeldasCerca(vista, fuerza, celdaBomba));
 
-        for (int i = 0; i < celdasColindantes.Count; i++)
+
+        for (int i = celdasColindantes.Count - 1; i <= 0; i--)
         {
             if (celdasColindantes[i] == null) celdasColindantes.Remove(celdasColindantes[i]);
         }
+        if (celdasColindantes.Count == 0) return;
+
+        if (celdasColindantes[0].objTipoCelda != null) return;
 
 
         if (celdaBomba.objTipoCelda != null)

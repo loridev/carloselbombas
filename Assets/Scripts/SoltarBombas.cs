@@ -42,15 +42,17 @@ public class SoltarBombas : MonoBehaviour
                 Transform bomba = Instantiate(projectilePrefab, new Vector3(celdaCerca.posicionCelda.x, 0.25f, celdaCerca.posicionCelda.z), projectilePrefab.transform.rotation).transform;
                 celdaCerca.ocupado = true;
                 celdaCerca.objTipoCelda = bomba;
-                StartCoroutine(EsperarExplosion(bomba, celdaCerca, carlosAtributos.alcanceBomba, carlosAtributos.duracionBomba));
+                bomba.GetComponent<ComportamientoBomba>().explotar = true;
+                StartCoroutine(EsperarExplosion(bomba, carlosAtributos.alcanceBomba, carlosAtributos.duracionBomba));
                 // explosionBomba(bomba, celdaCerca, carlosAtributos.alcanceBomba, carlosAtributos.duracionBomba);
                 Debug.Log("hola");
             }
         }
     }
 
-    private void explosionBomba(Transform bomba, Celda celda, int alcanceBomba)
+    public void ExplosionBomba(Transform bomba, int alcanceBomba)
     {
+        Celda celda = EncontrarCeldaMasCerca(bomba.position);
         bool siguienteDiagonal = carlosAtributos.siguienteDiagonal;
         List<Celda> celdasExplosion = new List<Celda>();
 
@@ -75,7 +77,11 @@ public class SoltarBombas : MonoBehaviour
                 Instantiate(particulaExplosion, new Vector3(celdasExplosion[i].posicionCelda.x, 0.25f, celdasExplosion[i].posicionCelda.z), Quaternion.identity);
                 if (celdasExplosion[i].objTipoCelda != null)
                 {
-                    Destroy(celdasExplosion[i].objTipoCelda.gameObject);
+                    if (celdasExplosion[i].objTipoCelda.tag == "Caja")
+                    {
+                        Destroy(celdasExplosion[i].objTipoCelda.gameObject);
+                        celdasExplosion[i].objTipoCelda = null;
+                    }
 
                     bool aparecer = UnityEngine.Random.Range(0, 10) <= 7;
 
@@ -95,6 +101,14 @@ public class SoltarBombas : MonoBehaviour
 
                     celdasExplosion[i].ocupado = false;
                     celdasExplosion[i].objTipoCelda = null;
+
+                    if (bomba != null)
+                    {
+                        Destroy(bomba.gameObject);
+                        bomba = null;
+                    }
+                    celda.objTipoCelda = null;
+                    celda.ocupado = false;
                 }
             }
         }
@@ -107,13 +121,13 @@ public class SoltarBombas : MonoBehaviour
         --GetComponent<ComportamientoCarlos>().bombasEnMapa;
     }
 
-    private IEnumerator EsperarExplosion(Transform bomba, Celda celda, int alcanceBomba, int duracionBomba)
+    private IEnumerator EsperarExplosion(Transform bomba, int alcanceBomba, int duracionBomba)
     {
         yield return new WaitForSeconds(duracionBomba);
-        explosionBomba(bomba, celda, alcanceBomba);
-        if (bomba != null) Destroy(bomba.gameObject);
-        celda.objTipoCelda = null;
-        celda.ocupado = false;
+        if (bomba != null)
+        {
+            if (bomba.GetComponent<ComportamientoBomba>().explotar) ExplosionBomba(bomba, alcanceBomba);
+        }
     }
 
     public Celda EncontrarCelda(Vector3 posicion)

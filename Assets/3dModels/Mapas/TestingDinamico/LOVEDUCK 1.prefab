@@ -111,7 +111,7 @@ GameObject:
   - component: {fileID: -3286707076610483541}
   m_Layer: 0
   m_Name: LOVEDUCK 1
-  m_TagString: Untagged
+  m_TagString: cNpc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -880,7 +880,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8832749435269552032}
-  m_LocalRotation: {x: 0.70682526, y: -0.0000000018117184, z: 0.0000000018102764, w: 0.7073883}
+  m_LocalRotation: {x: 0.70682526, y: -0.0000000018117184, z: 0.0000000018102764,
+    w: 0.7073883}
   m_LocalPosition: {x: -1.0042615, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 0.99999994, z: 1}
   m_Children:
@@ -1240,7 +1241,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8832749435269552052}
-  m_LocalRotation: {x: -0.00039815906, y: 0.000000007454195, z: -0.000000009077427, w: 0.99999994}
+  m_LocalRotation: {x: -0.00039815906, y: 0.000000007454195, z: -0.000000009077427,
+    w: 0.99999994}
   m_LocalPosition: {x: -0.418442, y: 0, z: 0}
   m_LocalScale: {x: 1.0000001, y: 1, z: 1.0000001}
   m_Children:

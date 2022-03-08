@@ -33,4 +33,24 @@ public class ComportamientoParticula : MonoBehaviour
 
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        switch (other.tag)
+        {
+            case "Player":
+                --other.gameObject.GetComponent<ComportamientoCarlos>().vidas;
+                break;
+            case "cNpc":
+            case "fNpc":
+                Destroy(other.gameObject);
+                break;
+            case "Bomba":
+                GameObject carlitos = GameObject.FindGameObjectWithTag("Player");
+                other.gameObject.GetComponent<ComportamientoBomba>().explotar = false;
+                carlitos.GetComponent<SoltarBombas>().ExplosionBomba(other.gameObject.transform, carlitos.GetComponent<ComportamientoCarlos>().alcanceBomba);
+                break;
+
+        }
+    }
+
 }

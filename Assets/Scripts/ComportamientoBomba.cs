@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ComportamientoBomba : MonoBehaviour
 {
-
+    public bool explotar;
     private void Start()
     {
         // AstarPath.active.Scan();

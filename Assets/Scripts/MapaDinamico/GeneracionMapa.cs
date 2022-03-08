@@ -189,10 +189,10 @@ public class GeneracionMapa : MonoBehaviour
             ComportamientoCarlos carlosScript = carlos.GetComponent<ComportamientoCarlos>();
 
             labelVidas.GetComponent<UnityEngine.UI.Text>().text = "" + carlosScript.vidas;
-            labelVelocidad.GetComponent<UnityEngine.UI.Text>().text = carlosScript.velocidadInicial - (carlosScript.velocidadInicial - 1) + "";
-            labelAlcance.GetComponent<UnityEngine.UI.Text>().text = carlosScript.alcanceBomba - 2 + "";
-            labelTiempoDet.GetComponent<UnityEngine.UI.Text>().text = carlosScript.duracionBomba - 4 + "";
-            labelCargaBat.GetComponent<UnityEngine.UI.Text>().text = carlosScript.tiempoCargaBate - 2 + "";
+            labelVelocidad.GetComponent<UnityEngine.UI.Text>().text = "" + carlosScript.velocidadInicial;
+            labelAlcance.GetComponent<UnityEngine.UI.Text>().text = "" + carlosScript.alcanceBomba;
+            labelTiempoDet.GetComponent<UnityEngine.UI.Text>().text = "" + carlosScript.duracionBomba;
+            labelCargaBat.GetComponent<UnityEngine.UI.Text>().text = "" + carlosScript.tiempoCargaBate;
             labelNumBom.GetComponent<UnityEngine.UI.Text>().text = carlosScript.limiteBombas - carlosScript.bombasEnMapa + "/" + carlosScript.limiteBombas;
         }
     }

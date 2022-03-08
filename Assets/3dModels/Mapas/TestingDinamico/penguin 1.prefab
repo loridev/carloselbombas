@@ -300,7 +300,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8282962549086560916}
-  m_LocalRotation: {x: 0.0000000013969839, y: 0.0000000013969839, z: -0.000000014901161, w: 1}
+  m_LocalRotation: {x: 0.0000000013969839, y: 0.0000000013969839, z: -0.000000014901161,
+    w: 1}
   m_LocalPosition: {x: -0.1061573, y: 0, z: -0.000000029802322}
   m_LocalScale: {x: 1, y: 1, z: 1.0000001}
   m_Children: []
@@ -485,7 +486,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8282962549086560928}
-  m_LocalRotation: {x: -0.00000023841858, y: 1.1768364e-14, z: -0.000000014901161, w: 1}
+  m_LocalRotation: {x: -0.00000023841858, y: 1.1768364e-14, z: -0.000000014901161,
+    w: 1}
   m_LocalPosition: {x: -1.5533133, y: 0.00000047683716, z: 0.00000047683716}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -576,7 +578,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8282962549086560934}
-  m_LocalRotation: {x: 0.0000000076729005, y: -0.0000000017280851, z: -0.21971714, w: 0.97556365}
+  m_LocalRotation: {x: 0.0000000076729005, y: -0.0000000017280851, z: -0.21971714,
+    w: 0.97556365}
   m_LocalPosition: {x: -0.55853355, y: 0.4289832, z: 2.7081904}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1067,7 +1070,7 @@ GameObject:
   - component: {fileID: 522545357756497969}
   m_Layer: 0
   m_Name: penguin 1
-  m_TagString: Untagged
+  m_TagString: cNpc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
