@@ -18,5 +18,9 @@ public class ComportamientoBomba : MonoBehaviour
             rb.isKinematic = true;
             gameObject.GetComponent<BoxCollider>().isTrigger = false;
         }
+        if (other.tag == "Player")
+        {
+            other.transform.position = new Vector3(other.transform.position.x, 1, other.transform.position.z);
+        }
     }
 }

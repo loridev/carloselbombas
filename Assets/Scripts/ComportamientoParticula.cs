@@ -29,7 +29,7 @@ public class ComportamientoParticula : MonoBehaviour
     private IEnumerator EsperarDestruccion()
     {
         yield return new WaitForSeconds(1);
-        gameObject.SetActive(false);
+        Destroy(gameObject);
 
     }
 

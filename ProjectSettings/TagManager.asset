@@ -30,6 +30,7 @@ TagManager:
   - PUvelocidad
   - Bomba
   - Pared
+  - Mapa
   layers:
   - Default
   - TransparentFX

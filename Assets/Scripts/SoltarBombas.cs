@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class SoltarBombas : MonoBehaviour
 {
+    private GeneracionMapa mapaCosas;
+    private Transform[] powerUps;
+    private Transform[] powerDowns;
     public GameObject projectilePrefab;
     private Celda[,] celdas;
     private ComportamientoCarlos carlosAtributos;
@@ -12,6 +15,9 @@ public class SoltarBombas : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        mapaCosas = GameObject.FindGameObjectWithTag("Mapa").GetComponent<GeneracionMapa>();
+        powerUps = mapaCosas.powerUps;
+        powerDowns = mapaCosas.powerDowns;
         celdas = GeneracionMapa.celdas;
         carlosAtributos = GetComponent<ComportamientoCarlos>();
     }
@@ -70,6 +76,23 @@ public class SoltarBombas : MonoBehaviour
                 if (celdasExplosion[i].objTipoCelda != null)
                 {
                     Destroy(celdasExplosion[i].objTipoCelda.gameObject);
+
+                    bool aparecer = UnityEngine.Random.Range(0, 10) <= 7;
+
+                    if (aparecer)
+                    {
+                        int typePower = UnityEngine.Random.Range(0, 2);
+                        int positionPower = UnityEngine.Random.Range(0, 6);
+
+                        if (typePower == 0)
+                        {
+                            Instantiate(powerUps[positionPower], new Vector3(celdasExplosion[i].posicionCelda.x, 0.5f, celdasExplosion[i].posicionCelda.z), Quaternion.identity);
+                        } else
+                        {
+                            Instantiate(powerDowns[positionPower], new Vector3(celdasExplosion[i].posicionCelda.x, 0.5f, celdasExplosion[i].posicionCelda.z), Quaternion.identity);
+                        }
+                    }
+
                     celdasExplosion[i].ocupado = false;
                     celdasExplosion[i].objTipoCelda = null;
                 }
@@ -88,7 +111,7 @@ public class SoltarBombas : MonoBehaviour
     {
         yield return new WaitForSeconds(duracionBomba);
         explosionBomba(bomba, celda, alcanceBomba);
-        Destroy(bomba.gameObject);
+        if (bomba != null) Destroy(bomba.gameObject);
         celda.objTipoCelda = null;
         celda.ocupado = false;
     }
