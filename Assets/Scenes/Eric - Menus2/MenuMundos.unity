@@ -371,7 +371,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 387086487}
+  m_TargetGraphic: {fileID: 140607318}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -848,7 +848,7 @@ GameObject:
   - component: {fileID: 541431803}
   m_Layer: 5
   m_Name: BotonNivel4
-  m_TagString: Finish
+  m_TagString: Nivel4
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -913,7 +913,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 387086487}
+  m_TargetGraphic: {fileID: 541431801}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -1718,7 +1718,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 387086487}
+  m_TargetGraphic: {fileID: 1048739665}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:

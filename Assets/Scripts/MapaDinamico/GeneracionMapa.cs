@@ -105,7 +105,7 @@ public class GeneracionMapa : MonoBehaviour
                             {
                                 npcSpawn = Instantiate(prefabNpcComunes[nivel.worldNum - 1], new Vector3(posicion.x, 1, posicion.z), Quaternion.identity);
                             }
-                            npcSpawn.GetComponent<NPCComun>().isVertical = i % 2 == 0;
+                            npcSpawn.GetComponent<NPCComun>().isVertical = i % 2 != 0;
                             break;
                         case "fNpc":
                             robotijo = Instantiate(prefabNpcFinal, new Vector3(posicion.x, 1, posicion.z), Quaternion.identity);
@@ -179,7 +179,7 @@ public class GeneracionMapa : MonoBehaviour
         }
         */
 
-        AsignarCarlosRobotijo();
+        //AsignarCarlosRobotijo();
     }
 
     private void ActualizarAtributos()
@@ -199,7 +199,7 @@ public class GeneracionMapa : MonoBehaviour
 
     private void AsignarCarlosRobotijo()
     {
-        AstarPath.active.Scan();
+        //AstarPath.active.Scan();
     }
 }
 
