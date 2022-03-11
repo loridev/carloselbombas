@@ -21,7 +21,7 @@ public class ComportamientoParticula : MonoBehaviour
 
     private IEnumerator EsperarCollider()
     {
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(0.05f);
         Destroy(GetComponent<BoxCollider>());
         
     }
@@ -48,6 +48,9 @@ public class ComportamientoParticula : MonoBehaviour
                 GameObject carlitos = GameObject.FindGameObjectWithTag("Player");
                 other.gameObject.GetComponent<ComportamientoBomba>().explotar = false;
                 carlitos.GetComponent<SoltarBombas>().ExplosionBomba(other.gameObject.transform, carlitos.GetComponent<ComportamientoCarlos>().alcanceBomba);
+                break;
+            case "Particula":
+                Destroy(gameObject);
                 break;
 
         }

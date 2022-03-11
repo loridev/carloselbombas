@@ -57,28 +57,16 @@ MonoBehaviour:
   - {fileID: 439498, guid: 4b9f90fedad5a594d9352f3224db8691, type: 3}
   - {fileID: 405930, guid: 713ee6e0f39477843a69f60189959bf0, type: 3}
   - {fileID: 428872, guid: 479c3c1a92ae76b4fb6a18dd644a3ed2, type: 3}
-  prefabCelda: {fileID: 6749168954796504676, guid: 307fee33c2462754d84e1f2c8e19be84,
-    type: 3}
-  prebabPared: {fileID: 1151540309577347458, guid: 5c651e75dce121747a322f9d6211b905,
-    type: 3}
-  prefabCaja: {fileID: 187356076435918556, guid: c20f16713bf3da242bb00040bb66afbd,
-    type: 3}
-  prefabCarlos: {fileID: 4538347875629000977, guid: aea44e4faab6b4ee69410d1b58d7bc1b,
-    type: 3}
-  prefabNpcFinal: {fileID: 3353867616600478801, guid: e9519b9be8e97424da71c7ea3ee9293a,
-    type: 3}
-  prefabFinal: {fileID: 0}
-  prefabNpcComunes: []
-  texturaSuelos: []
-  texturaParedes: []
-  interfazIndividual: {fileID: 0}
-  interfazMultijugador: {fileID: 0}
-  labelVidas: {fileID: 0}
-  labelVelocidad: {fileID: 0}
-  labelAlcance: {fileID: 0}
-  labelTiempoDet: {fileID: 0}
-  labelCargaBat: {fileID: 0}
-  labelNumBom: {fileID: 0}
+  prefabCelda: {fileID: 6749168954796504676, guid: 307fee33c2462754d84e1f2c8e19be84, type: 3}
+  prebabPared: {fileID: 1151540309577347458, guid: 5c651e75dce121747a322f9d6211b905, type: 3}
+  prefabCaja: {fileID: 187356076435918556, guid: c20f16713bf3da242bb00040bb66afbd, type: 3}
+  prefabCarlos: {fileID: 4538347875629000977, guid: aea44e4faab6b4ee69410d1b58d7bc1b, type: 3}
+  prefabNpcFinal: {fileID: 3353867616600478801, guid: e9519b9be8e97424da71c7ea3ee9293a, type: 3}
+  prefabNpcComun: {fileID: 8282962549086801570, guid: 49f102a8509744ab9975ca7c17e26a61, type: 3}
+  texturaSuelo: {fileID: 2100000, guid: 00494841d457c5e40beb347b6483f7c9, type: 2}
+  texturaPared: {fileID: 2100000, guid: 9b56e06f8d3f8584597ec8a11bd1f200, type: 2}
+  ancho: 10
+  alto: 10
 --- !u!1 &4955872081634097665
 GameObject:
   m_ObjectHideFlags: 0
@@ -90,7 +78,7 @@ GameObject:
   - component: {fileID: 4955872081634097727}
   - component: {fileID: 4955872081634097726}
   m_Layer: 0
-  m_Name: MapaDinamico
+  m_Name: MapaDinamicoBK
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

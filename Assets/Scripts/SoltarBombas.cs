@@ -72,7 +72,7 @@ public class SoltarBombas : MonoBehaviour
         for (int i = 0; i < celdasExplosion.Count; i++)
         {
             //Debug.Log(celdasExplosion[i].posicionCelda);
-            if (celdasExplosion[i] != null && bomba != null)
+            if (celdasExplosion[i] != null)
             {
                 Instantiate(particulaExplosion, new Vector3(celdasExplosion[i].posicionCelda.x, 0.25f, celdasExplosion[i].posicionCelda.z), Quaternion.identity);
                 if (celdasExplosion[i].objTipoCelda != null)
