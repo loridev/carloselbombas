@@ -6,7 +6,9 @@ using UnityEngine;
 public class ComportamientoCarlos : MonoBehaviour
 {
     private SoltarBombas soltarBombas;
-    
+
+    private Celda[,] celdas;
+
     // VELOCIDAD
     public float velocidadInicial;
     private float velocidad;
@@ -35,6 +37,7 @@ public class ComportamientoCarlos : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        celdas = GeneracionMapa.celdas;
         controlador = GetComponent<CharacterController>();
         velocidad = velocidadInicial;
         soltarBombas = GetComponent<SoltarBombas>();
@@ -116,32 +119,38 @@ public class ComportamientoCarlos : MonoBehaviour
 
     private void GolpearBomba(int fuerza)
     {
-        Celda celdaActual = soltarBombas.EncontrarCeldaMasCerca(transform.position);
-        Celda[] celdasDireccion = soltarBombas.EncontrarCeldasCerca(vista, fuerza, celdaActual);
+        Celda celdaBomba = null;
+        Celda celdaActual = EncontrarCeldaMasCerca(transform.position);
+        if (celdaActual.objTipoCelda != null)
+        {
+            if (celdaActual.objTipoCelda.tag == "Bomba") celdaBomba = celdaActual;
+        } 
         Vector3 supuestaPosBomba = new Vector3(0, 0, 0);
 
-        Celda celdaBomba = null;
 
-        switch (vista)
+        if (celdaBomba == null)
         {
-            case "up":
-                supuestaPosBomba = new Vector3(celdaActual.posicionCelda.x, celdaActual.posicionCelda.y, celdaActual.posicionCelda.z + 1);
-                break;
-            case "down":
-                supuestaPosBomba = new Vector3(celdaActual.posicionCelda.x, celdaActual.posicionCelda.y, celdaActual.posicionCelda.z - 1);
-                break;
-            case "left":
-                supuestaPosBomba = new Vector3(celdaActual.posicionCelda.x - 1, celdaActual.posicionCelda.y, celdaActual.posicionCelda.z);
-                break;
-            case "right":
-                supuestaPosBomba = new Vector3(celdaActual.posicionCelda.x + 1, celdaActual.posicionCelda.y, celdaActual.posicionCelda.z);
-                break;
+            switch (vista)
+            {
+                case "up":
+                    supuestaPosBomba = new Vector3(celdaActual.posicionCelda.x, celdaActual.posicionCelda.y, celdaActual.posicionCelda.z + 1);
+                    break;
+                case "down":
+                    supuestaPosBomba = new Vector3(celdaActual.posicionCelda.x, celdaActual.posicionCelda.y, celdaActual.posicionCelda.z - 1);
+                    break;
+                case "left":
+                    supuestaPosBomba = new Vector3(celdaActual.posicionCelda.x - 1, celdaActual.posicionCelda.y, celdaActual.posicionCelda.z);
+                    break;
+                case "right":
+                    supuestaPosBomba = new Vector3(celdaActual.posicionCelda.x + 1, celdaActual.posicionCelda.y, celdaActual.posicionCelda.z);
+                    break;
+            }
         }
 
         List<Celda> celdasColindantes = new List<Celda>();
-        celdaBomba = soltarBombas.EncontrarCeldaMasCerca(supuestaPosBomba);
+        if (celdaBomba == null) celdaBomba = EncontrarCeldaMasCerca(supuestaPosBomba);
 
-        celdasColindantes.AddRange(soltarBombas.EncontrarCeldasCerca(vista, fuerza, celdaBomba));
+        celdasColindantes.AddRange(EncontrarCeldasCerca(vista, fuerza, celdaBomba));
 
 
         for (int i = celdasColindantes.Count - 1; i >= 0; i--)
@@ -162,9 +171,12 @@ public class ComportamientoCarlos : MonoBehaviour
                 if (celdasColindantes.Count > fuerza)
                 {
                     celdaFinal = celdasColindantes[fuerza - 1];
-                } else
+                } else if (celdasColindantes[celdasColindantes.Count - 1].objTipoCelda != null)
                 {
                     celdaFinal = celdasColindantes[celdasColindantes.Count - 2];
+                } else
+                {
+                    celdaFinal = celdasColindantes[celdasColindantes.Count - 1];
                 }
                 celdaBomba.objTipoCelda.position = new Vector3(celdaFinal.posicionCelda.x, 0.25f, celdaFinal.posicionCelda.z);
                 celdaBomba.ocupado = false;
@@ -259,5 +271,131 @@ public class ComportamientoCarlos : MonoBehaviour
         limiteBombas = limiteBombasAux;
     }
 
+    public Celda[] EncontrarCeldasCerca(string direccion, int distancia, Celda celdaInicial)
+    {
+        Celda[] retorno = new Celda[distancia];
+        Vector3 posSiguiente = new Vector3(0, 0, 0);
+        Celda celdaSiguiente;
+
+        switch (direccion)
+        {
+            case "up":
+                for (int i = 1; i <= distancia; i++)
+                {
+                    posSiguiente = new Vector3(celdaInicial.posicionCelda.x, celdaInicial.posicionCelda.y, celdaInicial.posicionCelda.z + i);
+                    celdaSiguiente = EncontrarCelda(posSiguiente);
+                    if (celdaSiguiente != null)
+                    {
+                        if (celdaSiguiente.objTipoCelda != null)
+                        {
+                            if (celdaSiguiente.objTipoCelda.tag == "Pared") return retorno;
+                        }
+                        if (celdaSiguiente.ocupado)
+                        {
+                            retorno[i - 1] = celdaSiguiente;
+                            return retorno;
+                        }
+                        retorno[i - 1] = celdaSiguiente;
+                    }
+                    else return retorno;
+                }
+                break;
+            case "down":
+                for (int i = 1; i <= distancia; i++)
+                {
+                    posSiguiente = new Vector3(celdaInicial.posicionCelda.x, celdaInicial.posicionCelda.y, celdaInicial.posicionCelda.z - i);
+                    celdaSiguiente = EncontrarCelda(posSiguiente);
+                    if (celdaSiguiente != null)
+                    {
+                        if (celdaSiguiente.objTipoCelda != null)
+                        {
+                            if (celdaSiguiente.objTipoCelda.tag == "Pared") return retorno;
+                        }
+                        if (celdaSiguiente.ocupado)
+                        {
+                            retorno[i - 1] = celdaSiguiente;
+                            return retorno;
+                        }
+                        retorno[i - 1] = celdaSiguiente;
+                    }
+                    else return retorno;
+                }
+                break;
+            case "left":
+                for (int i = 1; i <= distancia; i++)
+                {
+                    posSiguiente = new Vector3(celdaInicial.posicionCelda.x - i, celdaInicial.posicionCelda.y, celdaInicial.posicionCelda.z);
+                    celdaSiguiente = EncontrarCelda(posSiguiente);
+                    if (celdaSiguiente != null)
+                    {
+                        if (celdaSiguiente.objTipoCelda != null)
+                        {
+                            if (celdaSiguiente.objTipoCelda.tag == "Pared") return retorno;
+                        }
+                        if (celdaSiguiente.ocupado)
+                        {
+                            retorno[i - 1] = celdaSiguiente;
+                            return retorno;
+                        }
+                        retorno[i - 1] = celdaSiguiente;
+                    }
+                    else return retorno;
+                }
+                break;
+            case "right":
+                for (int i = 1; i <= distancia; i++)
+                {
+                    posSiguiente = new Vector3(celdaInicial.posicionCelda.x + i, celdaInicial.posicionCelda.y, celdaInicial.posicionCelda.z);
+                    celdaSiguiente = EncontrarCelda(posSiguiente);
+                    if (celdaSiguiente != null)
+                    {
+                        if (celdaSiguiente.objTipoCelda != null)
+                        {
+                            if (celdaSiguiente.objTipoCelda.tag == "Pared") return retorno;
+                        }
+                        if (celdaSiguiente.ocupado)
+                        {
+                            retorno[i - 1] = celdaSiguiente;
+                            return retorno;
+                        }
+                        retorno[i - 1] = celdaSiguiente;
+                    }
+                    else return retorno;
+                }
+                break;
+        }
+
+        return retorno;
+    }
+
+    public Celda EncontrarCelda(Vector3 posicion)
+    {
+        foreach (Celda celda in celdas)
+        {
+            if (celda.posicionCelda == posicion) return celda;
+        }
+        return null;
+    }
+
+    public Celda EncontrarCeldaMasCerca(Vector3 posicion)
+    {
+        float minDistancia = float.MaxValue;
+        Celda celdaCercana = null;
+
+        foreach (Celda celda in celdas)
+        {
+            float distancia = Vector3.Distance(posicion, celda.posicionCelda);
+            if (distancia < minDistancia)
+            {
+                minDistancia = distancia;
+                celdaCercana = celda;
+            }
+
+            // Debug.Log(distancia);
+            // Debug.Log(celda.obj.name);
+        }
+
+        return celdaCercana;
+    }
 
 }

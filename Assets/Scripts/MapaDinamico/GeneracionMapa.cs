@@ -27,7 +27,7 @@ public class GeneracionMapa : MonoBehaviour
     private Transform carlos;
     private Transform robotijo;
 
-    public static AstarPath scriptAi;
+    //public static AstarPath scriptAi;
     private Level nivel;
 
     public GameObject labelVidas;

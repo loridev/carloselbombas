@@ -9,7 +9,8 @@ public class ComportamientoParticula : MonoBehaviour
     void Start()
     {
         StartCoroutine(EsperarCollider());
-        StartCoroutine(EsperarDestruccion());
+        //StartCoroutine(EsperarDestruccion());
+        Destroy(gameObject, GetComponent<ParticleSystem>().main.duration);
 
     }
 
@@ -35,6 +36,7 @@ public class ComportamientoParticula : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        Destroy(GetComponent<BoxCollider>());
         switch (other.tag)
         {
             case "Player":
@@ -46,8 +48,9 @@ public class ComportamientoParticula : MonoBehaviour
                 break;
             case "Bomba":
                 GameObject carlitos = GameObject.FindGameObjectWithTag("Player");
-                other.gameObject.GetComponent<ComportamientoBomba>().explotar = false;
-                carlitos.GetComponent<SoltarBombas>().ExplosionBomba(other.gameObject.transform, carlitos.GetComponent<ComportamientoCarlos>().alcanceBomba);
+                // other.gameObject.GetComponent<ComportamientoBomba>().explotar = false;
+                other.gameObject.GetComponent<ComportamientoBomba>().ExplosionBomba(carlitos.GetComponent<ComportamientoCarlos>().alcanceBomba);
+                Destroy(other.gameObject);
                 break;
             case "Particula":
                 Destroy(gameObject);

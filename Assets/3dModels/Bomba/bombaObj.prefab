@@ -333,3 +333,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72c5c226236e4bd44a23c74d3d2f04db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  explotar: 0
+  particulaExplosion: {fileID: 4441266138185142, guid: 25c7aa9ad705fe143a4d71c1c8deb7d4,
+    type: 3}
