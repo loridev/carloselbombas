@@ -370,7 +370,7 @@ MonoBehaviour:
   limiteBombas: 3
   bombasEnMapa: 0
   siguienteDiagonal: 0
-  vidas: 0
+  vidas: 3
 --- !u!1 &6012306605592577328
 GameObject:
   m_ObjectHideFlags: 0

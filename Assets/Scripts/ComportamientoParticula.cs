@@ -1,10 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ComportamientoParticula : MonoBehaviour
 {
-
     // Start is called before the first frame update
     void Start()
     {
@@ -40,7 +40,15 @@ public class ComportamientoParticula : MonoBehaviour
         switch (other.tag)
         {
             case "Player":
-                --other.gameObject.GetComponent<ComportamientoCarlos>().vidas;
+                if (other.gameObject.GetComponent<ComportamientoCarlos>().restarVidas)
+                {
+                    StartCoroutine(EsperarVidas(other));
+                    --other.gameObject.GetComponent<ComportamientoCarlos>().vidas;
+                }
+                if (other.gameObject.GetComponent<ComportamientoCarlos>().vidas <= 0)
+                {
+                    SceneManager.LoadScene("MenuMundos");
+                }
                 break;
             case "cNpc":
             case "fNpc":
@@ -58,5 +66,15 @@ public class ComportamientoParticula : MonoBehaviour
 
         }
     }
+
+    public IEnumerator EsperarVidas(Collider other)
+    {
+        //TODO: LLAMAR A FUNCION DE CARLOS QUE RESTE VIDA
+        other.gameObject.GetComponent<ComportamientoCarlos>().restarVidas = false;
+        yield return new WaitForSeconds(2);
+        other.gameObject.GetComponent<ComportamientoCarlos>().restarVidas = true;
+        Debug.Log("Deberia ser true");
+    }
+
 
 }

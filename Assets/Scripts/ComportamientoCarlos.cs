@@ -30,6 +30,7 @@ public class ComportamientoCarlos : MonoBehaviour
     public int limiteBombas;
     public int bombasEnMapa;
     public bool siguienteDiagonal;
+    public bool restarVidas;
 
     // INDIVIDUAL
     public int vidas = 3;
@@ -39,6 +40,7 @@ public class ComportamientoCarlos : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        restarVidas = true;
         celdas = GeneracionMapa.celdas;
         controlador = GetComponent<CharacterController>();
         velocidad = velocidadInicial;
