@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 //TODO: CARLOS EN BATE GIRA Y LE PEGA A TODO LO DE ALREDEDOR
 public class ComportamientoCarlos : MonoBehaviour
@@ -215,6 +217,9 @@ public class ComportamientoCarlos : MonoBehaviour
                     ++velocidad;
                     ++velocidadInicial;
                 }
+                break;
+            case "finalNivel":
+                SceneManager.LoadScene("MenuMundos");
                 break;
         }
     }

@@ -35,6 +35,7 @@ TagManager:
   - cNpc
   - fNpc
   - Particula
+  - PUfinalNivel
   layers:
   - Default
   - TransparentFX
