@@ -144,8 +144,9 @@ public class ComportamientoCarlos : MonoBehaviour
         celdasColindantes.AddRange(soltarBombas.EncontrarCeldasCerca(vista, fuerza, celdaBomba));
 
 
-        for (int i = celdasColindantes.Count - 1; i <= 0; i--)
+        for (int i = celdasColindantes.Count - 1; i >= 0; i--)
         {
+            Debug.Log("Hola");
             if (celdasColindantes[i] == null) celdasColindantes.Remove(celdasColindantes[i]);
         }
         if (celdasColindantes.Count == 0) return;
