@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.5748172, a: 1}
+  m_IndirectSpecularColor: {r: 0.24647519, g: 0.28234503, b: 0.34570286, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -303,6 +303,7 @@ GameObject:
   - component: {fileID: 140607319}
   - component: {fileID: 140607318}
   - component: {fileID: 140607317}
+  - component: {fileID: 140607320}
   m_Layer: 5
   m_Name: BotonNivel3
   m_TagString: Nivel3
@@ -374,7 +375,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 387086489}
+      - m_Target: {fileID: 140607320}
         m_TargetAssemblyTypeName: SelectNivel, Assembly-CSharp
         m_MethodName: cargarNivel
         m_Mode: 1
@@ -424,6 +425,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 140607315}
   m_CullTransparentMesh: 1
+--- !u!114 &140607320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 140607315}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7e045793e98bc74784e371d7de3188b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &318591186
 GameObject:
   m_ObjectHideFlags: 0
@@ -832,6 +845,7 @@ GameObject:
   - component: {fileID: 541431802}
   - component: {fileID: 541431801}
   - component: {fileID: 541431800}
+  - component: {fileID: 541431803}
   m_Layer: 5
   m_Name: BotonNivel4
   m_TagString: Finish
@@ -903,7 +917,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 387086489}
+      - m_Target: {fileID: 541431803}
         m_TargetAssemblyTypeName: SelectNivel, Assembly-CSharp
         m_MethodName: cargarNivel
         m_Mode: 1
@@ -953,6 +967,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 541431798}
   m_CullTransparentMesh: 1
+--- !u!114 &541431803
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 541431798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7e045793e98bc74784e371d7de3188b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &567580666
 GameObject:
   m_ObjectHideFlags: 0
@@ -1624,6 +1650,7 @@ GameObject:
   - component: {fileID: 1048739666}
   - component: {fileID: 1048739665}
   - component: {fileID: 1048739664}
+  - component: {fileID: 1048739667}
   m_Layer: 5
   m_Name: BotonNivel2
   m_TagString: Nivel2
@@ -1695,7 +1722,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 387086489}
+      - m_Target: {fileID: 1048739667}
         m_TargetAssemblyTypeName: SelectNivel, Assembly-CSharp
         m_MethodName: cargarNivel
         m_Mode: 1
@@ -1745,6 +1772,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1048739662}
   m_CullTransparentMesh: 1
+--- !u!114 &1048739667
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1048739662}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7e045793e98bc74784e371d7de3188b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1107613946
 GameObject:
   m_ObjectHideFlags: 0
