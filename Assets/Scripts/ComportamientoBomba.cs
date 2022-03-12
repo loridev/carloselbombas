@@ -176,7 +176,6 @@ public class ComportamientoBomba : MonoBehaviour
             celdasExplosion.AddRange(EncontrarCeldasDiagonal("upLeft", alcanceBomba, celda));
             celdasExplosion.AddRange(EncontrarCeldasDiagonal("downRight", alcanceBomba, celda));
             celdasExplosion.AddRange(EncontrarCeldasDiagonal("downLeft", alcanceBomba, celda));
-            Destroy(gameObject);
         }
         else
         {
@@ -185,6 +184,13 @@ public class ComportamientoBomba : MonoBehaviour
             celdasExplosion.AddRange(carlosAtributos.EncontrarCeldasCerca("left", alcanceBomba, celda));
             celdasExplosion.AddRange(carlosAtributos.EncontrarCeldasCerca("right", alcanceBomba, celda));
         }
+        if (!explotada)
+        {
+            --carlosAtributos.bombasEnMapa;
+            explotada = true;
+        }
+
+        Destroy(gameObject);
 
         // Poner particulas de la bomba
         for (int i = 0; i < celdasExplosion.Count; i++)
@@ -202,7 +208,7 @@ public class ComportamientoBomba : MonoBehaviour
                         celdasExplosion[i].objTipoCelda = null;
                     }
 
-                    bool aparecer = UnityEngine.Random.Range(0, 10) <= 7;
+                    bool aparecer = UnityEngine.Random.Range(0, 10) <= 4;
 
                     if (aparecer)
                     {
@@ -224,13 +230,7 @@ public class ComportamientoBomba : MonoBehaviour
                     celda.objTipoCelda = null;
                     celda.ocupado = false;
                     StopAllCoroutines();
-                    if (!explotada)
-                    {
-                        --carlosAtributos.bombasEnMapa;
-                        explotada = true;
-                    }
 
-                    Destroy(gameObject);
 
                 }
             }

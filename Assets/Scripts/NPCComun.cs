@@ -24,7 +24,7 @@ public class NPCComun : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        transform.Rotate(0, 180, 0, Space.Self);
+        if (other.tag != "ground") transform.Rotate(0, 180, 0, Space.Self);
         // speed = -speed;
     }
 }

@@ -37,6 +37,8 @@ public class GeneracionMapa : MonoBehaviour
     public GameObject labelCargaBat;
     public GameObject labelNumBom;
 
+    public GameObject mainCamera;
+
     async void Start()
     {
         if (Globals.Modo == "Indiv")
@@ -47,6 +49,18 @@ public class GeneracionMapa : MonoBehaviour
             interfazMultijugador.SetActive(true);
         }
         nivel = await ApiRequests.GetLevel(Globals.WorldNum, Globals.LevelNum);
+        switch (nivel.worldNum)
+        {
+            case 1:
+                mainCamera.transform.position = new Vector3(4.5f, 7, -0.5f);
+                break;
+            case 2:
+                mainCamera.transform.position = new Vector3(6, 12, -1f);
+                break;
+            case 3:
+                mainCamera.transform.position = new Vector3(8.5f, 15, -1f);
+                break;
+        }
         GenerarMapa();
     }
 

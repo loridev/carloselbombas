@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-
-//TODO: CARLOS EN BATE GIRA Y LE PEGA A TODO LO DE ALREDEDOR
 public class ComportamientoCarlos : MonoBehaviour
 {
     private SoltarBombas soltarBombas;
@@ -267,6 +265,18 @@ public class ComportamientoCarlos : MonoBehaviour
         {
             GestionarPowerDowns(other.tag);
             Destroy(other.gameObject);
+        } else if (other.tag == "Particula" || other.tag == "cNpc")
+        {
+            if (restarVidas)
+            {
+                --vidas;
+
+                if (vidas == 0)
+                {
+                    SceneManager.LoadScene("MenuMundos");
+                }
+                StartCoroutine(EsperarVidas());
+            }
         }
     }
 
@@ -403,6 +413,14 @@ public class ComportamientoCarlos : MonoBehaviour
         }
 
         return celdaCercana;
+    }
+
+
+    public IEnumerator EsperarVidas()
+    {
+        restarVidas = false;
+        yield return new WaitForSeconds(2);
+        restarVidas = true;
     }
 
 }
