@@ -219,7 +219,17 @@ public class ComportamientoCarlos : MonoBehaviour
                 }
                 break;
             case "finalNivel":
-                SceneManager.LoadScene("MenuMundos");
+                if (Globals.LevelNum == 4)
+                {
+                    Globals.LevelNum = 5;
+                    SceneManager.LoadScene("MapaDinamicoFinal");
+                } else if (Globals.LevelNum == 5)
+                {
+                    SceneManager.LoadScene("MenuIndiv");
+                } else
+                {
+                    SceneManager.LoadScene("MenuMundos");
+                }
                 break;
         }
     }
