@@ -360,6 +360,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72edb437c672af54e8f22b393dcdb467, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  indicadores:
+  - {fileID: 400004, guid: e8752358c7036d242a54c4039ca8abe6, type: 3}
+  - {fileID: 400004, guid: 408db2b26f29a4001a126f62a543966a, type: 3}
+  - {fileID: 400004, guid: 58f30be5fe4e44e3aa1307a7f70d614a, type: 3}
   velocidadInicial: 2
   fuerzaBateNormal: 3
   fuerzaBateCargado: 5

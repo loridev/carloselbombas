@@ -9,6 +9,13 @@ public class ComportamientoCarlos : MonoBehaviour
 
     private Celda[,] celdas;
 
+    // INDICADORES
+    public Transform[] indicadores;
+    private Transform indicadorBateCargando;
+    private Transform indicadorBateCargado;
+    private Transform indicadorDiagonal;
+    private Transform indicadorNoBombas;
+
     // VELOCIDAD
     public float velocidadInicial;
     private float velocidad;
@@ -93,12 +100,25 @@ public class ComportamientoCarlos : MonoBehaviour
     {
         if (Input.GetKey("b"))
         {
+            if (indicadorBateCargando == null && indicadorBateCargado == null)
+            {
+                indicadorBateCargando = Instantiate(indicadores[0], new Vector3(transform.position.x, 0, transform.position.z), Quaternion.identity);
+            }
             cargando = true;
             velocidad = velocidadInicial / 2;
             temporizadorCargado += Time.deltaTime;
+            if (indicadorBateCargando != null) indicadorBateCargando.position = new Vector3(transform.position.x, 0, transform.position.z);
 
             if (temporizadorCargado >= tiempoCargaBate)
             {
+                if (indicadorBateCargado == null)
+                {
+                    Destroy(indicadorBateCargando.gameObject);
+                    indicadorBateCargando = null;
+
+                    indicadorBateCargado = Instantiate(indicadores[1], new Vector3(transform.position.x, 0, transform.position.z), Quaternion.identity);
+                }
+                indicadorBateCargado.position = new Vector3(transform.position.x, 0, transform.position.z);
                 velocidad = velocidadInicial / 3;
             }
         } else
@@ -108,11 +128,15 @@ public class ComportamientoCarlos : MonoBehaviour
 
         if (Input.GetKeyUp("b") && temporizadorCargado >= tiempoCargaBate)
         {
+            Destroy(indicadorBateCargado.gameObject);
+            indicadorBateCargado = null;
             GolpearBomba(fuerzaBateCargado);
             temporizadorCargado = 0;
             cargando = false;
         } else if (Input.GetKeyUp("b") && temporizadorCargado < tiempoCargaBate)
         {
+            Destroy(indicadorBateCargando.gameObject);
+            indicadorBateCargando = null;
             GolpearBomba(fuerzaBateNormal);
             temporizadorCargado = 0;
             cargando = false;
@@ -203,7 +227,7 @@ public class ComportamientoCarlos : MonoBehaviour
                 siguienteDiagonal = true;
                 break;
             case "cantbombas":
-                if (limiteBombas < 6) ++limiteBombas;
+                if (limiteBombas < 7) ++limiteBombas;
                 break;
             case "cargabate":
                 if (tiempoCargaBate > 2) --tiempoCargaBate;
@@ -247,7 +271,7 @@ public class ComportamientoCarlos : MonoBehaviour
                 StartCoroutine(NoBombas());
                 break;
             case "cantbombas":
-                if (limiteBombas > 1) --limiteBombas;
+                if (limiteBombas > 2) --limiteBombas;
                 break;
             case "cargabate":
                 if (tiempoCargaBate < 7) ++tiempoCargaBate;
