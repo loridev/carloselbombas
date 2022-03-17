@@ -301,13 +301,40 @@ public class ComportamientoCarlos : MonoBehaviour
             Destroy(other.gameObject);
         } else if (other.tag == "Particula" || other.tag == "cNpc")
         {
-            Celda celdaCarlos = EncontrarCelda(new Vector3(transform.position.x, 0, transform.position.z));
-            if (other.tag == "Particula" && celdaCarlos.objTipoCelda.tag == "Bomba")
+            Celda celdaCarlos = EncontrarCeldaMasCerca(new Vector3(transform.position.x, 0, transform.position.z));
+            Collider[] colliders = Physics.OverlapSphere(celdaCarlos.posicionCelda, 0.00001f);
+            foreach (Collider collider in colliders)
             {
-                GameObject bomba = celdaCarlos.objTipoCelda.gameObject;
-                bomba.GetComponent<ComportamientoBomba>().ExplosionBomba(alcanceBomba);
-                Destroy(bomba);
+                if (collider.tag == "Bomba")
+                {
+                    GameObject bomba = collider.gameObject;
+                    bomba.GetComponent<ComportamientoBomba>().ExplosionBomba(alcanceBomba);
+
+                }
             }
+            /*
+            Celda celdaCarlos = EncontrarCeldaMasCerca(new Vector3(transform.position.x, 0, transform.position.z));
+            if (celdaCarlos.objTipoCelda != null)
+            {
+                if (other.tag == "Particula" && celdaCarlos.objTipoCelda.tag == "Bomba")
+                {
+                    Collider[] colliders = Physics.OverlapSphere(celdaCarlos.posicionCelda, 1);
+                    foreach (Collider collider in colliders)
+                    {
+                        if (collider.tag == "Bomba")
+                        {
+                            GameObject bomba = collider.gameObject;
+                            bomba.GetComponent<ComportamientoBomba>().ExplosionBomba(alcanceBomba);
+     
+                        }
+                    }
+                    //GameObject bomba = celdaCarlos.objTipoCelda.gameObject;
+                    //bomba.GetComponent<ComportamientoBomba>().ExplosionBomba(alcanceBomba);
+                    //Destroy(bomba);
+                }
+            }
+            */
+
             if (restarVidas)
             {
                 --vidas;
@@ -325,7 +352,10 @@ public class ComportamientoCarlos : MonoBehaviour
     {
         int limiteBombasAux = limiteBombas;
         limiteBombas = 0;
+        Transform indicadorNoBombas = Instantiate(indicadores[2], new Vector3(transform.position.x, 0, transform.position.z), Quaternion.identity);
+        indicadorNoBombas.parent = transform;
         yield return new WaitForSeconds(5);
+        Destroy(indicadorNoBombas.gameObject);
         limiteBombas = limiteBombasAux;
     }
 

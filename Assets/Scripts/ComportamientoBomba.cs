@@ -6,6 +6,7 @@ public class ComportamientoBomba : MonoBehaviour
 {
     public bool diagonal;
     public Transform particulaExplosion;
+    public Transform[] indicadores;
     private Transform[] powerUps;
     private Transform[] powerDowns;
     private Celda[,] celdas;
@@ -23,7 +24,13 @@ public class ComportamientoBomba : MonoBehaviour
         powerDowns = mapaCosas.powerDowns;
         carlosAtributos = GameObject.FindGameObjectWithTag("Player").GetComponent<ComportamientoCarlos>();
         diagonal = carlosAtributos.siguienteDiagonal;
-        if (diagonal) carlosAtributos.siguienteDiagonal = false;
+        if (diagonal)
+        {
+            carlosAtributos.siguienteDiagonal = false;
+            Transform indicador = Instantiate(indicadores[0], transform.position, Quaternion.identity);
+
+            indicador.parent = transform;
+        }
         StartCoroutine(EsperarExplosion(carlosAtributos.alcanceBomba, carlosAtributos.duracionBomba));
     }
     private void OnTriggerExit(Collider other)
@@ -233,15 +240,9 @@ public class ComportamientoBomba : MonoBehaviour
                 }
             }
         }
+        Destroy(gameObject);
         celda.objTipoCelda = null;
         celda.ocupado = false;
         StopAllCoroutines();
-        //Destroy(gameObject);
-        // Quitar particulas y bomba (hacer otro script)
-
-
-
-
-        // Restar la bomba una vez explotada:
     }
 }
