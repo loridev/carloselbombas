@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 492858}
   - component: {fileID: 3130836906858708637}
+  - component: {fileID: -7046971782491609542}
   m_Layer: 0
   m_Name: VelocidadMas
   m_TagString: PUvelocidad
@@ -45,6 +46,21 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.11403973, y: 0.23611295, z: 0.07907879}
   m_Center: {x: 0.0013360791, y: -0.030313045, z: -0.00045326352}
+--- !u!114 &-7046971782491609542
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 192858}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fcae2679ead76f498abcb6f8ba081a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  indicadores:
+  - {fileID: 7281132044891145329, guid: 3ea7459cf98320a4b9f2f7870ac61832, type: 3}
+  - {fileID: 7281132044891145329, guid: e30f289deb108bd4ba6fc4b9d9de24f7, type: 3}
 --- !u!1 &192860
 GameObject:
   m_ObjectHideFlags: 0

@@ -102,7 +102,7 @@ public class ComportamientoCarlos : MonoBehaviour
         {
             if (indicadorBateCargando == null && indicadorBateCargado == null)
             {
-                indicadorBateCargando = Instantiate(indicadores[0], new Vector3(transform.position.x, 0, transform.position.z), Quaternion.identity);
+                indicadorBateCargando = Instantiate(indicadores[1], new Vector3(transform.position.x, 0, transform.position.z), Quaternion.identity);
             }
             cargando = true;
             velocidad = velocidadInicial / 2;
@@ -116,7 +116,7 @@ public class ComportamientoCarlos : MonoBehaviour
                     Destroy(indicadorBateCargando.gameObject);
                     indicadorBateCargando = null;
 
-                    indicadorBateCargado = Instantiate(indicadores[1], new Vector3(transform.position.x, 0, transform.position.z), Quaternion.identity);
+                    indicadorBateCargado = Instantiate(indicadores[0], new Vector3(transform.position.x, 0, transform.position.z), Quaternion.identity);
                 }
                 indicadorBateCargado.position = new Vector3(transform.position.x, 0, transform.position.z);
                 velocidad = velocidadInicial / 3;
@@ -301,6 +301,13 @@ public class ComportamientoCarlos : MonoBehaviour
             Destroy(other.gameObject);
         } else if (other.tag == "Particula" || other.tag == "cNpc")
         {
+            Celda celdaCarlos = EncontrarCelda(new Vector3(transform.position.x, 0, transform.position.z));
+            if (other.tag == "Particula" && celdaCarlos.objTipoCelda.tag == "Bomba")
+            {
+                GameObject bomba = celdaCarlos.objTipoCelda.gameObject;
+                bomba.GetComponent<ComportamientoBomba>().ExplosionBomba(alcanceBomba);
+                Destroy(bomba);
+            }
             if (restarVidas)
             {
                 --vidas;

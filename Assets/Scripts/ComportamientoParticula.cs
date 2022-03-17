@@ -5,10 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class ComportamientoParticula : MonoBehaviour
 {
+    private List<Transform> colliderEnters;
     // Start is called before the first frame update
     void Start()
     {
-        Destroy(GetComponent<BoxCollider>(), 0.01f);
+        Destroy(GetComponent<BoxCollider>(), 0.1f);
         //StartCoroutine(EsperarDestruccion());
         Destroy(gameObject, 1);
 
@@ -22,7 +23,6 @@ public class ComportamientoParticula : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Destroy(GetComponent<BoxCollider>());
         switch (other.tag)
         {
             case "cNpc":

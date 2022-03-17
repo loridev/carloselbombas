@@ -55,7 +55,7 @@ MonoBehaviour:
   - {fileID: 405930, guid: 33ab4d9b5d404ff47997f905b076016f, type: 3}
   - {fileID: 443576, guid: 16e48e2483e21d447b4e1ca911c9bd7e, type: 3}
   - {fileID: 439498, guid: 4b9f90fedad5a594d9352f3224db8691, type: 3}
-  - {fileID: 405930, guid: 713ee6e0f39477843a69f60189959bf0, type: 3}
+  - {fileID: 490736, guid: 8a46f322034b947ddbecf4b9a42b6c7f, type: 3}
   - {fileID: 428872, guid: 479c3c1a92ae76b4fb6a18dd644a3ed2, type: 3}
   prefabCelda: {fileID: 6749168954796504676, guid: 307fee33c2462754d84e1f2c8e19be84,
     type: 3}
@@ -79,6 +79,7 @@ MonoBehaviour:
   labelTiempoDet: {fileID: 0}
   labelCargaBat: {fileID: 0}
   labelNumBom: {fileID: 0}
+  mainCamera: {fileID: 0}
 --- !u!1 &4955872081634097665
 GameObject:
   m_ObjectHideFlags: 0

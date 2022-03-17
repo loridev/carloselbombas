@@ -44,7 +44,8 @@ public class ComportamientoBomba : MonoBehaviour
     public IEnumerator EsperarExplosion(int alcanceBomba, int duracionBomba)
     {
         yield return new WaitForSeconds(duracionBomba);
-        ExplosionBomba(alcanceBomba);
+        // ExplosionBomba(alcanceBomba);
+        Instantiate(particulaExplosion, new Vector3(transform.position.x, 0.25f, transform.position.z), Quaternion.identity);
     }
 
     private Celda EncontrarCeldaMasCerca(Vector3 posicion)
@@ -190,7 +191,7 @@ public class ComportamientoBomba : MonoBehaviour
             explotada = true;
         }
 
-        Destroy(gameObject);
+        //Destroy(gameObject);
 
         // Poner particulas de la bomba
         for (int i = 0; i < celdasExplosion.Count; i++)
@@ -206,35 +207,36 @@ public class ComportamientoBomba : MonoBehaviour
                     {
                         Destroy(celdasExplosion[i].objTipoCelda.gameObject);
                         celdasExplosion[i].objTipoCelda = null;
-                    }
 
-                    bool aparecer = UnityEngine.Random.Range(0, 10) <= 4;
+                        bool aparecer = UnityEngine.Random.Range(0, 10) <= 5;
 
-                    if (aparecer)
-                    {
-                        int typePower = UnityEngine.Random.Range(0, 2);
-                        int positionPower = UnityEngine.Random.Range(0, 6);
-
-                        if (typePower == 0)
+                        if (aparecer)
                         {
-                            Instantiate(powerUps[positionPower], new Vector3(celdasExplosion[i].posicionCelda.x, 0.5f, celdasExplosion[i].posicionCelda.z), Quaternion.identity);
-                        }
-                        else
-                        {
-                            Instantiate(powerDowns[positionPower], new Vector3(celdasExplosion[i].posicionCelda.x, 0.5f, celdasExplosion[i].posicionCelda.z), Quaternion.identity);
+                            bool powerUp = UnityEngine.Random.Range(0, 10) <= 6;
+                            int positionPower = UnityEngine.Random.Range(0, 6);
+
+                            if (powerUp)
+                            {
+                                Instantiate(powerUps[positionPower], new Vector3(celdasExplosion[i].posicionCelda.x, 0.5f, celdasExplosion[i].posicionCelda.z), Quaternion.identity);
+                            }
+                            else
+                            {
+                                Instantiate(powerDowns[positionPower], new Vector3(celdasExplosion[i].posicionCelda.x, 0.5f, celdasExplosion[i].posicionCelda.z), Quaternion.identity);
+                            }
                         }
                     }
 
                     celdasExplosion[i].ocupado = false;
                     celdasExplosion[i].objTipoCelda = null;
-                    celda.objTipoCelda = null;
-                    celda.ocupado = false;
-                    StopAllCoroutines();
 
 
                 }
             }
         }
+        celda.objTipoCelda = null;
+        celda.ocupado = false;
+        StopAllCoroutines();
+        //Destroy(gameObject);
         // Quitar particulas y bomba (hacer otro script)
 
 
