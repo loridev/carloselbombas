@@ -2,6 +2,7 @@ using Pathfinding;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GeneracionMapa : MonoBehaviour
 {
@@ -68,6 +69,7 @@ public class GeneracionMapa : MonoBehaviour
     void Update()
     {
         ActualizarAtributos();
+        ControlarPausa();
     }
 
     private void GenerarMapa()
@@ -214,6 +216,11 @@ public class GeneracionMapa : MonoBehaviour
     private void AsignarCarlosRobotijo()
     {
         //AstarPath.active.Scan();
+    }
+
+    private void ControlarPausa()
+    {
+        if (Input.GetKeyUp(KeyCode.Escape)) SceneManager.LoadScene("MenuMundos");
     }
 }
 

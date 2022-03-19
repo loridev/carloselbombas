@@ -301,15 +301,18 @@ public class ComportamientoCarlos : MonoBehaviour
             Destroy(other.gameObject);
         } else if (other.tag == "Particula" || other.tag == "cNpc")
         {
-            Celda celdaCarlos = EncontrarCeldaMasCerca(new Vector3(transform.position.x, 0, transform.position.z));
-            Collider[] colliders = Physics.OverlapSphere(celdaCarlos.posicionCelda, 0.00001f);
-            foreach (Collider collider in colliders)
+            if (other.tag == "Particula")
             {
-                if (collider.tag == "Bomba")
+                Celda celdaCarlos = EncontrarCeldaMasCerca(new Vector3(transform.position.x, 0, transform.position.z));
+                Collider[] colliders = Physics.OverlapSphere(celdaCarlos.posicionCelda, 0.00001f);
+                foreach (Collider collider in colliders)
                 {
-                    GameObject bomba = collider.gameObject;
-                    bomba.GetComponent<ComportamientoBomba>().ExplosionBomba(alcanceBomba);
+                    if (collider.tag == "Bomba")
+                    {
+                        GameObject bomba = collider.gameObject;
+                        bomba.GetComponent<ComportamientoBomba>().ExplosionBomba(alcanceBomba);
 
+                    }
                 }
             }
             /*

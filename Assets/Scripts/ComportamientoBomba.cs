@@ -212,7 +212,7 @@ public class ComportamientoBomba : MonoBehaviour
                 {
                     if (celdasExplosion[i].objTipoCelda.tag == "Caja")
                     {
-                        Destroy(celdasExplosion[i].objTipoCelda.gameObject);
+                        Destroy(celdasExplosion[i].objTipoCelda.gameObject, 0.1f);
                         celdasExplosion[i].objTipoCelda = null;
 
                         bool aparecer = UnityEngine.Random.Range(0, 10) <= 5;

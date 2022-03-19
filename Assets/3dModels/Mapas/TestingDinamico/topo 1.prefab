@@ -351,8 +351,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 6.4174724, y: 35.7948, z: 7.5818887}
-  m_Center: {x: -0.08390218, y: -21.15654, z: 0.41961935}
+  m_Size: {x: 6.4174724, y: 49.06565, z: 7.5818887}
+  m_Center: {x: -0.08390218, y: -27.79197, z: 0.41961935}
 --- !u!54 &5958548154415338322
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5100,7 +5100,6 @@ ParticleSystemRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 8606fb064bdcf6e4f951bf04b94b4eac, type: 2}
-  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
