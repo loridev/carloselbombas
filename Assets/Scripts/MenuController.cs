@@ -63,6 +63,15 @@ public class MenuController : MonoBehaviour
         PhotonNetwork.JoinOrCreateRoom(JoinGameInput.text, roomoptions, TypedLobby.Default);
     }
 
+    private void OnJoinedRoom()
+    {
+        PhotonNetwork.LoadLevel("MainGame");
+    }
+
+    public void OnOnlineRoom()
+    {
+        PhotonNetwork.LoadLevel("MainMenu");
+    }
     // Update is called once per frame
     void Update()
     {
