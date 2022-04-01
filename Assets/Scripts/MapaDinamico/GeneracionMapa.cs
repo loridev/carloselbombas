@@ -61,6 +61,9 @@ public class GeneracionMapa : MonoBehaviour
             case 3:
                 mainCamera.transform.position = new Vector3(8.5f, 15, -1f);
                 break;
+            case 4:
+                mainCamera.transform.position = new Vector3(7, 12, -1f);
+                break;
         }
         GenerarMapa();
     }
