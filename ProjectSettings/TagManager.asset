@@ -37,6 +37,7 @@ TagManager:
   - Particula
   - PUfinalNivel
   - Nivel4
+  - GameMusic
   layers:
   - Default
   - TransparentFX
