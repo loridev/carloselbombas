@@ -39,7 +39,8 @@ public class ComportamientoCarlos : MonoBehaviour
 
     // INDIVIDUAL
     public int vidas = 3;
-
+    // SONIDOS
+    
 
 
     // Start is called before the first frame update

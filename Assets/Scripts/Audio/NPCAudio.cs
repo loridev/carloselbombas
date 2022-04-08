@@ -2,26 +2,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AudioCoin : MonoBehaviour
+public class NPCAudio : MonoBehaviour
 {
-    public AudioSource coinSource;
+    public AudioSource npcSource;
     // Start is called before the first frame update
     void Start()
     {
-        coinSource = GetComponent<AudioSource>();
+        npcSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     private void OnCollisionEnter(Collider colision)
     {
         if (colision.gameObject.tag == "Player")
         {
-            coinSource.Play();
+            npcSource.Play();
+            Debug.Log("warning");
         }
     }
 }
