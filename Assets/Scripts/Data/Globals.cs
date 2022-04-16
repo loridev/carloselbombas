@@ -10,4 +10,8 @@ public static class Globals
 
     // ############################  INFO RELATIVA A MODO ################################# //
     public static string Modo = "Multi";
+
+    // ############################  INFO RELATIVA A AUTENTICACION ######################## //
+    public static string Token;
+    public static User CurrentUser;
 }
