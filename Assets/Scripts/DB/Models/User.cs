@@ -7,30 +7,30 @@ public class User
 {
     public string name;
     public string email;
-    public bool isAdmin;
-    public string indivLevel;
-    public int multiWins;
+    public bool is_admin;
+    public string indiv_level;
+    public int multi_wins;
     public int money;
     public List<Item> items;
 
-    public User(string name, string email, bool isAdmin, string indivLevel, int multiWins, int money, List<Item> items)
+    public User(string name, string email, bool is_admin, string indiv_level, int multi_wins, int money, List<Item> items)
     {
         this.name = name;
         this.email = email;
-        this.isAdmin = isAdmin;
-        this.indivLevel = indivLevel;
-        this.multiWins = multiWins;
+        this.is_admin = is_admin;
+        this.indiv_level = indiv_level;
+        this.multi_wins = multi_wins;
         this.money = money;
         this.items = items;
     }
 
     public int GetWorldNum()
     {
-        return Int32.Parse(this.indivLevel.Split('-')[0]);
+        return Int32.Parse(this.indiv_level.Split('-')[0]);
     }
 
     public int GetLevelNum()
     {
-        return Int32.Parse(this.indivLevel.Split('-')[1]);
+        return Int32.Parse(this.indiv_level.Split('-')[1]);
     }
 }

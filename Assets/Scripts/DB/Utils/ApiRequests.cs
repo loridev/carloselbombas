@@ -34,7 +34,7 @@ public class ApiRequests
 
     public static async Task<User> Login(string name, string password)
     {
-        name = "holabuenas";
+        name = "hola4";
         password = "Erl37122";
         string url = "https://caboomgame.herokuapp.com/api/v1/auth/login";
 
@@ -53,13 +53,13 @@ public class ApiRequests
 
         User responseUser = null;
 
-        Debug.Log(JObject.Parse(await response.Content.ReadAsStringAsync())["token"]);
+        JObject userJson = JObject.Parse(JObject.Parse(await response.Content.ReadAsStringAsync())["user"].ToString());
 
-        // TODO: CONSTRUCTOR DE USER RELLENITO DE LAS COSSASS ESTAS ROLLO LO DEL TOKEN;
+        Globals.Token = (string) JObject.Parse(await response.Content.ReadAsStringAsync())["token"];
 
         if (response.IsSuccessStatusCode)
         {
-            responseUser = JsonConvert.DeserializeObject<User>(response.Content.ReadAsStringAsync().Result);
+            responseUser = JsonConvert.DeserializeObject<User>(userJson.ToString());
         }
 
         return responseUser;
