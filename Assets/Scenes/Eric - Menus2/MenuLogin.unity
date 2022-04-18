@@ -160,8 +160,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1024, y: 720}
+  m_AnchoredPosition: {x: 0, y: 80.31}
+  m_SizeDelta: {x: 1024, y: 919.5033}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &299003208
 MonoBehaviour:
@@ -524,8 +524,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   status: {fileID: 1857070792}
-  nameInput: {fileID: 332076694}
-  passwordInput: {fileID: 1820640317}
+  nameInput: {fileID: 1686326219}
+  passwordInput: {fileID: 2007813095}
 --- !u!1 &1621845981
 GameObject:
   m_ObjectHideFlags: 0
@@ -596,7 +596,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Password
+  m_Text: "Contrase\xF1a"
 --- !u!222 &1621845984
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1074,7 +1074,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 160, y: 52.5}
+  m_SizeDelta: {x: 645.651, y: 183.8646}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1857070792
 MonoBehaviour:
@@ -1301,8 +1301,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2007813098}
   m_TextComponent: {fileID: 1820640317}
   m_Placeholder: {fileID: 1621845983}
-  m_ContentType: 0
-  m_InputType: 0
+  m_ContentType: 7
+  m_InputType: 2
   m_AsteriskChar: 42
   m_KeyboardType: 0
   m_LineType: 0
@@ -1431,7 +1431,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Name
+  m_Text: Nombre de usuario
 --- !u!222 &2141940623
 CanvasRenderer:
   m_ObjectHideFlags: 0

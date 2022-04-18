@@ -34,8 +34,6 @@ public class ApiRequests
 
     public static async Task<User> Login(string name, string password)
     {
-        name = "hola4";
-        password = "Erl37122";
         string url = "https://caboomgame.herokuapp.com/api/v1/auth/login";
 
         HttpClient client = new HttpClient();
@@ -53,16 +51,37 @@ public class ApiRequests
 
         User responseUser = null;
 
-        JObject userJson = JObject.Parse(JObject.Parse(await response.Content.ReadAsStringAsync())["user"].ToString());
-
-        Globals.Token = (string) JObject.Parse(await response.Content.ReadAsStringAsync())["token"];
-
         if (response.IsSuccessStatusCode)
         {
+
+            JObject userJson = JObject.Parse(JObject.Parse(await response.Content.ReadAsStringAsync())["user"].ToString());
+
+            Globals.Token = (string)JObject.Parse(await response.Content.ReadAsStringAsync())["token"];
             responseUser = JsonConvert.DeserializeObject<User>(userJson.ToString());
         }
 
         return responseUser;
 
     }
+
+    public static async Task<bool> Logout(string token)
+    {
+        string url = "https://caboomgame.herokuapp.com/api/v1/auth/logout";
+
+        HttpClient client = new HttpClient();
+
+        client.DefaultRequestHeaders.Add("Authorization", "Bearer " + token);
+
+        HttpResponseMessage response = await client.PostAsync(url, new StringContent("", Encoding.UTF8, "application/json"));
+
+        if (response.IsSuccessStatusCode)
+        {
+            Globals.CurrentUser = null;
+            Globals.Token = null;
+        }
+
+        return response.IsSuccessStatusCode;
+    }
+
+    public static async Task<Item[]> GetShop()
 }

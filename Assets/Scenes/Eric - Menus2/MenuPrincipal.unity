@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571328, b: 0.3069217, a: 1}
+  m_IndirectSpecularColor: {r: 0.24647519, g: 0.28234503, b: 0.34570286, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -170,6 +170,7 @@ GameObject:
   - component: {fileID: 33169394}
   - component: {fileID: 33169393}
   - component: {fileID: 33169392}
+  - component: {fileID: 33169395}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -242,6 +243,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &33169395
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 33169391}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e242da5bc28bbb49957ee1577b23db9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  labelUsername: {fileID: 2112873260}
+  labelEmail: {fileID: 1768448318}
 --- !u!1 &59008144
 GameObject:
   m_ObjectHideFlags: 0
@@ -3503,7 +3518,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.000042102, y: -54}
+  m_AnchoredPosition: {x: -0.00002116, y: -26.505}
   m_SizeDelta: {x: 720, y: 53.01}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1388147073
@@ -3689,7 +3704,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1451770310}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 33169395}
+        m_TargetAssemblyTypeName: CargarDatosUser, Assembly-CSharp
+        m_MethodName: Logout
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1451770310
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4398,7 +4425,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Correo electr\xF3nico\n"
+  m_Text: 'Correo: '
 --- !u!222 &1768448319
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5065,7 +5092,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.000051498, y: 113}
+  m_AnchoredPosition: {x: -0.85301, y: 133}
   m_SizeDelta: {x: 720, y: 53.01}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1994969482
@@ -5549,7 +5576,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Efectos de sonido
+  m_Text: 'Usuario: '
 --- !u!222 &2112873261
 CanvasRenderer:
   m_ObjectHideFlags: 0
