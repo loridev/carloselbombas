@@ -41,4 +41,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/testingMultiplayer/MainGame.unity
     guid: 720a00e007f39704aaa22916a4c9fa5a
+  - enabled: 1
+    path: Assets/Scenes/Eric - Menus2/MenuTienda.unity
+    guid: fb9b5848bb24507478866945fd1809d7
   m_configObjects: {}

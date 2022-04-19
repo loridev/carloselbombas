@@ -34,7 +34,7 @@ public class ApiRequests
 
     public static async Task<User> Login(string name, string password)
     {
-        string url = "https://caboomgame.herokuapp.com/api/v1/auth/login";
+        string url = "http://localhost:8000/api/v1/auth/login";
 
         HttpClient client = new HttpClient();
 
@@ -84,4 +84,20 @@ public class ApiRequests
     }
 
     public static async Task<Item[]> GetShop()
+    {
+        string url = "https://caboomgame.herokuapp.com/api/v1/items/";
+
+        HttpClient client = new HttpClient();
+
+        HttpResponseMessage response = await client.GetAsync(url);
+
+        Item[] responseArray = null;
+
+        if (response.IsSuccessStatusCode)
+        {
+            responseArray = JsonConvert.DeserializeObject<Item[]>(response.Content.ReadAsStringAsync().Result);
+        }
+
+        return responseArray;
+    }
 }

@@ -4,18 +4,18 @@ using UnityEngine;
 
 public class Item
 {
+    public int id;
     public string category;
     public int price;
     public string type;
-    public string skinTexture;
-    public List<User> users;
+    public string skin_texture;
 
-    public Item(string category, int price, string type, string skinTexture, List<User> users)
+    public Item(int id, string category, int price, string type, string skin_texture)
     {
+        this.id = id;
         this.category = category;
         this.price = price;
         this.type = type;
-        this.skinTexture = skinTexture;
-        this.users = users;
+        this.skin_texture = skin_texture;
     }
 }

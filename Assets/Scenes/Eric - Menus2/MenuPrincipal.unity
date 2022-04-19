@@ -4596,7 +4596,7 @@ GameObject:
   - component: {fileID: 1849013335}
   - component: {fileID: 1849013334}
   m_Layer: 5
-  m_Name: BotonPerfil
+  m_Name: BotonTienda
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4679,21 +4679,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 947557367}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
       - m_Target: {fileID: 1849013334}
         m_TargetAssemblyTypeName: MenuPrincipal, Assembly-CSharp
-        m_MethodName: AbrirPopup
+        m_MethodName: CargarTienda
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

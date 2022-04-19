@@ -35,6 +35,11 @@ public class MenuPrincipal : MonoBehaviour
         SceneManager.LoadScene("MenuControles");
     }
 
+    public void CargarTienda()
+    {
+        SceneManager.LoadScene("MenuTienda");
+    }
+
     public void AbrirPopup()
     {
         velo.gameObject.SetActive(true);
