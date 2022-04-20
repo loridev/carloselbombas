@@ -100,4 +100,23 @@ public class ApiRequests
 
         return responseArray;
     }
+
+    public static async Task<bool> BuyItem(int id, string token)
+    {
+        string url = "http://localhost:8000/api/v1/users/additem";
+
+        HttpClient client = new HttpClient();
+        
+        client.DefaultRequestHeaders.Add("Authorization", "Bearer " + token);
+        
+        JObject json = new JObject(
+            new JProperty("item_id", id)
+        );
+
+        StringContent body = new StringContent(json.ToString(), Encoding.UTF8, "application/json");
+
+        HttpResponseMessage responseMessage = await client.PostAsync(url, body);
+
+        return responseMessage.IsSuccessStatusCode;
+    }
 }

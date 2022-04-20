@@ -33,4 +33,9 @@ public class User
     {
         return Int32.Parse(this.indiv_level.Split('-')[1]);
     }
+
+    public bool HasItem(Item item)
+    {
+        return items.Contains(item);
+    }
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Item
 {
-    public int id;
+    public readonly int id;
     public string category;
     public int price;
     public string type;
@@ -17,5 +17,17 @@ public class Item
         this.price = price;
         this.type = type;
         this.skin_texture = skin_texture;
+    }
+
+    public override bool Equals(object obj)
+    {
+        Item parsedObj = (Item) obj;
+
+        return parsedObj != null && parsedObj.id == id;
+    }
+    
+    public override int GetHashCode()
+    {
+        return id;
     }
 }
