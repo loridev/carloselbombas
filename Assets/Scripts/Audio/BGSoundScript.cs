@@ -5,10 +5,10 @@ using UnityEngine;
 public class BGSoundScript : MonoBehaviour
 {
     // Start is called before the first frame update
-    void Start()
-    {
+    //void Start()
+    //{
         
-    }
+    //}
 
     private static BGSoundScript instance = null;
     public static BGSoundScript Instance
@@ -16,7 +16,7 @@ public class BGSoundScript : MonoBehaviour
         get { return instance; }
     }
 
-    private void Awake()
+    private void Start()
     {
         if (instance != null && instance != this)
         {
