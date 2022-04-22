@@ -174,4 +174,28 @@ public class ApiRequests
 
         return responseMessage.IsSuccessStatusCode;
     }
+
+    public static async Task<bool> SetCharacter(string token, string character)
+    {
+        string url = "http://localhost:8000/api/v1/users/set_character";
+
+        HttpClient client = new HttpClient();
+        
+        client.DefaultRequestHeaders.Add("Authorization", "Bearer " + token);
+        
+        JObject json = new JObject(
+            new JProperty("character", character)
+        );
+
+        StringContent body = new StringContent(json.ToString(), Encoding.UTF8, "application/json");
+
+        HttpResponseMessage responseMessage = await client.PostAsync(url, body);
+
+        if (responseMessage.IsSuccessStatusCode)
+        {
+            Globals.CurrentUser.character = character;
+        }
+
+        return responseMessage.IsSuccessStatusCode;
+    }
 }

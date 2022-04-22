@@ -11,10 +11,11 @@ public class User
     public string indiv_level;
     public int multi_wins;
     public int money;
+    public string character;
     public List<Item> items;
     public List<Item> equippedItems;
 
-    public User(string name, string email, bool is_admin, string indiv_level, int multi_wins, int money, List<Item> items)
+    public User(string name, string email, bool is_admin, string indiv_level, int multi_wins, int money, string character, List<Item> items)
     {
         this.name = name;
         this.email = email;
@@ -22,17 +23,18 @@ public class User
         this.indiv_level = indiv_level;
         this.multi_wins = multi_wins;
         this.money = money;
+        this.character = character;
         this.items = items;
     }
 
     public int GetWorldNum()
     {
-        return Int32.Parse(this.indiv_level.Split('-')[0]);
+        return Int32.Parse(indiv_level.Split('-')[0]);
     }
 
     public int GetLevelNum()
     {
-        return Int32.Parse(this.indiv_level.Split('-')[1]);
+        return Int32.Parse(indiv_level.Split('-')[1]);
     }
 
     public bool HasItem(Item item)

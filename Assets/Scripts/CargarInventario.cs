@@ -10,18 +10,23 @@ public class CargarInventario : MonoBehaviour
     public Transform prefabBoton;
     public Transform[] contenedores;
     public Text status;
+    public Text carlosText;
+    public Text carlaText;
+    public Button carlosButton;
+    public Button carlaButton;
     private bool inProgress = false;
     
     void Start()
     {
         status.text = "Cargando...";
+        carlosButton.onClick.AddListener(() => SetCharacter("CARLOS"));
+        carlaButton.onClick.AddListener(() => SetCharacter("CARLA"));
         DisplayItems(Globals.CurrentUser.items);
         status.text = "";
     }
 
     private void DisplayItems(List<Item> items)
     {
-
         if (items.Count == 0)
         {
             status.text = "No items found";
@@ -81,6 +86,16 @@ public class CargarInventario : MonoBehaviour
                 itemCounts[arrPos]++;
             }
         }
+
+        switch (Globals.CurrentUser.character)
+        {
+            case "CARLOS":
+                carlosText.color = Color.green;
+                break;
+            case "CARLA":
+                carlaText.color = Color.green;
+                break;
+        }
     }
 
     private async void ToggleEquipped(Item item)
@@ -91,6 +106,26 @@ public class CargarInventario : MonoBehaviour
             inProgress = true;
 
             if (!await ApiRequests.ToggleEquipped(Globals.Token, item))
+            {
+                status.text = "Ha ocurrido un error";
+            }
+            else
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            }
+
+            inProgress = false;
+        }
+    }
+
+    private async void SetCharacter(string character)
+    {
+        if (!inProgress && Globals.CurrentUser.character != character)
+        {
+            status.text = "Procesando...";
+            inProgress = true;
+
+            if (!await ApiRequests.SetCharacter(Globals.Token, character))
             {
                 status.text = "Ha ocurrido un error";
             }
