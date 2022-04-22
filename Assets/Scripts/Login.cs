@@ -13,7 +13,7 @@ public class Login : MonoBehaviour
 
     private void Start()
     {
-        status.text = "Introduce tu nombre de usuario y tu contraseña";
+        status.text = "Introduce tu nombre de usuario y tu contraseï¿½a";
     }
 
     public async void LogUser()
@@ -23,10 +23,17 @@ public class Login : MonoBehaviour
 
         if (Globals.CurrentUser != null)
         {
-            SceneManager.LoadScene("MenuPrincipal");
+            if (await ApiRequests.GetEquipped(Globals.Token))
+            {
+                SceneManager.LoadScene("MenuPrincipal");
+            }
+            else
+            {
+                status.text = "Error obteniendo el inventario, vuelve a intentar mÃ¡s tarde";
+            }
         } else
         {
-            status.text = "Nombre o contraseña incorrectos";
+            status.text = "Nombre o contraseï¿½a incorrectos";
         }
 
 

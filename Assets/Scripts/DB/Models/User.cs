@@ -12,6 +12,7 @@ public class User
     public int multi_wins;
     public int money;
     public List<Item> items;
+    public List<Item> equippedItems;
 
     public User(string name, string email, bool is_admin, string indiv_level, int multi_wins, int money, List<Item> items)
     {
@@ -37,5 +38,10 @@ public class User
     public bool HasItem(Item item)
     {
         return items.Contains(item);
+    }
+
+    public bool IsEquipped(Item item)
+    {
+        return equippedItems.Contains(item);
     }
 }

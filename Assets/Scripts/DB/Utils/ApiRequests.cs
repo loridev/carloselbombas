@@ -66,7 +66,7 @@ public class ApiRequests
 
     public static async Task<bool> Logout(string token)
     {
-        string url = "https://caboomgame.herokuapp.com/api/v1/auth/logout";
+        string url = "http://localhost:8000/api/v1/auth/logout";
 
         HttpClient client = new HttpClient();
 
@@ -85,7 +85,7 @@ public class ApiRequests
 
     public static async Task<Item[]> GetShop()
     {
-        string url = "https://caboomgame.herokuapp.com/api/v1/items/";
+        string url = "http://localhost:8000/api/v1/items/";
 
         HttpClient client = new HttpClient();
 
@@ -116,6 +116,61 @@ public class ApiRequests
         StringContent body = new StringContent(json.ToString(), Encoding.UTF8, "application/json");
 
         HttpResponseMessage responseMessage = await client.PostAsync(url, body);
+
+        return responseMessage.IsSuccessStatusCode;
+    }
+
+    public static async Task<bool> GetEquipped(string token)
+    {
+        string url = "http://localhost:8000/api/v1/users/equipped";
+        
+        HttpClient client = new HttpClient();
+        
+        client.DefaultRequestHeaders.Add("Authorization", "Bearer " + token);
+
+        HttpResponseMessage response = await client.GetAsync(url);
+        
+        if (response.IsSuccessStatusCode)
+        {
+            Globals.CurrentUser.equippedItems = JsonConvert
+                .DeserializeObject<List<Item>>(response.Content.ReadAsStringAsync().Result);
+        }
+
+        return response.IsSuccessStatusCode;
+    }
+
+    public static async Task<bool> ToggleEquipped(string token, Item item)
+    {
+        string url = "http://localhost:8000/api/v1/users/toggle_equipped";
+
+        HttpClient client = new HttpClient();
+        
+        client.DefaultRequestHeaders.Add("Authorization", "Bearer " + token);
+        
+        JObject json = new JObject(
+            new JProperty("item_id", item.id)
+        );
+
+        StringContent body = new StringContent(json.ToString(), Encoding.UTF8, "application/json");
+
+        HttpResponseMessage responseMessage = await client.PostAsync(url, body);
+
+        if (responseMessage.IsSuccessStatusCode)
+        {
+            if (Globals.CurrentUser.IsEquipped(item))
+            {
+                Globals.CurrentUser.equippedItems.Remove(item);
+            }
+            else
+            {
+                Item sameTypeItem = Globals.CurrentUser.equippedItems.Find((itemFind) => item.type == itemFind.type);
+                if (sameTypeItem != null)
+                {
+                    Globals.CurrentUser.equippedItems.Remove(sameTypeItem);
+                }
+                Globals.CurrentUser.equippedItems.Add(item);
+            }
+        }
 
         return responseMessage.IsSuccessStatusCode;
     }
