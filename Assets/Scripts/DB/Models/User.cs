@@ -5,6 +5,7 @@ using System;
 
 public class User
 {
+    public int id;
     public string name;
     public string email;
     public bool is_admin;
@@ -15,8 +16,9 @@ public class User
     public List<Item> items;
     public List<Item> equippedItems;
 
-    public User(string name, string email, bool is_admin, string indiv_level, int multi_wins, int money, string character, List<Item> items)
+    public User(int id, string name, string email, bool is_admin, string indiv_level, int multi_wins, int money, string character, List<Item> items)
     {
+        this.id = id;
         this.name = name;
         this.email = email;
         this.is_admin = is_admin;
@@ -45,5 +47,17 @@ public class User
     public bool IsEquipped(Item item)
     {
         return equippedItems.Contains(item);
+    }
+    
+    public override bool Equals(object obj)
+    {
+        User parsedObj = (User) obj;
+
+        return parsedObj != null && parsedObj.id == id;
+    }
+    
+    public override int GetHashCode()
+    {
+        return id;
     }
 }

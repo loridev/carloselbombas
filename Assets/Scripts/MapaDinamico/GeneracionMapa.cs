@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GeneracionMapa : MonoBehaviour
 {
@@ -31,14 +32,18 @@ public class GeneracionMapa : MonoBehaviour
     //public static AstarPath scriptAi;
     private Level nivel;
 
-    public GameObject labelVidas;
-    public GameObject labelVelocidad;
-    public GameObject labelAlcance;
-    public GameObject labelTiempoDet;
-    public GameObject labelCargaBat;
-    public GameObject labelNumBom;
+    public Text labelVidas;
+    public Text[] labelVelocidad;
+    public Text[] labelAlcance;
+    public Text[] labelTiempoDet;
+    public Text[] labelCargaBat;
+    public Text[] labelNumBom;
 
     public GameObject mainCamera;
+
+    public Text labelTime;
+    private bool cargado = false;
+    public static int segundos = 0;
 
     async void Start()
     {
@@ -66,6 +71,12 @@ public class GeneracionMapa : MonoBehaviour
                 break;
         }
         GenerarMapa();
+
+        cargado = true;
+        if (Globals.Modo == "Contrarreloj")
+        {
+            StartCoroutine(ContadorSegundos());
+        }
     }
 
 
@@ -73,6 +84,10 @@ public class GeneracionMapa : MonoBehaviour
     {
         ActualizarAtributos();
         ControlarPausa();
+        if (cargado && Globals.Modo == "Contrarreloj")
+        {
+            labelTime.text = segundos + "";
+        }
     }
 
     private void GenerarMapa()
@@ -103,6 +118,7 @@ public class GeneracionMapa : MonoBehaviour
                     {
                         case "Player":
                             carlos = Instantiate(prefabCarlos, new Vector3(posicion.x, 1, posicion.z), Quaternion.identity);
+                            if (Globals.Modo != "Indiv") carlos.GetComponent<ComportamientoCarlos>().vidas = 1;
                             break;
                         case "Wall":
                             Transform pared = Instantiate(prebabPared, posicion, Quaternion.identity);
@@ -140,64 +156,6 @@ public class GeneracionMapa : MonoBehaviour
             }
         }
 
-        /*
-        for (int i = 0; i < ancho; i++)
-        {
-            for (int j = 0; j < alto; j++)
-            {
-                limiteMapa = false;
-                Transform carlos;
-                Transform robotijo;
-                Vector3 posicion = new Vector3(i, 0, j);
-                Transform obj = Instantiate(prefabCelda, posicion, Quaternion.identity);
-                Transform objTipoCelda = null;
-                if (i == 0 || i == ancho - 1 || j == 0 || j == alto - 1)
-                {
-                    Transform pared = Instantiate(prebabPared, posicion, Quaternion.identity);
-                    pared.GetComponent<Renderer>().material = texturaPared;
-                    objTipoCelda = pared;
-                    limiteMapa = true;
-                }
-
-                if (i == 2 && j == 2)
-                {
-                    Instantiate(prefabCaja, new Vector3(posicion.x, 0.25f, posicion.z), Quaternion.identity);
-                }
-
-                if (i == 1 && j == alto - 2)
-                {
-                    carlos = Instantiate(prefabCarlos, new Vector3(posicion.x, 1, posicion.z), Quaternion.identity);
-                }
-
-                if (i == ancho - 2 && j == 1)
-                {
-                    //robotijo = Instantiate(prefabNpcFinal, new Vector3(posicion.x, 1, posicion.z), Quaternion.identity);
-                }
-
-                if (i == ancho / 2 && j == alto / 2)
-                {
-                    if (prefabNpcComun.name == "topo 1")
-                    {
-                        Instantiate(prefabNpcComun, new Vector3(posicion.x, 1, posicion.z), Quaternion.identity);
-                    } else
-                    {
-                        Instantiate(prefabNpcComun, new Vector3(posicion.x, 0, posicion.z), Quaternion.identity);
-                    }
-                }
-
-                if (i == ancho / 2 && j == alto / 2)
-                {
-                    Instantiate(powerDowns[2], new Vector3(posicion.x - 0.75f, 1, posicion.z - 0.25f), Quaternion.identity);
-                }
-
-
-                obj.GetComponent<Renderer>().material = texturaSuelo;
-                obj.name = "Celda " + i + "-" + j;
-                celdas[i, j] = new Celda(false, posicion, obj, objTipoCelda, limiteMapa);
-            }
-        }
-        */
-
         //AsignarCarlosRobotijo();
     }
 
@@ -206,13 +164,14 @@ public class GeneracionMapa : MonoBehaviour
         if (carlos != null)
         {
             ComportamientoCarlos carlosScript = carlos.GetComponent<ComportamientoCarlos>();
+            int index = interfazIndividual.GetActive() ? 0 : 1;
 
-            labelVidas.GetComponent<UnityEngine.UI.Text>().text = "" + carlosScript.vidas;
-            labelVelocidad.GetComponent<UnityEngine.UI.Text>().text = "" + carlosScript.velocidadInicial;
-            labelAlcance.GetComponent<UnityEngine.UI.Text>().text = "" + carlosScript.alcanceBomba;
-            labelTiempoDet.GetComponent<UnityEngine.UI.Text>().text = "" + carlosScript.duracionBomba;
-            labelCargaBat.GetComponent<UnityEngine.UI.Text>().text = "" + carlosScript.tiempoCargaBate;
-            labelNumBom.GetComponent<UnityEngine.UI.Text>().text = carlosScript.limiteBombas - carlosScript.bombasEnMapa + "/" + carlosScript.limiteBombas;
+            labelVidas.text = "" + carlosScript.vidas;
+            labelVelocidad[index].text = "" + carlosScript.velocidadInicial;
+            labelAlcance[index].text = "" + carlosScript.alcanceBomba;
+            labelTiempoDet[index].text = "" + carlosScript.duracionBomba;
+            labelCargaBat[index].text = "" + carlosScript.tiempoCargaBate;
+            labelNumBom[index].text = carlosScript.limiteBombas - carlosScript.bombasEnMapa + "/" + carlosScript.limiteBombas;
         }
     }
 
@@ -223,7 +182,34 @@ public class GeneracionMapa : MonoBehaviour
 
     private void ControlarPausa()
     {
-        if (Input.GetKeyUp(KeyCode.Escape)) SceneManager.LoadScene("MenuMundos");
+        if (Input.GetKeyUp(KeyCode.Escape))
+        {
+            segundos = 0;
+            SceneManager.LoadScene("MenuMundos");
+        }
+    }
+
+    private IEnumerator ContadorSegundos()
+    {
+        while (true)
+        {
+            segundos += 1;
+            yield return new WaitForSeconds(1);
+        }
+    }
+
+    public static async void GuardarRankingJugador()
+    {
+        if (await ApiRequests.AddIndivRanking(Globals.CurrentUser, Globals.WorldNum, Globals.LevelNum, segundos))
+        {
+            Debug.Log("RANKING BIEN");
+        }
+        else
+        {
+            Debug.Log("RANKING MAL");
+        }
+        
+        if (Globals.LevelNum != 4) segundos = 0;
     }
 }
 

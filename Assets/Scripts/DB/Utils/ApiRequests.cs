@@ -198,4 +198,25 @@ public class ApiRequests
 
         return responseMessage.IsSuccessStatusCode;
     }
+
+    public static async Task<bool> AddIndivRanking(User user, int worldNum, int levelNum, int time)
+    {
+        if (worldNum == 5) worldNum = 4;
+        string url = "http://localhost:8000/api/v1/rankings";
+
+        HttpClient client = new HttpClient();
+
+        JObject json = new JObject(
+            new JProperty("user_id", user.id),
+            new JProperty("world_num", worldNum),
+            new JProperty("level_num", levelNum),
+            new JProperty("time", time)
+        );
+
+        StringContent body = new StringContent(json.ToString(), Encoding.UTF8, "application/json");
+        
+        HttpResponseMessage responseMessage = await client.PostAsync(url, body);
+
+        return responseMessage.IsSuccessStatusCode;
+    }
 }

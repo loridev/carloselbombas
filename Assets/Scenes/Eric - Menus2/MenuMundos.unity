@@ -991,9 +991,10 @@ GameObject:
   - component: {fileID: 567580670}
   - component: {fileID: 567580669}
   - component: {fileID: 567580668}
+  - component: {fileID: 567580671}
   m_Layer: 5
   m_Name: BotonContrarreloj1
-  m_TagString: Untagged
+  m_TagString: Nivel1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1061,7 +1062,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 567580669}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 567580671}
+        m_TargetAssemblyTypeName: SelectNivel, Assembly-CSharp
+        m_MethodName: cargarNivelContrarreloj
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &567580669
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1100,6 +1113,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 567580666}
   m_CullTransparentMesh: 1
+--- !u!114 &567580671
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 567580666}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7e045793e98bc74784e371d7de3188b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &603081998
 GameObject:
   m_ObjectHideFlags: 0
@@ -1796,9 +1821,10 @@ GameObject:
   - component: {fileID: 1107613950}
   - component: {fileID: 1107613949}
   - component: {fileID: 1107613948}
+  - component: {fileID: 1107613951}
   m_Layer: 5
   m_Name: BotonContrarreloj3
-  m_TagString: Untagged
+  m_TagString: Nivel3
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1866,7 +1892,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1107613949}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1107613951}
+        m_TargetAssemblyTypeName: SelectNivel, Assembly-CSharp
+        m_MethodName: cargarNivelContrarreloj
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1107613949
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1905,6 +1943,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1107613946}
   m_CullTransparentMesh: 1
+--- !u!114 &1107613951
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1107613946}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7e045793e98bc74784e371d7de3188b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1131600298
 GameObject:
   m_ObjectHideFlags: 0
@@ -1983,9 +2033,10 @@ GameObject:
   - component: {fileID: 1406040844}
   - component: {fileID: 1406040843}
   - component: {fileID: 1406040842}
+  - component: {fileID: 1406040845}
   m_Layer: 5
   m_Name: BotonContrarreloj4
-  m_TagString: Untagged
+  m_TagString: Nivel4
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2053,7 +2104,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1406040843}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1406040845}
+        m_TargetAssemblyTypeName: SelectNivel, Assembly-CSharp
+        m_MethodName: cargarNivelContrarreloj
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1406040843
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2092,6 +2155,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1406040840}
   m_CullTransparentMesh: 1
+--- !u!114 &1406040845
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1406040840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7e045793e98bc74784e371d7de3188b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1452108842
 GameObject:
   m_ObjectHideFlags: 0
@@ -2104,9 +2179,10 @@ GameObject:
   - component: {fileID: 1452108846}
   - component: {fileID: 1452108845}
   - component: {fileID: 1452108844}
+  - component: {fileID: 1452108847}
   m_Layer: 5
   m_Name: BotonContrarreloj2
-  m_TagString: Untagged
+  m_TagString: Nivel2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2174,7 +2250,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1452108845}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1452108847}
+        m_TargetAssemblyTypeName: SelectNivel, Assembly-CSharp
+        m_MethodName: cargarNivelContrarreloj
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1452108845
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2213,6 +2301,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1452108842}
   m_CullTransparentMesh: 1
+--- !u!114 &1452108847
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1452108842}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7e045793e98bc74784e371d7de3188b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1460823658
 GameObject:
   m_ObjectHideFlags: 0

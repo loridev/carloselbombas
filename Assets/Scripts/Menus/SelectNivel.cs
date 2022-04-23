@@ -25,4 +25,10 @@ public class SelectNivel : MonoBehaviour
 
         SceneManager.LoadScene("MapaDinamicoFinal");
     }
+
+    public void cargarNivelContrarreloj()
+    {
+        Globals.Modo = "Contrarreloj";
+        cargarNivel();
+    }
 }

@@ -216,7 +216,7 @@ public class ComportamientoCarlos : MonoBehaviour
 
     }
 
-    private void GestionarPowerUps(string tag)
+    private async void GestionarPowerUps(string tag)
     {
         string[] separador = new[] { "PU" };
 
@@ -244,16 +244,21 @@ public class ComportamientoCarlos : MonoBehaviour
                 }
                 break;
             case "finalNivel":
-                if (Globals.LevelNum == 4)
+                if (Globals.LevelNum != 4 || Globals.LevelNum == 5)
+                {
+                    GeneracionMapa.GuardarRankingJugador();
+
+                    if (Globals.LevelNum == 5)
+                    {
+                        SceneManager.LoadScene("MenuIndiv");
+                        return;
+                    }
+                    
+                    SceneManager.LoadScene("MenuMundos");
+                } else if (Globals.LevelNum == 4)
                 {
                     Globals.LevelNum = 5;
                     SceneManager.LoadScene("MapaDinamicoFinal");
-                } else if (Globals.LevelNum == 5)
-                {
-                    SceneManager.LoadScene("MenuIndiv");
-                } else
-                {
-                    SceneManager.LoadScene("MenuMundos");
                 }
                 break;
         }
@@ -345,6 +350,7 @@ public class ComportamientoCarlos : MonoBehaviour
 
                 if (vidas == 0)
                 {
+                    GeneracionMapa.segundos = 0;
                     SceneManager.LoadScene("MenuMundos");
                 }
                 StartCoroutine(EsperarVidas());
