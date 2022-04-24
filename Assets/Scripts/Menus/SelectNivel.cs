@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class SelectNivel : MonoBehaviour
 {
-    public void cargarNivel()
+    public void CargarNivel()
     {
         switch (gameObject.tag)
         {
@@ -26,9 +26,12 @@ public class SelectNivel : MonoBehaviour
         SceneManager.LoadScene("MapaDinamicoFinal");
     }
 
-    public void cargarNivelContrarreloj()
+    public void CargarNivelContrarreloj()
     {
         Globals.Modo = "Contrarreloj";
-        cargarNivel();
+        CargarNivel();
     }
+
+    
+
 }

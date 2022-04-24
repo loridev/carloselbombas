@@ -246,7 +246,22 @@ public class ComportamientoCarlos : MonoBehaviour
             case "finalNivel":
                 if (Globals.LevelNum != 4 || Globals.LevelNum == 5)
                 {
-                    GeneracionMapa.GuardarRankingJugador();
+                    if (Globals.Modo == "Contrarreloj")
+                    {
+                        GeneracionMapa.GuardarRankingJugador();
+                    } else if (Globals.CurrentUser.GetWorldNum() == Globals.WorldNum & (Globals.CurrentUser.GetLevelNum() == Globals.LevelNum
+                        || (Globals.CurrentUser.GetLevelNum() == 4 && Globals.LevelNum == 5)))
+                    {
+                        Globals.CurrentUser.indiv_level = Globals.CurrentUser.GetLevelNum() == 4 ? (Globals.CurrentUser.GetWorldNum() + 1) + "-" + 1
+                            : Globals.CurrentUser.GetWorldNum() + "-" + (Globals.CurrentUser.GetLevelNum() + 1);
+                        if (await ApiRequests.SaveProgress(Globals.CurrentUser, Globals.CurrentUser.indiv_level))
+                        {
+                            Debug.Log("PROGRESO BIEN");
+                        } else
+                        {
+                            Debug.Log("PROGRESO MAL :(");
+                        }
+                    }
 
                     if (Globals.LevelNum == 5)
                     {

@@ -219,4 +219,21 @@ public class ApiRequests
 
         return responseMessage.IsSuccessStatusCode;
     }
+
+    public static async Task<bool> SaveProgress(User user, string indivLevel)
+    {
+        string url = "http://localhost:8000/api/v1/users/" + user.id;
+
+        HttpClient client = new HttpClient();
+
+        JObject json = new JObject(
+            new JProperty("indiv_level", indivLevel)
+        );
+
+        StringContent body = new StringContent(json.ToString(), Encoding.UTF8, "application/json");
+
+        HttpResponseMessage responseMessage = await client.PutAsync(url, body);
+
+        return responseMessage.IsSuccessStatusCode;
+    }
 }

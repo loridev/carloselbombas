@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.24647519, g: 0.28234503, b: 0.34570286, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571336, b: 0.3069219, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -377,7 +377,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 140607320}
         m_TargetAssemblyTypeName: SelectNivel, Assembly-CSharp
-        m_MethodName: cargarNivel
+        m_MethodName: CargarNivel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -773,7 +773,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 387086489}
         m_TargetAssemblyTypeName: SelectNivel, Assembly-CSharp
-        m_MethodName: cargarNivel
+        m_MethodName: CargarNivel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -919,7 +919,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 541431803}
         m_TargetAssemblyTypeName: SelectNivel, Assembly-CSharp
-        m_MethodName: cargarNivel
+        m_MethodName: CargarNivel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1065,7 +1065,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 567580671}
         m_TargetAssemblyTypeName: SelectNivel, Assembly-CSharp
-        m_MethodName: cargarNivelContrarreloj
+        m_MethodName: CargarNivelContrarreloj
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1136,6 +1136,7 @@ GameObject:
   - component: {fileID: 603082001}
   - component: {fileID: 603082000}
   - component: {fileID: 603081999}
+  - component: {fileID: 603082002}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1208,6 +1209,28 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &603082002
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 603081998}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d152244239efb458cbba9b1998c45a24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  botonesNiveles:
+  - {fileID: 387086486}
+  - {fileID: 1048739664}
+  - {fileID: 140607317}
+  - {fileID: 541431800}
+  botonesContrarreloj:
+  - {fileID: 567580668}
+  - {fileID: 1452108844}
+  - {fileID: 1107613948}
+  - {fileID: 1406040842}
 --- !u!1 &666294873
 GameObject:
   m_ObjectHideFlags: 0
@@ -1749,7 +1772,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1048739667}
         m_TargetAssemblyTypeName: SelectNivel, Assembly-CSharp
-        m_MethodName: cargarNivel
+        m_MethodName: CargarNivel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1895,7 +1918,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1107613951}
         m_TargetAssemblyTypeName: SelectNivel, Assembly-CSharp
-        m_MethodName: cargarNivelContrarreloj
+        m_MethodName: CargarNivelContrarreloj
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2107,7 +2130,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1406040845}
         m_TargetAssemblyTypeName: SelectNivel, Assembly-CSharp
-        m_MethodName: cargarNivelContrarreloj
+        m_MethodName: CargarNivelContrarreloj
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2253,7 +2276,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1452108847}
         m_TargetAssemblyTypeName: SelectNivel, Assembly-CSharp
-        m_MethodName: cargarNivelContrarreloj
+        m_MethodName: CargarNivelContrarreloj
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
