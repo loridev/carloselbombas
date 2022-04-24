@@ -42,6 +42,13 @@ public class SoltarBombas : MonoBehaviour
                 Transform bomba = Instantiate(projectilePrefab, new Vector3(celdaCerca.posicionCelda.x, 0.25f, celdaCerca.posicionCelda.z), projectilePrefab.transform.rotation).transform;
                 celdaCerca.ocupado = true;
                 celdaCerca.objTipoCelda = bomba;
+                foreach (Transform tr in bomba.GetComponentsInChildren<Transform>())
+                {
+                    if (tr.CompareTag("BombaSkin"))
+                    {
+                        tr.GetComponent<MeshRenderer>().material = carlosAtributos.skinBomba;
+                    }
+                }
                 // explosionBomba(bomba, celdaCerca, carlosAtributos.alcanceBomba, carlosAtributos.duracionBomba);
                 Debug.Log("hola");
             }

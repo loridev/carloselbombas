@@ -29,7 +29,7 @@ public class GeneracionMapa : MonoBehaviour
     private Transform carlos;
     private Transform robotijo;
 
-    //public static AstarPath scriptAi;
+    public static AstarPath scriptAi;
     private Level nivel;
 
     public Text labelVidas;
@@ -44,6 +44,7 @@ public class GeneracionMapa : MonoBehaviour
     public Text labelTime;
     private bool cargado = false;
     public static int segundos = 0;
+    public GameObject[] cajasPlayers;
 
     async void Start()
     {
@@ -53,6 +54,13 @@ public class GeneracionMapa : MonoBehaviour
         } else
         {
             interfazMultijugador.SetActive(true);
+            if (Globals.Modo == "Contrarreloj")
+            {
+                foreach (GameObject caja in cajasPlayers)
+                {
+                    caja.SetActive(false);
+                }
+            }
         }
         nivel = await ApiRequests.GetLevel(Globals.WorldNum, Globals.LevelNum);
         switch (nivel.worldNum)
@@ -143,7 +151,7 @@ public class GeneracionMapa : MonoBehaviour
                             npcSpawn.GetComponent<NPCComun>().isVertical = i % 2 != 0;
                             break;
                         case "fNpc":
-                            robotijo = Instantiate(prefabNpcFinal, new Vector3(posicion.x, 1, posicion.z), Quaternion.identity);
+                            robotijo = Instantiate(prefabNpcFinal, new Vector3(posicion.x, 0, posicion.z), Quaternion.identity);
                             break;
                         case "Exit":
                             Instantiate(prefabFinal, new Vector3(posicion.x, 0.35f, posicion.z), Quaternion.identity);
@@ -156,7 +164,7 @@ public class GeneracionMapa : MonoBehaviour
             }
         }
 
-        //AsignarCarlosRobotijo();
+        AsignarCarlosRobotijo();
     }
 
     private void ActualizarAtributos()
@@ -177,7 +185,9 @@ public class GeneracionMapa : MonoBehaviour
 
     private void AsignarCarlosRobotijo()
     {
-        //AstarPath.active.Scan();
+        robotijo.GetComponent<AIDestinationSetter>().target = carlos;
+        AstarPath.active.Scan();
+        AstarPath.active.data.recastGraph.SnapForceBoundsToScene();
     }
 
     private void ControlarPausa()

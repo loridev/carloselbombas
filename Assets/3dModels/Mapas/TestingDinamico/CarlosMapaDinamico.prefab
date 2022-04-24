@@ -373,11 +373,15 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 2ac9a0743eca24148ba9dc5d88497e94, type: 2}
   - {fileID: 2100000, guid: 477bb3abb23c144c78349ab2efaa5b31, type: 2}
   - {fileID: 2100000, guid: 895e9f4e2dd7349b2a5beebac0e5a2a0, type: 2}
+  coloresPersonajes:
+  - {fileID: 2100000, guid: 9610cd1866136bc489779ea81faed307, type: 2}
+  - {fileID: 2100000, guid: 0ff2a998b84bc5840801345fdbada930, type: 2}
   partesNoPersonalizables:
   - {fileID: 8712381265265888331}
   - {fileID: 2749404821078000210}
   - {fileID: 6856480563978530308}
   - {fileID: 6012306605592577328}
+  - {fileID: 4305222971606537627}
   partesPersonalizables:
   - {fileID: 3956478525315203955}
   - {fileID: 3960808475811366188}

@@ -9,10 +9,12 @@ public class ComportamientoCarlos : MonoBehaviour
     
     // RELATIVO A SKINS
     public Material[] skins;
+    public Material[] coloresPersonajes;
     public GameObject[] partesNoPersonalizables;
     public GameObject[] partesPersonalizables;
-    private Material skinBomba;
+    public Material skinBomba;
     private string[] nombres = {"HELMET", "BODY", "BAT", "BOMB"};
+    private Material materialPersonaje;
 
     // INDICADORES
     public Transform[] indicadores;
@@ -55,6 +57,7 @@ public class ComportamientoCarlos : MonoBehaviour
         celdas = GeneracionMapa.celdas;
         controlador = GetComponent<CharacterController>();
         velocidad = velocidadInicial;
+        materialPersonaje = Globals.CurrentUser.character == "CARLOS" ? coloresPersonajes[0] : coloresPersonajes[1];
 
         CargarSkins();
     }
@@ -528,6 +531,19 @@ public class ComportamientoCarlos : MonoBehaviour
                     }
                 }
             }
+        }
+
+        for (int i = 0; i < nombres.Length; i++)
+        {
+            if (Globals.CurrentUser.equippedItems.Find((Item item) => item.type == nombres[i]) == null)
+            {
+                partesPersonalizables[i].GetComponent<MeshRenderer>().material = materialPersonaje;
+            }
+        }
+
+        foreach (GameObject parte in partesNoPersonalizables)
+        {
+            parte.GetComponent<MeshRenderer>().material = materialPersonaje;
         }
         
         

@@ -74,12 +74,19 @@ MonoBehaviour:
   interfazIndividual: {fileID: 0}
   interfazMultijugador: {fileID: 0}
   labelVidas: {fileID: 0}
-  labelVelocidad: {fileID: 0}
-  labelAlcance: {fileID: 0}
-  labelTiempoDet: {fileID: 0}
-  labelCargaBat: {fileID: 0}
-  labelNumBom: {fileID: 0}
+  labelVelocidad:
+  - {fileID: 0}
+  labelAlcance:
+  - {fileID: 0}
+  labelTiempoDet:
+  - {fileID: 0}
+  labelCargaBat:
+  - {fileID: 0}
+  labelNumBom:
+  - {fileID: 0}
   mainCamera: {fileID: 0}
+  labelTime: {fileID: 0}
+  cajasPlayers: []
 --- !u!1 &4955872081634097665
 GameObject:
   m_ObjectHideFlags: 0
@@ -89,7 +96,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4955872081634097727}
-  - component: {fileID: 4955872081634097726}
+  - component: {fileID: -9087186340333817380}
   m_Layer: 0
   m_Name: MapaDinamico
   m_TagString: Untagged
@@ -112,7 +119,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4955872081634097726
+--- !u!114 &-9087186340333817380
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -126,7 +133,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 1
   data:
-    dataString: UEsDBBQAAAgIAAAIIew3SkAZ4AEAAMMDAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQGVU01z2jAQ/Ssen9sMJoaSHkuY9FCgY+eQSaaHxVrbmsgSlSUgMPz37voDnGkuOcl6u++t9u36FGYlWMgc2gSE9HX4PYhuJl+CMDPaGW+XcFhYayzhY0ZRqVQeka6jm4iAPahX2Cj8ibIoXZfVg3Mlq02TyooVHFJltsy9HbX3hSjwF+rClcxsQKkTLKTRXZVbwlBIZ+yjVNiB0XhGsOuAp/+Q5wvia2Qet+WsR0IsKtyBdg8WtmXqbQ4ZLo1g2fDerIxL8K+XFkPOhZqMIcG5UUoKtKyTg6pxGFxiXb6r0Ace0VqQ+qOIxSEj6+STPn6PDqTiLlqj6lf6PgXhDpRvXJnFwZkbhmLZBl/+8LUtmEK1vXjFBlrjwJGnrciBJ0LoW3ce+WzkcmMzFD+M16Keoya5zzC6gl1+NOoZcU8hqCHVpdmzaWvvlNR49YEDK5rF3GiNGb94aHhP64Z2pWkEi7VL6cjKtVZvT88DGmpexRXsKuLOvXNSF1du4aV47204ncU4mU3yOBZiE0+mX/NNFE3vvkVjQeBdtAmbLqSWToL6TfrK9c7Qeg/mraFqFBPMaLJBs3K8V8LC/kEeKzPYAalzk2a0F3rdalzapo0ARd6KRfMfpNi0wNTwdA7P/wBQSwMEFAAACAgAAAgh7Ih1Z5luAAAAegAAAAkAJABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQGrVipLLSrOzM9TslIw0TPSMzTXUVBKL0osyCgGihiCOKWZKSB2tJKZhUmqqYVpmolJSkqSiamZblqSoaGZpbmhUQpQ0NIwSSkWqL6ksiDVLzE3FaInILEkIy0zLyUzL10vKDU5sbjEHWS4UmwtAFBLAQItABQAAAgIAAAIIew3SkAZ4AEAAMMDAAALACQAAAAAAAAAAAAAAAAAAABncmFwaDAuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLAQItABQAAAgIAAAIIeyIdWeZbgAAAHoAAAAJACQAAAAAAAAAAAAAAC0CAABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFQSwUGAAAAAAIAAgC4AAAA5gIAAAAA
+    dataString: UEsDBBQAAAgIAAAIIeyvF0aa5gEAAMUDAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFtU01z2jAQ/SuMzw2DbWJIjyVMeijQsXPIpNPDIq1tTWSJyhIQGP57tf4Ap+lJ1tt9b7Vv1+eAlWCAWTQpcOHq4OsoHN9/GQVMK6udWcFxaYw2Ho8IRSkzcUJ/nTRpB5BvsJX4HUVR2i6rBxdSVNtragXHTOodceNJe1/yAn+gKmxJzAYUKsVCaNVViT2GXFhtnoXEDgyjuYdtB7x8Ql6viKuReNSWNQ49YlDiHpR9MrArM2dyYLjSnGSDR73WNsU/ThgMKBdqb4wXXGgpBUdDOjnIGofBFdblhwp94BmNAaH+FzE4ZLBOPu3jj2hBSOqiNap+89/nUbAH6eild+HoQv1CsWpjv37Tta2XQbW7WkX+GW3BektbjSMNxKPv3Xmis5HLtWHIv2mneL1A5eVujIdxeP8PaTaePXzidWU7VtwXCjtO3FaqS30g2zbOSqHw5gQF1n4aC60UMnr00PKe1o3tRlMIBmub+YOVGyXfX14HNFS0jGvYV567cNYKVdy4hRP8o7vBPGHzaDLFOeYsmeP0LuTTJJlFebiNkzBkUdB0IZSwAuRPry9t74xf8MHEFVSNYorMz3bULB1tFjdweBKnSg+2QKhcZ8xvhtq0Gte2/U6A9MbyZfMnZNi0QNTgfAkufwFQSwMEFAAACAgAAAgh7ApZTuhvAAAAegAAAAkAJABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQGrVipLLSrOzM9TslIw0TPSMzTXUVBKL0osyCgGihiCOKWZKSB2tJKFWbKFkYFJqkVqWrKZRaqJrmGKiZmZuVGaYZKxmaFhspFSLFB9SWVBql9ibipET0BiSUZaZl5KZl66XlBqcmJxiTvIcKXYWgBQSwECLQAUAAAICAAACCHsrxdGmuYBAADFAwAACwAkAAAAAAAAAAAAAAAAAAAAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFQSwECLQAUAAAICAAACCHsCllO6G8AAAB6AAAACQAkAAAAAAAAAAAAAAAzAgAAbWV0YS5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsFBgAAAAACAAIAuAAAAO0CAAAAAA==
     upgradeData: 
     file_cachedStartup: {fileID: 0}
     data_cachedStartup: 
@@ -135,7 +142,7 @@ MonoBehaviour:
   showUnwalkableNodes: 1
   debugMode: 0
   debugFloor: 0
-  debugRoof: 1
+  debugRoof: 20000
   manualDebugFloorRoof: 0
   showSearchTree: 0
   unwalkableNodeDebugSize: 0.3
@@ -152,13 +159,12 @@ MonoBehaviour:
     _ConnectionLowLerp: {r: 0, g: 1, b: 0, a: 0.5}
     _ConnectionHighLerp: {r: 1, g: 0, b: 0, a: 0.5}
     _MeshEdgeColor: {r: 0, g: 0, b: 0, a: 0.5}
-    _AreaColors:
-    - {r: 0, g: 0, b: 0, a: 0}
+    _AreaColors: []
   tagNames: []
   heuristic: 2
   heuristicScale: 1
   threadCount: 1
-  maxFrameTime: 1
+  maxFrameTime: 10
   batchGraphUpdates: 0
   graphUpdateBatchingInterval: 0.2
   euclideanEmbedding:

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2624897925688839806}
   - component: {fileID: 4470393802439078540}
   - component: {fileID: -8841193060328086624}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: CeldaMapa
   m_TagString: ground
   m_Icon: {fileID: 0}
