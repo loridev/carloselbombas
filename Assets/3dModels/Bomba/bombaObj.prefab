@@ -109,7 +109,7 @@ GameObject:
   - component: {fileID: 4779643751104053644}
   m_Layer: 8
   m_Name: Bombaobj
-  m_TagString: Untagged
+  m_TagString: BombaSkin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

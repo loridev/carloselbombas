@@ -38,6 +38,7 @@ TagManager:
   - PUfinalNivel
   - Nivel4
   - GameMusic
+  - BombaSkin
   layers:
   - Default
   - TransparentFX

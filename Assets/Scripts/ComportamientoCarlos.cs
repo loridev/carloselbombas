@@ -5,9 +5,14 @@ using UnityEngine.SceneManagement;
 
 public class ComportamientoCarlos : MonoBehaviour
 {
-    private SoltarBombas soltarBombas;
-
     private Celda[,] celdas;
+    
+    // RELATIVO A SKINS
+    public Material[] skins;
+    public GameObject[] partesNoPersonalizables;
+    public GameObject[] partesPersonalizables;
+    private Material skinBomba;
+    private string[] nombres = {"HELMET", "BODY", "BAT", "BOMB"};
 
     // INDICADORES
     public Transform[] indicadores;
@@ -50,7 +55,8 @@ public class ComportamientoCarlos : MonoBehaviour
         celdas = GeneracionMapa.celdas;
         controlador = GetComponent<CharacterController>();
         velocidad = velocidadInicial;
-        soltarBombas = GetComponent<SoltarBombas>();
+
+        CargarSkins();
     }
 
     // Update is called once per frame
@@ -336,28 +342,6 @@ public class ComportamientoCarlos : MonoBehaviour
                     }
                 }
             }
-            /*
-            Celda celdaCarlos = EncontrarCeldaMasCerca(new Vector3(transform.position.x, 0, transform.position.z));
-            if (celdaCarlos.objTipoCelda != null)
-            {
-                if (other.tag == "Particula" && celdaCarlos.objTipoCelda.tag == "Bomba")
-                {
-                    Collider[] colliders = Physics.OverlapSphere(celdaCarlos.posicionCelda, 1);
-                    foreach (Collider collider in colliders)
-                    {
-                        if (collider.tag == "Bomba")
-                        {
-                            GameObject bomba = collider.gameObject;
-                            bomba.GetComponent<ComportamientoBomba>().ExplosionBomba(alcanceBomba);
-     
-                        }
-                    }
-                    //GameObject bomba = celdaCarlos.objTipoCelda.gameObject;
-                    //bomba.GetComponent<ComportamientoBomba>().ExplosionBomba(alcanceBomba);
-                    //Destroy(bomba);
-                }
-            }
-            */
 
             if (restarVidas)
             {
@@ -517,6 +501,36 @@ public class ComportamientoCarlos : MonoBehaviour
         restarVidas = false;
         yield return new WaitForSeconds(2);
         restarVidas = true;
+    }
+
+    private void CargarSkins()
+    {
+        List<Item> equipped = Globals.CurrentUser.equippedItems;
+        for (int i = 0; i < skins.Length; i++)
+        {
+            for (int j = 0; j < equipped.Count; j++)
+            {
+                if (equipped[j].skin_texture == skins[i].name)
+                {
+                    for (int k = 0; k < nombres.Length; k++)
+                    {
+                        if (nombres[k] == equipped[j].type)
+                        {
+                            if (nombres[k] != "BOMB")
+                            {
+                                partesPersonalizables[k].GetComponent<MeshRenderer>().material = skins[i];
+                            }
+                            else
+                            {
+                                skinBomba = skins[i];
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        
+        
     }
 
 }
