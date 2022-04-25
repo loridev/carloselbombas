@@ -34,7 +34,7 @@ public class ApiRequests
 
     public static async Task<User> Login(string name, string password)
     {
-        string url = "http://localhost:8000/api/v1/auth/login";
+        string url = "https://caboomgame.herokuapp.com/api/v1/auth/login";
 
         HttpClient client = new HttpClient();
 
@@ -66,7 +66,7 @@ public class ApiRequests
 
     public static async Task<bool> Logout(string token)
     {
-        string url = "http://localhost:8000/api/v1/auth/logout";
+        string url = "https://caboomgame.herokuapp.com/api/v1/auth/logout";
 
         HttpClient client = new HttpClient();
 
@@ -85,7 +85,7 @@ public class ApiRequests
 
     public static async Task<Item[]> GetShop()
     {
-        string url = "http://localhost:8000/api/v1/items/";
+        string url = "https://caboomgame.herokuapp.com/api/v1/items/";
 
         HttpClient client = new HttpClient();
 
@@ -103,7 +103,7 @@ public class ApiRequests
 
     public static async Task<bool> BuyItem(int id, string token)
     {
-        string url = "http://localhost:8000/api/v1/users/additem";
+        string url = "https://caboomgame.herokuapp.com/api/v1/users/additem";
 
         HttpClient client = new HttpClient();
         
@@ -122,7 +122,7 @@ public class ApiRequests
 
     public static async Task<bool> GetEquipped(string token)
     {
-        string url = "http://localhost:8000/api/v1/users/equipped";
+        string url = "https://caboomgame.herokuapp.com/api/v1/users/equipped";
         
         HttpClient client = new HttpClient();
         
@@ -141,7 +141,7 @@ public class ApiRequests
 
     public static async Task<bool> ToggleEquipped(string token, Item item)
     {
-        string url = "http://localhost:8000/api/v1/users/toggle_equipped";
+        string url = "https://caboomgame.herokuapp.com/api/v1/users/toggle_equipped";
 
         HttpClient client = new HttpClient();
         
@@ -177,7 +177,7 @@ public class ApiRequests
 
     public static async Task<bool> SetCharacter(string token, string character)
     {
-        string url = "http://localhost:8000/api/v1/users/set_character";
+        string url = "https://caboomgame.herokuapp.com/api/v1/users/set_character";
 
         HttpClient client = new HttpClient();
         
@@ -201,8 +201,8 @@ public class ApiRequests
 
     public static async Task<bool> AddIndivRanking(User user, int worldNum, int levelNum, int time)
     {
-        if (worldNum == 5) worldNum = 4;
-        string url = "http://localhost:8000/api/v1/rankings";
+        if (levelNum == 5) levelNum = 4;
+        string url = "https://caboomgame.herokuapp.com/api/v1/rankings";
 
         HttpClient client = new HttpClient();
 
@@ -222,7 +222,7 @@ public class ApiRequests
 
     public static async Task<bool> SaveProgress(User user, string indivLevel)
     {
-        string url = "http://localhost:8000/api/v1/users/" + user.id;
+        string url = "https://caboomgame.herokuapp.com/api/v1/users/" + user.id;
 
         HttpClient client = new HttpClient();
 

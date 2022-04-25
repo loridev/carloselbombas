@@ -29,7 +29,6 @@ public class GeneracionMapa : MonoBehaviour
     private Transform carlos;
     private Transform robotijo;
 
-    public static AstarPath scriptAi;
     private Level nivel;
 
     public Text labelVidas;
@@ -185,9 +184,12 @@ public class GeneracionMapa : MonoBehaviour
 
     private void AsignarCarlosRobotijo()
     {
-        robotijo.GetComponent<AIDestinationSetter>().target = carlos;
-        AstarPath.active.Scan();
-        AstarPath.active.data.recastGraph.SnapForceBoundsToScene();
+        if (robotijo != null)
+        {
+            robotijo.GetComponent<AIDestinationSetter>().target = carlos;
+            AstarPath.active.Scan();
+            AstarPath.active.data.recastGraph.SnapForceBoundsToScene();
+        }
     }
 
     private void ControlarPausa()
