@@ -17,12 +17,11 @@ public class NPCAudio : MonoBehaviour
 
     }
 
-    private void OnCollisionEnter(Collider colision)
+    private void OnTriggerEnter(Collider colision)
     {
         if (colision.gameObject.tag == "Player")
         {
             npcSource.Play();
-            Debug.Log("warning");
         }
     }
 }

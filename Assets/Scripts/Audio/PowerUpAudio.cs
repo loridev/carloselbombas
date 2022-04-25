@@ -17,11 +17,12 @@ public class PowerUpAudio : MonoBehaviour
 
     }
 
-    private void OnCollisionEnter(Collider colision)
+    private void OnTriggerEnter(Collider colision)
     {
-        if (colision.gameObject.tag == "PUfinalNivel")
+        if (colision.gameObject.tag == "Player")
         {
             powerUpSource.Play();
+            Debug.Log("entra");
         }
     }
 }
