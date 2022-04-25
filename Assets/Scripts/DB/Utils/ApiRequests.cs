@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System.Text;
+using DB.Models;
 
 public class ApiRequests
 {
@@ -235,5 +236,41 @@ public class ApiRequests
         HttpResponseMessage responseMessage = await client.PutAsync(url, body);
 
         return responseMessage.IsSuccessStatusCode;
+    }
+
+    public static async Task<List<Ranking>> GetRankingsIndiv()
+    {
+        string url = "http://localhost:8000/api/v1/rankings/single/all";
+
+        HttpClient client = new HttpClient();
+
+        HttpResponseMessage responseMessage = await client.GetAsync(url);
+
+        List<Ranking> rtrn = null;
+
+        if (responseMessage.IsSuccessStatusCode)
+        {
+            rtrn = JsonConvert.DeserializeObject<List<Ranking>>(responseMessage.Content.ReadAsStringAsync().Result);
+        }
+
+        return rtrn;
+    }
+    
+    public static async Task<List<User>> GetRankingsMult()
+    {
+        string url = "https://caboomgame.herokuapp.com/api/v1/rankings/multi";
+
+        HttpClient client = new HttpClient();
+
+        HttpResponseMessage responseMessage = await client.GetAsync(url);
+
+        List<User> rtrn = null;
+
+        if (responseMessage.IsSuccessStatusCode)
+        {
+            rtrn = JsonConvert.DeserializeObject<List<User>>(responseMessage.Content.ReadAsStringAsync().Result);
+        }
+
+        return rtrn;
     }
 }
