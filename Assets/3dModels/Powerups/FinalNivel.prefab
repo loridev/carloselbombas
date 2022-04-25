@@ -4889,8 +4889,8 @@ GameObject:
   m_Component:
   - component: {fileID: 405930}
   - component: {fileID: 781403750036421390}
-  - component: {fileID: 3407155616631585040}
   - component: {fileID: 3195249268654595606}
+  - component: {fileID: 8085650176694500877}
   m_Layer: 0
   m_Name: FinalNivel
   m_TagString: PUfinalNivel
@@ -4926,19 +4926,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.11403973, y: 0.23611295, z: 0.07907879}
   m_Center: {x: 0.0013360791, y: -0.030313045, z: -0.00045326352}
---- !u!114 &3407155616631585040
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 105930}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e581d804718c60c4687cef9f00383c23, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  coinSource: {fileID: 0}
 --- !u!82 &3195249268654595606
 AudioSource:
   m_ObjectHideFlags: 0
@@ -4950,7 +4937,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 61fdce82269f80c4fa9ef96829e09129, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -5035,3 +5022,16 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &8085650176694500877
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 105930}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d35d6b6d57f752e469af361981ce1d8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  npcSource: {fileID: 0}
