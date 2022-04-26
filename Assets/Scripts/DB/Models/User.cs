@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using Newtonsoft.Json;
 
 public class User
 {
@@ -16,6 +17,7 @@ public class User
     public List<Item> items;
     public List<Item> equippedItems;
 
+    [JsonConstructor]
     public User(int id, string name, string email, bool is_admin, string indiv_level, int multi_wins, int money, string character, List<Item> items)
     {
         this.id = id;
@@ -27,6 +29,11 @@ public class User
         this.money = money;
         this.character = character;
         this.items = items;
+    }
+
+    public User(string name)
+    {
+        this.name = name;
     }
 
     public int GetWorldNum()

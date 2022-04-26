@@ -240,7 +240,7 @@ public class ApiRequests
 
     public static async Task<List<Ranking>> GetRankingsIndiv()
     {
-        string url = "http://localhost:8000/api/v1/rankings/single/all";
+        string url = "https://caboomgame.herokuapp.com/api/v1/rankings/single/all";
 
         HttpClient client = new HttpClient();
 
