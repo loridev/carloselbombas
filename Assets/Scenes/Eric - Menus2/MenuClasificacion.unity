@@ -539,6 +539,12 @@ MonoBehaviour:
   container: {fileID: 1148378372}
   rankingPrefab: {fileID: 4424367266978983643, guid: 40ae518eeea915f4b8b68b65a69aa32d,
     type: 3}
+  nivelMenos: {fileID: 344552990}
+  nivelMas: {fileID: 1073543656}
+  modoMenos: {fileID: 731445915}
+  modoMas: {fileID: 886397903}
+  textoNivel: {fileID: 1491616237}
+  textoModo: {fileID: 1090738088}
 --- !u!1 &723806317
 GameObject:
   m_ObjectHideFlags: 0

@@ -4,7 +4,7 @@ using UnityEngine;
 using System;
 using Newtonsoft.Json;
 
-public class User
+public class User : IComparable
 {
     public int id;
     public string name;
@@ -34,6 +34,12 @@ public class User
     public User(string name)
     {
         this.name = name;
+    }
+
+    public User(string name, int multiWins)
+    {
+        this.name = name;
+        multi_wins = multiWins;
     }
 
     public int GetWorldNum()
@@ -66,5 +72,17 @@ public class User
     public override int GetHashCode()
     {
         return id;
+    }
+
+    public int CompareTo(object obj)
+    {
+        User userCompare = obj as User;
+
+        if (userCompare != null)
+        {
+            return userCompare.multi_wins.CompareTo(multi_wins);
+        }
+
+        return 1;
     }
 }

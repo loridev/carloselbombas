@@ -26,10 +26,10 @@ public class Rankings : MonoBehaviour
         status.text = "Cargando...";
         rankingsVisibles = new List<Transform>();
         rankingListIndiv = await ApiRequests.GetRankingsIndiv();
-        //rankingListMult = await ApiRequests.GetRankingsMult();
-        if (rankingListIndiv == null)
+        rankingListMult = await ApiRequests.GetRankingsMult();
+        if (rankingListIndiv == null || rankingListMult == null)
         {
-            status.text = "Something went wrong when trying to load some or all the rankings";
+            status.text = "ERROR";
         }
         else
         {
@@ -61,19 +61,24 @@ public class Rankings : MonoBehaviour
             );
             CheckBtns();
         });
+        
+        modoMenos.onClick.AddListener(ChangeMode);
+        
+        modoMas.onClick.AddListener(ChangeMode);
     }
 
     private void LoadRankings(string mode, int worldNum = 0, int levelNum = 0)
     {
+        if (rankingsVisibles.Count > 0)
+        {
+            foreach (Transform tr in rankingsVisibles)
+            {
+                if (tr != null) Destroy(tr.gameObject);
+            }  
+        }
+        
         if (mode == "indiv")
         {
-            if (rankingsVisibles.Count > 0)
-            {
-                foreach (Transform tr in rankingsVisibles)
-                {
-                    if (tr != null) Destroy(tr.gameObject);
-                }  
-            }
             textoNivel.text = "NIVEL " + worldNum + "-" + levelNum;
             List<Ranking> filtered = rankingListIndiv.FindAll((Ranking ranking) => ranking.world_num == worldNum
                 && ranking.level_num == levelNum);
@@ -89,10 +94,45 @@ public class Rankings : MonoBehaviour
                 if (filtered.Count > i)
                 {
                     Transform rankItem = Instantiate(rankingPrefab, container);
-
-                    rankItem.GetComponentsInChildren<Text>()[0].text = filtered[i].user.name;
+                    Text textName = rankItem.GetComponentsInChildren<Text>()[0];
+                    Text textScore = rankItem.GetComponentsInChildren<Text>()[1];
                     
-                    rankItem.GetComponentsInChildren<Text>()[1].text = filtered[i].time + "";
+                    Color colorText = Globals.CurrentUser.Equals(filtered[i].user) ? Color.yellow : Color.white;
+
+                    textName.color = colorText;
+                    textScore.color = colorText;
+
+                    textName.text = filtered[i].user.name;
+                    textScore.text = filtered[i].time + "";
+                    
+                    rankingsVisibles.Add(rankItem);
+                }
+            }
+        } else if (mode == "mult")
+        {
+            List<User> filtered = new List<User>(rankingListMult);
+
+            if (filtered.Count == 0)
+            {
+                filtered.Add(new User("No rankings found: ", 404));
+            }
+            filtered.Sort();
+
+            for (int i = 0; i < 5; i++)
+            {
+                if (filtered.Count > i)
+                {
+                    Transform rankItem = Instantiate(rankingPrefab, container);
+                    Text textName = rankItem.GetComponentsInChildren<Text>()[0];
+                    Text textScore = rankItem.GetComponentsInChildren<Text>()[1];
+                    
+                    Color colorText = Globals.CurrentUser.Equals(filtered[i]) ? Color.yellow : Color.white;
+
+                    textName.color = colorText;
+                    textScore.color = colorText;
+
+                    textName.text = filtered[i].name;
+                    textScore.text = filtered[i].multi_wins + "";
                     
                     rankingsVisibles.Add(rankItem);
                 }
@@ -107,5 +147,30 @@ public class Rankings : MonoBehaviour
         
         nivelMas.enabled = worldNumGlob != 3 || levelNumGlob != 4;
         nivelMas.GetComponent<Image>().color = nivelMas.enabled ? Color.white : Color.grey;
+    }
+
+    private void ChangeMode()
+    {
+        string modoCheck = textoModo.text == "INDIVIDUAL" ? "mult" : "indiv";
+        textoModo.text = modoCheck == "indiv" ? "INDIVIDUAL" : "MULTIJUGADOR";
+        
+        LoadRankings(
+            modoCheck,
+            modoCheck == "indiv" ? worldNumGlob : 0,
+            modoCheck == "indiv" ? levelNumGlob : 0
+        );
+
+        textoNivel.color = modoCheck == "indiv" ? Color.white : Color.grey;
+        if (modoCheck == "mult")
+        {
+            nivelMenos.enabled = false;
+            nivelMenos.GetComponent<Image>().color = nivelMenos.enabled ? Color.white : Color.grey;
+            nivelMas.enabled = false;
+            nivelMas.GetComponent<Image>().color = nivelMas.enabled ? Color.white : Color.grey;
+        }
+        else
+        {
+            CheckBtns();
+        }
     }
 }

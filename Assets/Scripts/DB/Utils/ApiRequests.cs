@@ -268,7 +268,8 @@ public class ApiRequests
 
         if (responseMessage.IsSuccessStatusCode)
         {
-            rtrn = JsonConvert.DeserializeObject<List<User>>(responseMessage.Content.ReadAsStringAsync().Result);
+            JToken usersJson = JObject.Parse(await responseMessage.Content.ReadAsStringAsync())["rankings"];
+            rtrn = JsonConvert.DeserializeObject<List<User>>(usersJson.ToString());
         }
 
         return rtrn;
