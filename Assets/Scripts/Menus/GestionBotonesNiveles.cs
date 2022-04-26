@@ -10,6 +10,7 @@ public class GestionBotonesNiveles : MonoBehaviour
 
     private void Start()
     {
+        Globals.Modo = "Indiv";
         GestionBotones();
     }
 
