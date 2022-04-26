@@ -2567,6 +2567,12 @@ PrefabInstance:
       objectReference: {fileID: 605764796}
     - target: {fileID: 4955872081363630450, guid: f3ab0d2f9d1e9f04b9e2097254e6df18,
         type: 3}
+      propertyPath: prefabCarlos
+      value: 
+      objectReference: {fileID: 7421693626981218873, guid: 32dfa2cdf61934aa1a66d5870ede51b1,
+        type: 3}
+    - target: {fileID: 4955872081363630450, guid: f3ab0d2f9d1e9f04b9e2097254e6df18,
+        type: 3}
       propertyPath: texturaPared
       value: 
       objectReference: {fileID: 2100000, guid: 058595cb07ad23946a0a151be620489b, type: 2}

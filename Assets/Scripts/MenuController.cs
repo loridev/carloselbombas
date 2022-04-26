@@ -55,16 +55,22 @@ public class MenuController : MonoBehaviour
     {
         Globals.WorldNum = 4;
         Globals.LevelNum = 5;
-        PhotonNetwork.CreateRoom(CreateGameInput.text, new RoomOptions() { maxPlayers = 5 }, null);
+        PhotonNetwork.CreateRoom(CreateGameInput.text, new RoomOptions() { maxPlayers = 4 }, null);
     }
 
     public void JoinGame()
     {
-        Globals.WorldNum = 4;
-        Globals.LevelNum = 5;
-        RoomOptions roomoptions = new RoomOptions();
-        roomoptions.maxPlayers = 5;
-        PhotonNetwork.JoinOrCreateRoom(JoinGameInput.text, roomoptions, TypedLobby.Default);
+        //if (String.IsNullOrEmpty(JoinGameInput)) { 
+        //Globals.WorldNum = 4;
+        //Globals.LevelNum = 5;
+        foreach (Transform carlos in carlosPlayer)
+        {
+            carlos.setActive(true);
+            RoomOptions roomoptions = new RoomOptions();
+            roomoptions.maxPlayers = 4;
+            PhotonNetwork.JoinOrCreateRoom(JoinGameInput.text, roomoptions, TypedLobby.Default);
+        }
+        //}
     }
 
     private void OnJoinedRoom()
