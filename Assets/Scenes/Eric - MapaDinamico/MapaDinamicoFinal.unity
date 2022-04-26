@@ -3486,6 +3486,12 @@ PrefabInstance:
       objectReference: {fileID: 970589743}
     - target: {fileID: 4955872081363630450, guid: f3ab0d2f9d1e9f04b9e2097254e6df18,
         type: 3}
+      propertyPath: prefabNpcFinal
+      value: 
+      objectReference: {fileID: 3353867616600478801, guid: e9519b9be8e97424da71c7ea3ee9293a,
+        type: 3}
+    - target: {fileID: 4955872081363630450, guid: f3ab0d2f9d1e9f04b9e2097254e6df18,
+        type: 3}
       propertyPath: interfazIndividual
       value: 
       objectReference: {fileID: 2147333044}

@@ -10,7 +10,7 @@ using Newtonsoft.Json.Linq;
 using System.Text;
 using DB.Models;
 
-public class ApiRequests
+public static class ApiRequests
 {
     public static async Task<Level> GetLevel(int worldNum, int levelNum)
     {

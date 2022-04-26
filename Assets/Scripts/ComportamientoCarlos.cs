@@ -329,7 +329,7 @@ public class ComportamientoCarlos : MonoBehaviour
         {
             GestionarPowerDowns(other.tag);
             Destroy(other.gameObject);
-        } else if (other.tag == "Particula" || other.tag == "cNpc")
+        } else if (other.tag == "Particula" || other.tag == "cNpc" || other.tag == "fNpc")
         {
             if (other.tag == "Particula")
             {
