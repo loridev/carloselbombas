@@ -7,6 +7,6 @@ public static class WeatherUtils
 {
     public static async Task<string> GetUserCity()
     {
-        
+        return "";
     }
 }
