@@ -2541,9 +2541,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4955872081363630450, guid: f3ab0d2f9d1e9f04b9e2097254e6df18,
         type: 3}
+      propertyPath: labelTime
+      value: 
+      objectReference: {fileID: 1459490832}
+    - target: {fileID: 4955872081363630450, guid: f3ab0d2f9d1e9f04b9e2097254e6df18,
+        type: 3}
       propertyPath: labelVidas
       value: 
-      objectReference: {fileID: 1880574562}
+      objectReference: {fileID: 1880574564}
     - target: {fileID: 4955872081363630450, guid: f3ab0d2f9d1e9f04b9e2097254e6df18,
         type: 3}
       propertyPath: mainCamera
@@ -2558,7 +2563,7 @@ PrefabInstance:
         type: 3}
       propertyPath: prefabFinal
       value: 
-      objectReference: {fileID: 3353867616600478801, guid: 3415d04920174ba4c89e2ebfee25d3ae,
+      objectReference: {fileID: 3353867616600478801, guid: e9519b9be8e97424da71c7ea3ee9293a,
         type: 3}
     - target: {fileID: 4955872081363630450, guid: f3ab0d2f9d1e9f04b9e2097254e6df18,
         type: 3}
@@ -2624,6 +2629,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4955872081363630450, guid: f3ab0d2f9d1e9f04b9e2097254e6df18,
         type: 3}
+      propertyPath: labelNumBom.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4955872081363630450, guid: f3ab0d2f9d1e9f04b9e2097254e6df18,
+        type: 3}
       propertyPath: powerUps.Array.data[3]
       value: 
       objectReference: {fileID: 491876, guid: 58498e7e4e80e6543b44fabd27aa4e35, type: 3}
@@ -2639,6 +2649,21 @@ PrefabInstance:
       objectReference: {fileID: 492858, guid: 900cc89815f4f7a478c98bc712a6934f, type: 3}
     - target: {fileID: 4955872081363630450, guid: f3ab0d2f9d1e9f04b9e2097254e6df18,
         type: 3}
+      propertyPath: cajasPlayers.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4955872081363630450, guid: f3ab0d2f9d1e9f04b9e2097254e6df18,
+        type: 3}
+      propertyPath: labelAlcance.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4955872081363630450, guid: f3ab0d2f9d1e9f04b9e2097254e6df18,
+        type: 3}
+      propertyPath: labelCargaBat.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4955872081363630450, guid: f3ab0d2f9d1e9f04b9e2097254e6df18,
+        type: 3}
       propertyPath: powerDowns.Array.data[5]
       value: 
       objectReference: {fileID: 428872, guid: 22f2978186192ef47883b3965601baca, type: 3}
@@ -2649,9 +2674,69 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4955872081363630450, guid: f3ab0d2f9d1e9f04b9e2097254e6df18,
         type: 3}
+      propertyPath: labelNumBom.Array.data[0]
+      value: 
+      objectReference: {fileID: 1957457365}
+    - target: {fileID: 4955872081363630450, guid: f3ab0d2f9d1e9f04b9e2097254e6df18,
+        type: 3}
+      propertyPath: labelNumBom.Array.data[1]
+      value: 
+      objectReference: {fileID: 2108621086}
+    - target: {fileID: 4955872081363630450, guid: f3ab0d2f9d1e9f04b9e2097254e6df18,
+        type: 3}
+      propertyPath: labelTiempoDet.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4955872081363630450, guid: f3ab0d2f9d1e9f04b9e2097254e6df18,
+        type: 3}
+      propertyPath: labelVelocidad.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4955872081363630450, guid: f3ab0d2f9d1e9f04b9e2097254e6df18,
+        type: 3}
       propertyPath: texturaParedes.Array.size
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 4955872081363630450, guid: f3ab0d2f9d1e9f04b9e2097254e6df18,
+        type: 3}
+      propertyPath: cajasPlayers.Array.data[0]
+      value: 
+      objectReference: {fileID: 1031554697}
+    - target: {fileID: 4955872081363630450, guid: f3ab0d2f9d1e9f04b9e2097254e6df18,
+        type: 3}
+      propertyPath: cajasPlayers.Array.data[1]
+      value: 
+      objectReference: {fileID: 1792410704}
+    - target: {fileID: 4955872081363630450, guid: f3ab0d2f9d1e9f04b9e2097254e6df18,
+        type: 3}
+      propertyPath: cajasPlayers.Array.data[2]
+      value: 
+      objectReference: {fileID: 2075375401}
+    - target: {fileID: 4955872081363630450, guid: f3ab0d2f9d1e9f04b9e2097254e6df18,
+        type: 3}
+      propertyPath: cajasPlayers.Array.data[3]
+      value: 
+      objectReference: {fileID: 1719080743}
+    - target: {fileID: 4955872081363630450, guid: f3ab0d2f9d1e9f04b9e2097254e6df18,
+        type: 3}
+      propertyPath: labelAlcance.Array.data[0]
+      value: 
+      objectReference: {fileID: 540633610}
+    - target: {fileID: 4955872081363630450, guid: f3ab0d2f9d1e9f04b9e2097254e6df18,
+        type: 3}
+      propertyPath: labelAlcance.Array.data[1]
+      value: 
+      objectReference: {fileID: 605764798}
+    - target: {fileID: 4955872081363630450, guid: f3ab0d2f9d1e9f04b9e2097254e6df18,
+        type: 3}
+      propertyPath: labelCargaBat.Array.data[0]
+      value: 
+      objectReference: {fileID: 1508859259}
+    - target: {fileID: 4955872081363630450, guid: f3ab0d2f9d1e9f04b9e2097254e6df18,
+        type: 3}
+      propertyPath: labelCargaBat.Array.data[1]
+      value: 
+      objectReference: {fileID: 253806635}
     - target: {fileID: 4955872081363630450, guid: f3ab0d2f9d1e9f04b9e2097254e6df18,
         type: 3}
       propertyPath: prefabNpcComunes.Array.size
@@ -2677,6 +2762,26 @@ PrefabInstance:
       propertyPath: texturaSuelos.Array.data[3]
       value: 
       objectReference: {fileID: 2100000, guid: f112b988042d5844d86a06f124d4ea41, type: 2}
+    - target: {fileID: 4955872081363630450, guid: f3ab0d2f9d1e9f04b9e2097254e6df18,
+        type: 3}
+      propertyPath: labelTiempoDet.Array.data[0]
+      value: 
+      objectReference: {fileID: 1185001645}
+    - target: {fileID: 4955872081363630450, guid: f3ab0d2f9d1e9f04b9e2097254e6df18,
+        type: 3}
+      propertyPath: labelTiempoDet.Array.data[1]
+      value: 
+      objectReference: {fileID: 1588701335}
+    - target: {fileID: 4955872081363630450, guid: f3ab0d2f9d1e9f04b9e2097254e6df18,
+        type: 3}
+      propertyPath: labelVelocidad.Array.data[0]
+      value: 
+      objectReference: {fileID: 1663878059}
+    - target: {fileID: 4955872081363630450, guid: f3ab0d2f9d1e9f04b9e2097254e6df18,
+        type: 3}
+      propertyPath: labelVelocidad.Array.data[1]
+      value: 
+      objectReference: {fileID: 1655807756}
     - target: {fileID: 4955872081363630450, guid: f3ab0d2f9d1e9f04b9e2097254e6df18,
         type: 3}
       propertyPath: texturaParedes.Array.data[0]
