@@ -14,7 +14,7 @@ public class ComportamientoCarlos : MonoBehaviour
     public GameObject[] partesPersonalizables;
     public Material skinBomba;
     public Material bombaDefault;
-    private string[] nombres = {"HELMET", "BODY", "BAT", "BOMB"};
+    private List<string> nombres = new List<string>{"HELMET", "BODY", "BAT", "BOMB"};
     private Material materialPersonaje;
 
     // INDICADORES
@@ -517,7 +517,7 @@ public class ComportamientoCarlos : MonoBehaviour
             {
                 if (equipped[j].skin_texture == skins[i].name)
                 {
-                    for (int k = 0; k < nombres.Length; k++)
+                    for (int k = 0; k < nombres.Count; k++)
                     {
                         if (nombres[k] == equipped[j].type)
                         {
@@ -535,13 +535,19 @@ public class ComportamientoCarlos : MonoBehaviour
             }
         }
 
-        for (int i = 0; i < nombres.Length; i++)
+        if (Globals.CurrentUser.equippedItems.Find((item) => item.type == "HELMET") == null)
         {
-            if (Globals.CurrentUser.equippedItems.Find((Item item) => item.type == nombres[i]) == null)
-            {
-                partesPersonalizables[i].GetComponent<MeshRenderer>().material = materialPersonaje;
-            }
+            partesPersonalizables[0].SetActive(false);
         }
+        if (Globals.CurrentUser.equippedItems.Find((item) => item.type == "BODY") == null)
+        {
+            partesPersonalizables[1].GetComponent<MeshRenderer>().material = materialPersonaje;
+        }
+        if (Globals.CurrentUser.equippedItems.Find((item) => item.type == "BAT") == null)
+        {
+            partesPersonalizables[2].GetComponent<MeshRenderer>().material = materialPersonaje;
+        }
+
 
         foreach (GameObject parte in partesNoPersonalizables)
         {
