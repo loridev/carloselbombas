@@ -5,6 +5,7 @@ using UnityEngine;
 public class PowerUpAudio : MonoBehaviour
 {
     public AudioSource powerUpSource;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,6 +22,8 @@ public class PowerUpAudio : MonoBehaviour
     {
         if (colision.gameObject.tag == "Player")
         {
+            powerUpSource.enabled = true;
+            powerUpSource.gameObject.SetActive(true);
             powerUpSource.Play();
             Debug.Log("entra");
         }
