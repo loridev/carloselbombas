@@ -45,6 +45,13 @@ public class GeneracionMapa : MonoBehaviour
     public static int segundos = 0;
     public GameObject[] cajasPlayers;
 
+    private static int vidasConst = 0;
+    private static int velocidadConst = 0;
+    private static int alcanceConst = 0;
+    private static int tiempoDetConst = 0;
+    private static int cargaBatConst = 0;
+    private static int limiteConst = 0;
+
     async void Start()
     {
         if (Globals.Modo == "Indiv")
@@ -133,6 +140,17 @@ public class GeneracionMapa : MonoBehaviour
                                     //carlosPlayer.Count();
                                     carlos.GetComponent<ComportamientoCarlos>().vidas = 1;
                                 }
+                            } else if (nivel.levelNum == 5)
+                            {
+                                ComportamientoCarlos carlosScript = carlos.GetComponent<ComportamientoCarlos>();
+
+                                carlosScript.vidas = vidasConst;
+                                carlosScript.velocidadInicial = velocidadConst;
+                                carlosScript.alcanceBomba = alcanceConst;
+                                carlosScript.duracionBomba = tiempoDetConst;
+                                carlosScript.tiempoCargaBate = cargaBatConst;
+                                carlosScript.limiteBombas = limiteConst;
+                                
                             }
                             break;
                         case "Wall":
@@ -180,6 +198,12 @@ public class GeneracionMapa : MonoBehaviour
         {
             ComportamientoCarlos carlosScript = carlos.GetComponent<ComportamientoCarlos>();
             int index = interfazIndividual.GetActive() ? 0 : 1;
+            vidasConst = carlosScript.vidas;
+            velocidadConst = (int) carlosScript.velocidadInicial;
+            alcanceConst = carlosScript.alcanceBomba;
+            tiempoDetConst = carlosScript.duracionBomba;
+            cargaBatConst = (int) carlosScript.tiempoCargaBate;
+            limiteConst = carlosScript.limiteBombas;
 
             labelVidas.text = "" + carlosScript.vidas;
             labelVelocidad[index].text = "" + carlosScript.velocidadInicial;
