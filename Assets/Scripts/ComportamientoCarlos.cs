@@ -13,6 +13,7 @@ public class ComportamientoCarlos : MonoBehaviour
     public GameObject[] partesNoPersonalizables;
     public GameObject[] partesPersonalizables;
     public Material skinBomba;
+    public Material bombaDefault;
     private string[] nombres = {"HELMET", "BODY", "BAT", "BOMB"};
     private Material materialPersonaje;
 
@@ -53,6 +54,7 @@ public class ComportamientoCarlos : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        skinBomba = bombaDefault;
         restarVidas = true;
         celdas = GeneracionMapa.celdas;
         controlador = GetComponent<CharacterController>();

@@ -386,6 +386,8 @@ MonoBehaviour:
   - {fileID: 3956478525315203955}
   - {fileID: 3960808475811366188}
   - {fileID: 7554683260539270388}
+  skinBomba: {fileID: 0}
+  bombaDefault: {fileID: 2100000, guid: 6082202121a83f948a9073c61226c83d, type: 2}
   indicadores:
   - {fileID: 400004, guid: e8752358c7036d242a54c4039ca8abe6, type: 3}
   - {fileID: 400004, guid: 408db2b26f29a4001a126f62a543966a, type: 3}

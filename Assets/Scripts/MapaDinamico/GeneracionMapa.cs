@@ -125,7 +125,15 @@ public class GeneracionMapa : MonoBehaviour
                     {
                         case "Player":
                             carlos = Instantiate(prefabCarlos, new Vector3(posicion.x, 1, posicion.z), Quaternion.identity);
-                            if (Globals.Modo != "Indiv") carlos.GetComponent<ComportamientoCarlos>().vidas = 1;
+                            if (Globals.Modo != "Indiv")
+                            {
+                                var carlosPlayer = new List<Transform> { };
+                                foreach (Transform carlos in carlosPlayer)
+                                {
+                                    //carlosPlayer.Count();
+                                    carlos.GetComponent<ComportamientoCarlos>().vidas = 1;
+                                }
+                            }
                             break;
                         case "Wall":
                             Transform pared = Instantiate(prebabPared, posicion, Quaternion.identity);
