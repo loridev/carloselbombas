@@ -11,9 +11,13 @@ public class Login : MonoBehaviour
     public GameObject nameInput;
     public GameObject passwordInput;
 
-    private void Start()
+    private async void Start()
     {
-        status.text = "Introduce tu nombre de usuario y tu contrase�a";
+        status.text = "Introduce tu nombre de usuario y tu contraseña";
+        if (Globals.City == null)
+        {
+            StartCoroutine(LocationUtils.GetUserCity());
+        }
     }
 
     public async void LogUser()
@@ -33,7 +37,7 @@ public class Login : MonoBehaviour
             }
         } else
         {
-            status.text = "Nombre o contrase�a incorrectos";
+            status.text = "Nombre o contraseña incorrectos";
         }
 
 

@@ -8,10 +8,13 @@ public static class Globals
     public static int WorldNum = 2;
     public static int LevelNum = 5;
 
-    // ############################  INFO RELATIVA A MODO ################################# //
+    // ############################  INFO RELATIVA A MODO  ################################ //
     public static string Modo = "Indiv";
 
     // ############################  INFO RELATIVA A AUTENTICACION ######################## //
     public static string Token;
     public static User CurrentUser;
+    
+    // ###########################  INFO RELATIVA A UBICACIÓN  ########################### //
+    public static string City = null;
 }
