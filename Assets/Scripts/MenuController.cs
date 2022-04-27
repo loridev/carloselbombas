@@ -63,6 +63,7 @@ public class MenuController : MonoBehaviour
         //if (String.IsNullOrEmpty(JoinGameInput)) { 
         //Globals.WorldNum = 4;
         //Globals.LevelNum = 5;
+        /* POL TE HEMOS COMENTADO ESTO
         foreach (Transform carlos in carlosPlayer)
         {
             carlos.setActive(true);
@@ -70,6 +71,7 @@ public class MenuController : MonoBehaviour
             roomoptions.maxPlayers = 4;
             PhotonNetwork.JoinOrCreateRoom(JoinGameInput.text, roomoptions, TypedLobby.Default);
         }
+        */
         //}
     }
 
