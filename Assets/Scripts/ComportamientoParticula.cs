@@ -15,12 +15,6 @@ public class ComportamientoParticula : MonoBehaviour
 
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     private void OnTriggerEnter(Collider other)
     {
         switch (other.tag)
@@ -31,12 +25,12 @@ public class ComportamientoParticula : MonoBehaviour
                 break;
             case "Bomba":
                 GameObject carlitos = GameObject.FindGameObjectWithTag("Player");
-                // other.gameObject.GetComponent<ComportamientoBomba>().explotar = false;
-                other.gameObject.GetComponent<ComportamientoBomba>().ExplosionBomba(carlitos.GetComponent<ComportamientoCarlos>().alcanceBomba);
+                if (!other.gameObject.GetComponent<ComportamientoBomba>().explotada)
+                {
+                    other.gameObject.GetComponent<ComportamientoBomba>()
+                        .ExplosionBomba(carlitos.GetComponent<ComportamientoCarlos>().alcanceBomba);
+                }
                 //Destroy(other.gameObject);
-                break;
-            case "Particula":
-                //Destroy(gameObject);
                 break;
 
         }

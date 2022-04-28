@@ -12,7 +12,7 @@ public class ComportamientoBomba : MonoBehaviour
     private Celda[,] celdas;
     private GeneracionMapa mapaCosas;
     private ComportamientoCarlos carlosAtributos;
-    private bool explotada;
+    public bool explotada;
     private Coroutine temporizador;
 
     private void Start()

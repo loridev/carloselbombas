@@ -341,8 +341,11 @@ public class ComportamientoCarlos : MonoBehaviour
                 {
                     if (collider.tag == "Bomba")
                     {
-                        GameObject bomba = collider.gameObject;
-                        bomba.GetComponent<ComportamientoBomba>().ExplosionBomba(alcanceBomba);
+                        ComportamientoBomba bomba = collider.gameObject.GetComponent<ComportamientoBomba>();
+                        if (!bomba.explotada)
+                        {
+                            bomba.ExplosionBomba(alcanceBomba);
+                        }
 
                     }
                 }

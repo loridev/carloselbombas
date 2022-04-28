@@ -5,8 +5,8 @@ using UnityEngine;
 public static class Globals
 {
     // ############################  INFO RELATIVA A NIVELES ################################# //
-    public static int WorldNum = 2;
-    public static int LevelNum = 5;
+    public static int WorldNum = 1;
+    public static int LevelNum = 1;
 
     // ############################  INFO RELATIVA A MODO  ################################ //
     public static string Modo = "Indiv";
