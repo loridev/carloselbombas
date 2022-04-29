@@ -64,6 +64,7 @@ public class MenuController : MonoBehaviour
     public void JoinGame()
     {
         playersCount += 1;
+        Debug.Log(playersCount);
         if (JoinGameInput.text.Length == 0)
         { 
             RoomOptions roomoptions = new RoomOptions();
