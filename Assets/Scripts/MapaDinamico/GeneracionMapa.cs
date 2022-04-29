@@ -164,7 +164,9 @@ async void Start()
                             carlos.tag = playerCount != 1 && Globals.Modo == "Pantalladiv" ? "Player" + playerCount : "Player";
                             if (Globals.Modo != "Indiv")
                             {
+                                if (Globals.Modo == "Multi") { 
                                 carlos.GetComponent<ComportamientoCarlos>().vidas = 1;
+                                }
                             }
                             if (nivel.levelNum == 5 && nivel.worldNum != 4)
                             {
