@@ -4,28 +4,25 @@ using UnityEngine;
 
 public class PowerUpAudio : MonoBehaviour
 {
-    public AudioSource powerUpSource;
 
-    // Start is called before the first frame update
-    void Start()
+    public AudioSource powerUpAudio;
+     void Start()
     {
-        powerUpSource = GetComponent<AudioSource>();
+        powerUpAudio = GetComponent<AudioSource>();
+        
     }
-
-    // Update is called once per frame
-    void Update()
+     void Update()
     {
-
+        
     }
-
-    private void OnTriggerEnter(Collider colision)
+    public void OnTriggerEnter(Collider other)
     {
-        if (colision.gameObject.tag == "Player")
-        {
-            powerUpSource.enabled = true;
-            powerUpSource.gameObject.SetActive(true);
-            powerUpSource.Play();
-            Debug.Log("entra");
+        if(other.gameObject.tag == "Player")
+        { 
+            powerUpAudio.enabled = true;
+            powerUpAudio.gameObject.SetActive(true);
+            powerUpAudio.Play();
         }
     }
+
 }
