@@ -7,6 +7,7 @@ public class MenuController : MonoBehaviour
 {
 
     public string VersionName = "0.1";
+    public int playersCount = 0;
     public GameObject UsernameMenu;
     public GameObject ConnectPanel;
 
@@ -53,6 +54,8 @@ public class MenuController : MonoBehaviour
 
     public void CreateGame()
     {
+        playersCount += 1;
+        Debug.Log(playersCount);
         Globals.WorldNum = 4;
         Globals.LevelNum = 5;
         PhotonNetwork.CreateRoom(CreateGameInput.text, new RoomOptions() { maxPlayers = 4 }, null);
@@ -60,11 +63,14 @@ public class MenuController : MonoBehaviour
 
     public void JoinGame()
     {
-        //if (String.IsNullOrEmpty(JoinGameInput)) { 
+        playersCount += 1;
+        Debug.Log(playersCount);
+        if (JoinGameInput.text.Length == 0)
+        { 
             RoomOptions roomoptions = new RoomOptions();
             roomoptions.maxPlayers = 4;
             PhotonNetwork.JoinOrCreateRoom(JoinGameInput.text, roomoptions, TypedLobby.Default);
-        //}
+        }
     }
 
     private void OnJoinedRoom()
