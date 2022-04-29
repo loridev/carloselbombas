@@ -332,10 +332,9 @@ public class ComportamientoCarlos : MonoBehaviour
     {
         if (other.tag.StartsWith("PU"))
         {
-            other.GetComponent<ComportamientoPowerups>().powerUpAudio.Play();
-            Debug.Log("CARLOOS");
+            // other.GetComponent<ComportamientoPowerups>().powerUpAudio.Play();
             GestionarPowerUps(other.tag);
-            Destroy(other.gameObject, 0.3f);
+            Destroy(other.gameObject);
         } else if (other.tag.StartsWith("PD"))
         {
             //other.GetComponent<ComportamientoPowerups>().powerUpAudio.Play();
