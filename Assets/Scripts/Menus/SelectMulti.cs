@@ -9,4 +9,10 @@ public class SelectMulti : MonoBehaviour
     {
         SceneManager.LoadScene("MainMenu");
     }
+
+    public void cargarDividida()
+    {
+        Globals.Modo = "Pantalladiv";
+        SceneManager.LoadScene("MapaDinamicoFinal");
+    }
 }

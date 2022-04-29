@@ -54,27 +54,33 @@ public class ComportamientoCarlos : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        skinBomba = bombaDefault;
-        restarVidas = true;
-        celdas = GeneracionMapa.celdas;
-        controlador = GetComponent<CharacterController>();
-        velocidad = velocidadInicial;
-        materialPersonaje = Globals.CurrentUser.character == "CARLOS" ? coloresPersonajes[0] : coloresPersonajes[1];
+        if (!CompareTag("Untagged"))
+        {
+            skinBomba = bombaDefault;
+            restarVidas = true;
+            celdas = GeneracionMapa.celdas;
+            controlador = GetComponent<CharacterController>();
+            velocidad = velocidadInicial;
+            materialPersonaje = Globals.CurrentUser.character == "CARLOS" ? coloresPersonajes[0] : coloresPersonajes[1];
 
-        CargarSkins();
+            CargarSkins();  
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        ControladorMovimiento();
-        ControladorBate();
+        if (!CompareTag("Untagged"))
+        {
+            ControladorMovimiento();
+            ControladorBate();
+        }
     }
 
     private void ControladorMovimiento()
     {
-        float horizontal = Input.GetAxisRaw("J1_H");
-        float vertical = Input.GetAxisRaw("J1_V");
+        float horizontal = CompareTag("Player") ? Input.GetAxisRaw("J1_H") : Input.GetAxisRaw("J2_H");
+        float vertical = CompareTag("Player") ? Input.GetAxisRaw("J1_V") : Input.GetAxisRaw("J2_V");
         Vector3 direccion = new Vector3(horizontal, 0f, vertical).normalized;
 
         if (direccion.magnitude >= 0.1f)
@@ -110,7 +116,7 @@ public class ComportamientoCarlos : MonoBehaviour
 
     private void ControladorBate()
     {
-        if (Input.GetKey("b"))
+        if (Input.GetKey(CompareTag("Player") ? KeyCode.B : KeyCode.Equals))
         {
             if (indicadorBateCargando == null && indicadorBateCargado == null)
             {
@@ -138,14 +144,14 @@ public class ComportamientoCarlos : MonoBehaviour
             velocidad = velocidadInicial;
         }
 
-        if (Input.GetKeyUp("b") && temporizadorCargado >= tiempoCargaBate)
+        if (Input.GetKeyUp(CompareTag("Player") ? KeyCode.B : KeyCode.Equals) && temporizadorCargado >= tiempoCargaBate)
         {
             Destroy(indicadorBateCargado.gameObject);
             indicadorBateCargado = null;
             GolpearBomba(fuerzaBateCargado);
             temporizadorCargado = 0;
             cargando = false;
-        } else if (Input.GetKeyUp("b") && temporizadorCargado < tiempoCargaBate)
+        } else if (Input.GetKeyUp(CompareTag("Player") ? KeyCode.B : KeyCode.Equals) && temporizadorCargado < tiempoCargaBate)
         {
             Destroy(indicadorBateCargando.gameObject);
             indicadorBateCargando = null;
@@ -358,7 +364,17 @@ public class ComportamientoCarlos : MonoBehaviour
                 if (vidas == 0)
                 {
                     GeneracionMapa.segundos = 0;
-                    SceneManager.LoadScene("MenuMundos");
+                    if (Globals.Modo == "Indiv" || Globals.Modo == "Contrarreloj")
+                    {
+                        SceneManager.LoadScene("MenuMundos");
+                    }
+                    else
+                    {
+                        if (Globals.Modo == "Pantalladiv")
+                        {
+                            StartCoroutine(GeneracionMapa.EntreRondas(gameObject));
+                        }
+                    }
                 }
                 StartCoroutine(EsperarVidas());
             }

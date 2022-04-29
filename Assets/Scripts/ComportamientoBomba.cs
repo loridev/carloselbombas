@@ -11,9 +11,9 @@ public class ComportamientoBomba : MonoBehaviour
     private Transform[] powerDowns;
     private Celda[,] celdas;
     private GeneracionMapa mapaCosas;
-    private ComportamientoCarlos carlosAtributos;
     public bool explotada;
     private Coroutine temporizador;
+    public ComportamientoCarlos owner;
 
     private void Start()
     {
@@ -22,16 +22,15 @@ public class ComportamientoBomba : MonoBehaviour
         mapaCosas = GameObject.FindGameObjectWithTag("Mapa").GetComponent<GeneracionMapa>();
         powerUps = mapaCosas.powerUps;
         powerDowns = mapaCosas.powerDowns;
-        carlosAtributos = GameObject.FindGameObjectWithTag("Player").GetComponent<ComportamientoCarlos>();
-        diagonal = carlosAtributos.siguienteDiagonal;
+        diagonal = owner.siguienteDiagonal;
         if (diagonal)
         {
-            carlosAtributos.siguienteDiagonal = false;
+            owner.siguienteDiagonal = false;
             Transform indicador = Instantiate(indicadores[0], transform.position, Quaternion.identity);
 
             indicador.parent = transform;
         }
-        StartCoroutine(EsperarExplosion(carlosAtributos.alcanceBomba, carlosAtributos.duracionBomba));
+        StartCoroutine(EsperarExplosion(owner.alcanceBomba, owner.duracionBomba));
     }
     private void OnTriggerExit(Collider other)
     {
@@ -88,7 +87,7 @@ public class ComportamientoBomba : MonoBehaviour
                 for (int i = 1; i <= distancia; i++)
                 {
                     posSiguiente = new Vector3(celdaInicial.posicionCelda.x + i, celdaInicial.posicionCelda.y, celdaInicial.posicionCelda.z + i);
-                    celdaSiguiente = carlosAtributos.EncontrarCelda(posSiguiente);
+                    celdaSiguiente = owner.EncontrarCelda(posSiguiente);
                     if (celdaSiguiente != null)
                     {
                         if (celdaSiguiente.objTipoCelda != null)
@@ -109,7 +108,7 @@ public class ComportamientoBomba : MonoBehaviour
                 for (int i = 1; i <= distancia; i++)
                 {
                     posSiguiente = new Vector3(celdaInicial.posicionCelda.x - i, celdaInicial.posicionCelda.y, celdaInicial.posicionCelda.z + i);
-                    celdaSiguiente = carlosAtributos.EncontrarCelda(posSiguiente);
+                    celdaSiguiente = owner.EncontrarCelda(posSiguiente);
                     if (celdaSiguiente != null)
                     {
                         if (celdaSiguiente.objTipoCelda != null)
@@ -130,7 +129,7 @@ public class ComportamientoBomba : MonoBehaviour
                 for (int i = 1; i <= distancia; i++)
                 {
                     posSiguiente = new Vector3(celdaInicial.posicionCelda.x - i, celdaInicial.posicionCelda.y, celdaInicial.posicionCelda.z - i);
-                    celdaSiguiente = carlosAtributos.EncontrarCelda(posSiguiente);
+                    celdaSiguiente = owner.EncontrarCelda(posSiguiente);
                     if (celdaSiguiente != null)
                     {
                         if (celdaSiguiente.objTipoCelda != null)
@@ -151,7 +150,7 @@ public class ComportamientoBomba : MonoBehaviour
                 for (int i = 1; i <= distancia; i++)
                 {
                     posSiguiente = new Vector3(celdaInicial.posicionCelda.x + i, celdaInicial.posicionCelda.y, celdaInicial.posicionCelda.z - i);
-                    celdaSiguiente = carlosAtributos.EncontrarCelda(posSiguiente);
+                    celdaSiguiente = owner.EncontrarCelda(posSiguiente);
                     if (celdaSiguiente != null)
                     {
                         if (celdaSiguiente.objTipoCelda != null)
@@ -187,14 +186,17 @@ public class ComportamientoBomba : MonoBehaviour
         }
         else
         {
-            celdasExplosion.AddRange(carlosAtributos.EncontrarCeldasCerca("up", alcanceBomba, celda));
-            celdasExplosion.AddRange(carlosAtributos.EncontrarCeldasCerca("down", alcanceBomba, celda));
-            celdasExplosion.AddRange(carlosAtributos.EncontrarCeldasCerca("left", alcanceBomba, celda));
-            celdasExplosion.AddRange(carlosAtributos.EncontrarCeldasCerca("right", alcanceBomba, celda));
+            celdasExplosion.AddRange(owner.EncontrarCeldasCerca("up", alcanceBomba, celda));
+            celdasExplosion.AddRange(owner.EncontrarCeldasCerca("down", alcanceBomba, celda));
+            celdasExplosion.AddRange(owner.EncontrarCeldasCerca("left", alcanceBomba, celda));
+            celdasExplosion.AddRange(owner.EncontrarCeldasCerca("right", alcanceBomba, celda));
         }
         if (!explotada)
         {
-            --carlosAtributos.bombasEnMapa;
+            if (!owner.CompareTag("Untagged"))
+            {
+                --owner.bombasEnMapa;
+            }
             explotada = true;
         }
 
@@ -219,8 +221,8 @@ public class ComportamientoBomba : MonoBehaviour
 
                         if (aparecer)
                         {
-                            bool powerUp = UnityEngine.Random.Range(0, 10) <= 6;
-                            int positionPower = UnityEngine.Random.Range(0, 6);
+                            bool powerUp = Random.Range(0, 10) <= 6;
+                            int positionPower = Random.Range(0, 6);
 
                             if (powerUp)
                             {

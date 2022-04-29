@@ -769,7 +769,7 @@ GameObject:
   - component: {fileID: 458620932}
   m_Layer: 5
   m_Name: TextoJ2
-  m_TagString: Untagged
+  m_TagString: Score2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -828,7 +828,7 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: 'Jugador 2
 
-    3/10'
+    0/3'
 --- !u!222 &458620933
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1427,7 +1427,7 @@ GameObject:
   - component: {fileID: 849407688}
   m_Layer: 5
   m_Name: TextoJ1
-  m_TagString: Untagged
+  m_TagString: Score1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1486,7 +1486,7 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: 'Jugador 1
 
-    2/10'
+    0/3'
 --- !u!222 &849407689
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2053,7 +2053,7 @@ GameObject:
   - component: {fileID: 935012873}
   m_Layer: 5
   m_Name: TextoJ4
-  m_TagString: Untagged
+  m_TagString: Score4
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2112,7 +2112,7 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: 'Jugador 4
 
-    6/10'
+    0/3'
 --- !u!222 &935012874
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3553,7 +3553,7 @@ PrefabInstance:
     - target: {fileID: 4955872081363630450, guid: f3ab0d2f9d1e9f04b9e2097254e6df18,
         type: 3}
       propertyPath: texturaSuelos.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4955872081363630450, guid: f3ab0d2f9d1e9f04b9e2097254e6df18,
         type: 3}
@@ -3578,7 +3578,7 @@ PrefabInstance:
     - target: {fileID: 4955872081363630450, guid: f3ab0d2f9d1e9f04b9e2097254e6df18,
         type: 3}
       propertyPath: texturaParedes.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4955872081363630450, guid: f3ab0d2f9d1e9f04b9e2097254e6df18,
         type: 3}
@@ -3642,6 +3642,11 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: f70d582ac8795e94fbba81f1bda57848, type: 2}
     - target: {fileID: 4955872081363630450, guid: f3ab0d2f9d1e9f04b9e2097254e6df18,
         type: 3}
+      propertyPath: texturaSuelos.Array.data[3]
+      value: 
+      objectReference: {fileID: 2100000, guid: f112b988042d5844d86a06f124d4ea41, type: 2}
+    - target: {fileID: 4955872081363630450, guid: f3ab0d2f9d1e9f04b9e2097254e6df18,
+        type: 3}
       propertyPath: labelTiempoDet.Array.data[0]
       value: 
       objectReference: {fileID: 610972152}
@@ -3675,6 +3680,11 @@ PrefabInstance:
       propertyPath: texturaParedes.Array.data[2]
       value: 
       objectReference: {fileID: 2100000, guid: 058595cb07ad23946a0a151be620489b, type: 2}
+    - target: {fileID: 4955872081363630450, guid: f3ab0d2f9d1e9f04b9e2097254e6df18,
+        type: 3}
+      propertyPath: texturaParedes.Array.data[3]
+      value: 
+      objectReference: {fileID: 2100000, guid: 759f0740a4cb77047931846c47ae6924, type: 2}
     - target: {fileID: 4955872081363630450, guid: f3ab0d2f9d1e9f04b9e2097254e6df18,
         type: 3}
       propertyPath: prefabNpcComunes.Array.data[0]
@@ -4800,7 +4810,7 @@ GameObject:
   - component: {fileID: 2141593130}
   m_Layer: 5
   m_Name: TextoJ3
-  m_TagString: Untagged
+  m_TagString: Score3
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4859,7 +4869,7 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: 'Jugador 3
 
-    4/10'
+    0/3'
 --- !u!222 &2141593131
 CanvasRenderer:
   m_ObjectHideFlags: 0
