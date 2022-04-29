@@ -24,11 +24,10 @@ public class ComportamientoParticula : MonoBehaviour
                 Destroy(other.gameObject);
                 break;
             case "Bomba":
-                GameObject carlitos = GameObject.FindGameObjectWithTag("Player");
-                if (!other.gameObject.GetComponent<ComportamientoBomba>().explotada)
+                ComportamientoBomba cb = other.GetComponent<ComportamientoBomba>();
+                if (!cb.explotada)
                 {
-                    other.gameObject.GetComponent<ComportamientoBomba>()
-                        .ExplosionBomba(carlitos.GetComponent<ComportamientoCarlos>().alcanceBomba);
+                    cb.ExplosionBomba(cb.owner.alcanceBomba);
                 }
                 //Destroy(other.gameObject);
                 break;

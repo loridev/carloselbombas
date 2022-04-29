@@ -52,7 +52,9 @@ public class GeneracionMapa : MonoBehaviour
     private static int cargaBatConst = 0;
     private static int limiteConst = 0;
 
-    async void Start()
+    private static int[] scores = {0, 0, 0, 0};
+
+async void Start()
     {
         if (Globals.Modo == "Indiv")
         {
@@ -66,6 +68,12 @@ public class GeneracionMapa : MonoBehaviour
                 {
                     caja.SetActive(false);
                 }
+            }
+
+            if (Globals.Modo == "Pantalladiv")
+            {
+                cajasPlayers[2].SetActive(false);
+                cajasPlayers[3].SetActive(false);
             }
         }
         nivel = await ApiRequests.GetLevel(Globals.WorldNum, Globals.LevelNum);
@@ -90,6 +98,10 @@ public class GeneracionMapa : MonoBehaviour
         if (Globals.Modo == "Contrarreloj")
         {
             StartCoroutine(ContadorSegundos());
+        } else if (Globals.Modo == "Multi" || Globals.Modo == "Pantalladiv")
+        {
+            segundos = 180;
+            StartCoroutine(ContadorDesc());
         }
     }
 
@@ -97,8 +109,9 @@ public class GeneracionMapa : MonoBehaviour
     void Update()
     {
         ActualizarAtributos();
-        ControlarPausa();
-        if (cargado && Globals.Modo == "Contrarreloj")
+        ActualizarScore();
+        ControlarSalida();
+        if (cargado && (Globals.Modo == "Contrarreloj" || Globals.Modo == "Pantalladiv"))
         {
             labelTime.text = segundos + "";
         }
@@ -106,11 +119,22 @@ public class GeneracionMapa : MonoBehaviour
 
     private void GenerarMapa()
     {
+        for (int i = 0; i < scores.Length; i++)
+        {
+            if (scores[i] == 3)
+            {
+                for (int j = 0; j < scores.Length; j++)
+                {
+                    scores[j] = 0;
+                }
+            }
+        }
         celdas = new Celda[nivel.content.Count + 2, nivel.content.Count + 2];
         bool limiteMapa;
 
         for (int i = 0; i < nivel.content.Count + 2; i++)
         {
+            int playerCount = 0;
             for (int j = 0; j < nivel.content.Count + 2; j++)
             {
                 limiteMapa = false;
@@ -131,16 +155,18 @@ public class GeneracionMapa : MonoBehaviour
                     switch (nivel.content[i - 1][j - 1])
                     {
                         case "Player":
-                            carlos = Instantiate(prefabCarlos, new Vector3(posicion.x, 1, posicion.z), Quaternion.identity);
+                            playerCount++;
+                            if (Globals.Modo == "Indiv" ||
+                                (Globals.Modo == "Pantalladiv" && (posicion.x == posicion.z)))
+                            {
+                                carlos = Instantiate(prefabCarlos, new Vector3(posicion.x, 1, posicion.z), Quaternion.identity);
+                            }
+                            carlos.tag = playerCount != 1 ? "Player" + playerCount : "Player";
                             if (Globals.Modo != "Indiv")
                             {
-                                var carlosPlayer = new List<Transform> { };
-                                foreach (Transform carlos in carlosPlayer)
-                                {
-                                    //carlosPlayer.Count();
-                                    carlos.GetComponent<ComportamientoCarlos>().vidas = 1;
-                                }
-                            } else if (nivel.levelNum == 5)
+                                carlos.GetComponent<ComportamientoCarlos>().vidas = 1;
+                            }
+                            if (nivel.levelNum == 5 && nivel.worldNum != 4)
                             {
                                 ComportamientoCarlos carlosScript = carlos.GetComponent<ComportamientoCarlos>();
 
@@ -152,6 +178,9 @@ public class GeneracionMapa : MonoBehaviour
                                 carlosScript.limiteBombas = limiteConst;
                                 
                             }
+
+                            if (Globals.Modo == "Pantalladiv" 
+                                && GameObject.FindWithTag("Player") != null) carlos = GameObject.FindWithTag("Player").transform;
                             break;
                         case "Wall":
                             Transform pared = Instantiate(prebabPared, posicion, Quaternion.identity);
@@ -224,12 +253,12 @@ public class GeneracionMapa : MonoBehaviour
         }
     }
 
-    private void ControlarPausa()
+    private void ControlarSalida()
     {
         if (Input.GetKeyUp(KeyCode.Escape))
         {
             segundos = 0;
-            SceneManager.LoadScene("MenuMundos");
+            SceneManager.LoadScene(Globals.Modo == "Pantalladiv" ? "MenuMulti" : "MenuMundos");
         }
     }
 
@@ -239,6 +268,30 @@ public class GeneracionMapa : MonoBehaviour
         {
             segundos += 1;
             yield return new WaitForSeconds(1);
+        }
+    }
+
+    private IEnumerator ContadorDesc()
+    {
+        while (segundos > 0)
+        {
+            segundos -= 1;
+            yield return new WaitForSeconds(1);
+        }
+
+        MuerteSubita();
+    }
+
+    private void MuerteSubita()
+    {
+        ComportamientoCarlos[] scriptsCarlos = FindObjectsOfType<ComportamientoCarlos>();
+        foreach (ComportamientoCarlos carlos in scriptsCarlos)
+        {
+            carlos.velocidadInicial = 7;
+            carlos.tiempoCargaBate = 2;
+            carlos.alcanceBomba = 7;
+            carlos.duracionBomba = 2;
+            carlos.limiteBombas = 7;
         }
     }
 
@@ -254,6 +307,41 @@ public class GeneracionMapa : MonoBehaviour
         }
         
         if (Globals.LevelNum != 4) segundos = 0;
+    }
+
+    public void ActualizarScore()
+    {
+        for (int i = 0; i < cajasPlayers.Length; i++)
+        {
+            cajasPlayers[i].GetComponentInChildren<Text>().text = "Jugador " + (i + 1) + "\n" + "Rondas: " + scores[i]
+                                                                  + "/3";
+        }
+    }
+
+    public static IEnumerator EntreRondas(GameObject muerto)
+    {
+        ComportamientoBomba[] bombas = FindObjectsOfType<ComportamientoBomba>();
+
+        foreach (ComportamientoBomba bomba in bombas)
+        {
+            Destroy(bomba.gameObject);
+        }
+        
+        scores[muerto.CompareTag("Player") ? 1 : 0]++;
+        muerto.transform.position = new Vector3(0, 50, 0);
+        yield return new WaitForSeconds(3);
+        bool acabada = false;
+        foreach (int score in scores)
+        {
+            if (score == 3)
+            {
+                acabada = true;
+                Globals.Modo = "Multi";
+                break;
+            }
+        }
+
+        SceneManager.LoadScene(acabada ? "MenuMulti" : "MapaDinamicoFinal");
     }
 }
 
