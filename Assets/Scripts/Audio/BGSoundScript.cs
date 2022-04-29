@@ -4,13 +4,8 @@ using UnityEngine;
 
 public class BGSoundScript : MonoBehaviour
 {
-    // Start is called before the first frame update
-    //void Start()
-    //{
-        
-    //}
-
     private static BGSoundScript instance = null;
+
     public static BGSoundScript Instance
     {
         get { return instance; }
@@ -28,7 +23,7 @@ public class BGSoundScript : MonoBehaviour
             DontDestroyOnLoad(this.gameObject);
         }
     }
-    // Update is called once per frame
+
     void Update()
     {
         
