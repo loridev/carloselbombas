@@ -11,7 +11,7 @@ public class Login : MonoBehaviour
     public GameObject nameInput;
     public GameObject passwordInput;
 
-    private async void Start()
+    private void Start()
     {
         status.text = "Introduce tu nombre de usuario y tu contraseña";
         if (Globals.City == null)

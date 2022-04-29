@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -340,15 +341,15 @@ public class ComportamientoCarlos : MonoBehaviour
             //other.GetComponent<ComportamientoPowerups>().powerUpAudio.Play();
             GestionarPowerDowns(other.tag);
             Destroy(other.gameObject);
-        } else if (other.tag == "Particula" || other.tag == "cNpc" || other.tag == "fNpc")
+        } else if (other.CompareTag("Particula") || other.CompareTag("cNpc") || other.CompareTag("fNpc"))
         {
-            if (other.tag == "Particula")
+            if (other.CompareTag("Particula"))
             {
                 Celda celdaCarlos = EncontrarCeldaMasCerca(new Vector3(transform.position.x, 0, transform.position.z));
                 Collider[] colliders = Physics.OverlapSphere(celdaCarlos.posicionCelda, 0.00001f);
                 foreach (Collider collider in colliders)
                 {
-                    if (collider.tag == "Bomba")
+                    if (collider.CompareTag("Bomba"))
                     {
                         ComportamientoBomba bomba = collider.gameObject.GetComponent<ComportamientoBomba>();
                         if (!bomba.explotada)
@@ -579,4 +580,11 @@ public class ComportamientoCarlos : MonoBehaviour
         
     }
 
+    private void OnTriggerExit(Collider other)
+    {
+        if (!other.CompareTag("Particula"))
+        {
+            transform.position = new Vector3(transform.position.x, 1, transform.position.z);
+        }
+    }
 }
