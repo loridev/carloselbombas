@@ -115,8 +115,8 @@ GameObject:
   - component: {fileID: 447988}
   - component: {fileID: 3450485744402786238}
   - component: {fileID: -4635463210594527504}
-  - component: {fileID: 903200276637113512}
   - component: {fileID: 1831597226620148256}
+  - component: {fileID: 4539596730120193289}
   m_Layer: 0
   m_Name: TiempoDetonacionMas
   m_TagString: PUtiempodetonacion
@@ -167,7 +167,20 @@ MonoBehaviour:
   indicadores:
   - {fileID: 7281132044891145329, guid: 3ea7459cf98320a4b9f2f7870ac61832, type: 3}
   - {fileID: 7281132044891145329, guid: e30f289deb108bd4ba6fc4b9d9de24f7, type: 3}
---- !u!82 &903200276637113512
+--- !u!114 &1831597226620148256
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 147988}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d9ff021553437c488dbda0f9ab10c82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  powerUpAudio: {fileID: 0}
+--- !u!82 &4539596730120193289
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -178,7 +191,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 8f8c861d9551eda4b9a0dfc44fea3eb9, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -263,16 +276,3 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &1831597226620148256
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 147988}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d9ff021553437c488dbda0f9ab10c82, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  powerUpAudio: {fileID: 0}

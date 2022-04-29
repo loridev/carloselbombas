@@ -4908,8 +4908,8 @@ GameObject:
   - component: {fileID: 447988}
   - component: {fileID: 7536347546668635324}
   - component: {fileID: -2051648785669356800}
-  - component: {fileID: 1108831171837753927}
-  - component: {fileID: 739014785681851950}
+  - component: {fileID: 3982086247936229003}
+  - component: {fileID: 7022705464189049995}
   m_Layer: 0
   m_Name: BombaDiagonal
   m_TagString: PUbombadiagonal
@@ -4960,20 +4960,7 @@ MonoBehaviour:
   indicadores:
   - {fileID: 7281132044891145329, guid: 3ea7459cf98320a4b9f2f7870ac61832, type: 3}
   - {fileID: 7281132044891145329, guid: e30f289deb108bd4ba6fc4b9d9de24f7, type: 3}
---- !u!114 &1108831171837753927
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 147988}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d35d6b6d57f752e469af361981ce1d8c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  npcSource: {fileID: 0}
---- !u!82 &739014785681851950
+--- !u!82 &3982086247936229003
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4984,7 +4971,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 8f8c861d9551eda4b9a0dfc44fea3eb9, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -5069,3 +5056,16 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &7022705464189049995
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 147988}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d9ff021553437c488dbda0f9ab10c82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  powerUpAudio: {fileID: 0}

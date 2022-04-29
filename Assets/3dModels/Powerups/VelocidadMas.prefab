@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3130836906858708637}
   - component: {fileID: -7046971782491609542}
   - component: {fileID: 5241279272306835815}
-  - component: {fileID: 6396310367675139266}
+  - component: {fileID: -1661295939344769812}
   m_Layer: 0
   m_Name: VelocidadMas
   m_TagString: PUvelocidad
@@ -76,7 +76,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   powerUpAudio: {fileID: 0}
---- !u!82 &6396310367675139266
+--- !u!82 &-1661295939344769812
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -87,7 +87,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 8f8c861d9551eda4b9a0dfc44fea3eb9, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0

@@ -235,7 +235,7 @@ public class ComportamientoCarlos : MonoBehaviour
 
     private async void GestionarPowerUps(string tag)
     {
-        string[] separador = new[] { "PU" };
+        string[] separador = { "PU" };
 
         switch (tag.Split(separador, System.StringSplitOptions.None)[1]) {
             case "alcancebomba":
@@ -331,10 +331,13 @@ public class ComportamientoCarlos : MonoBehaviour
     {
         if (other.tag.StartsWith("PU"))
         {
+            other.GetComponent<ComportamientoPowerups>().powerUpAudio.Play();
+            Debug.Log("CARLOOS");
             GestionarPowerUps(other.tag);
-            Destroy(other.gameObject);
+            Destroy(other.gameObject, 0.3f);
         } else if (other.tag.StartsWith("PD"))
         {
+            //other.GetComponent<ComportamientoPowerups>().powerUpAudio.Play();
             GestionarPowerDowns(other.tag);
             Destroy(other.gameObject);
         } else if (other.tag == "Particula" || other.tag == "cNpc" || other.tag == "fNpc")

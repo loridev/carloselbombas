@@ -5,23 +5,24 @@ using UnityEngine;
 public class PowerUpAudio : MonoBehaviour
 {
 
-    public AudioSource powerUpAudio;
+    //public AudioSource powerUpAudio;
      void Start()
     {
-        powerUpAudio = GetComponent<AudioSource>();
+        //powerUpAudio = GetComponent<AudioSource>();
         
     }
      void Update()
     {
         
     }
-    public void OnTriggerEnter(Collider other)
+    public void OnTriggerEnter(Collider colision)
     {
-        if(other.gameObject.tag == "Player")
-        { 
-            powerUpAudio.enabled = true;
-            powerUpAudio.gameObject.SetActive(true);
-            powerUpAudio.Play();
+        if(colision.gameObject.tag == "Player")
+        {
+            // Debug.Log("Tocado");
+            // powerUpAudio.enabled = true;
+            // powerUpAudio.gameObject.SetActive(true);
+            // powerUpAudio.Play();
         }
     }
 
