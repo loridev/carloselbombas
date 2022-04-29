@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8587813456201951854}
   - component: {fileID: 6631872735165115061}
   - component: {fileID: 5865726827078903741}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: pierna2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -108,7 +108,7 @@ GameObject:
   - component: {fileID: 588955767286204919}
   - component: {fileID: 4973145005790326955}
   - component: {fileID: 2071719943367992268}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Capsule
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -209,7 +209,7 @@ GameObject:
   - component: {fileID: 4292488163792215300}
   - component: {fileID: 653137236370264496}
   - component: {fileID: 5749367626129380207}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: CarlosMapaDinamico
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -422,7 +422,7 @@ GameObject:
   - component: {fileID: 7107158321610908138}
   - component: {fileID: 5879058726059543256}
   - component: {fileID: 8263315595294470675}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: brazo2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -518,7 +518,7 @@ GameObject:
   - component: {fileID: 2574294525017794907}
   - component: {fileID: 7998659102663726438}
   - component: {fileID: 773730500237685098}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: brazo1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -614,7 +614,7 @@ GameObject:
   - component: {fileID: 2039286391691949024}
   - component: {fileID: 7799737136551008357}
   - component: {fileID: 8698158307696525949}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: pierna1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -765,6 +765,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bateobj (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 2392467865195565816, guid: 53d608223120a41e4ab58b43d7061f7f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 53d608223120a41e4ab58b43d7061f7f, type: 3}
 --- !u!1 &7554683260539270388 stripped
@@ -786,10 +791,20 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2433471343911729294}
     m_Modifications:
+    - target: {fileID: 4981495953478093665, guid: b20f6e9a771cf4008924049842849350,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6112940290075478567, guid: b20f6e9a771cf4008924049842849350,
         type: 3}
       propertyPath: m_Name
       value: Casco
+      objectReference: {fileID: 0}
+    - target: {fileID: 6112940290075478567, guid: b20f6e9a771cf4008924049842849350,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6890039462079697053, guid: b20f6e9a771cf4008924049842849350,
         type: 3}

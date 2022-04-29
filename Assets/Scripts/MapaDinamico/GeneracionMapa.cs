@@ -161,7 +161,7 @@ async void Start()
                             {
                                 carlos = Instantiate(prefabCarlos, new Vector3(posicion.x, 1, posicion.z), Quaternion.identity);
                             }
-                            carlos.tag = playerCount != 1 ? "Player" + playerCount : "Player";
+                            carlos.tag = playerCount != 1 && Globals.Modo == "Pantalladiv" ? "Player" + playerCount : "Player";
                             if (Globals.Modo != "Indiv")
                             {
                                 carlos.GetComponent<ComportamientoCarlos>().vidas = 1;
