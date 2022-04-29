@@ -7,17 +7,15 @@ public class GameManeger : MonoBehaviour
 {
     public GameObject PlayerPrefab;
     public GameObject GameCanvas;
-    public GameObject SceneCamera;
 
     private void Awake()
     {
         GameCanvas.SetActive(true);
     }
 
-    public void CreateGame()
+    public void SpawnPlayer()
     {
         GameCanvas.SetActive(false);
-        SceneCamera.SetActive(true);
     }
 
     // Start is called before the first frame update
