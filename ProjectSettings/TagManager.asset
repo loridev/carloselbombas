@@ -39,6 +39,13 @@ TagManager:
   - Nivel4
   - GameMusic
   - BombaSkin
+  - Player2
+  - Player3
+  - Player4
+  - Score1
+  - Score2
+  - Score3
+  - Score4
   layers:
   - Default
   - TransparentFX
