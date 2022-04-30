@@ -51,7 +51,17 @@ public class ComportamientoBomba : MonoBehaviour
     {
         yield return new WaitForSeconds(duracionBomba);
         // ExplosionBomba(alcanceBomba);
-        Instantiate(particulaExplosion, new Vector3(transform.position.x, 0.25f, transform.position.z), Quaternion.identity);
+        if (Globals.Modo != "Multi")
+        {
+            Instantiate(particulaExplosion, new Vector3(transform.position.x, 0.25f, transform.position.z),
+                Quaternion.identity);
+        }
+        else
+        {
+            PhotonNetwork.Instantiate(particulaExplosion.name,
+                new Vector3(transform.position.x, 0.25f, transform.position.z),
+                Quaternion.identity, 0);
+        }
     }
 
     private Celda EncontrarCeldaMasCerca(Vector3 posicion)
@@ -209,7 +219,16 @@ public class ComportamientoBomba : MonoBehaviour
             if (celdasExplosion[i] != null)
             {
                 Debug.Log("Entrando celda" + i);
-                Instantiate(particulaExplosion, new Vector3(celdasExplosion[i].posicionCelda.x, 0.25f, celdasExplosion[i].posicionCelda.z), Quaternion.identity);
+                if (Globals.Modo != "Multi")
+                {
+                    Instantiate(particulaExplosion, new Vector3(celdasExplosion[i].posicionCelda.x, 0.25f, celdasExplosion[i].posicionCelda.z), Quaternion.identity);
+                }
+                else
+                {
+                    PhotonNetwork.Instantiate(particulaExplosion.name,
+                        new Vector3(celdasExplosion[i].posicionCelda.x, 0.25f, celdasExplosion[i].posicionCelda.z),
+                        Quaternion.identity, 0);
+                }
                 if (celdasExplosion[i].objTipoCelda != null)
                 {
                     if (celdasExplosion[i].objTipoCelda.tag == "Caja")

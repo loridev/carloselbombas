@@ -10,7 +10,8 @@ public class ControladorSala : MonoBehaviour
     public InputField salaCrear;
     public InputField salaUnir;
 
-    public Button botonEmpezar;
+    public Button botonCrear;
+    public Button botonUnir;
 
     private void Awake()
     {
@@ -26,5 +27,22 @@ public class ControladorSala : MonoBehaviour
     {
         PhotonNetwork.JoinLobby(TypedLobby.Default);
         Debug.Log("Conectado");
+    }
+
+    public void CrearSala()
+    {
+        PhotonNetwork.CreateRoom(salaCrear.text, new RoomOptions() {MaxPlayers = 4}, null);
+    }
+
+    public void UnirseSala()
+    {
+        RoomOptions roomOptions = new RoomOptions();
+        roomOptions.MaxPlayers = 4;
+        PhotonNetwork.JoinOrCreateRoom(salaUnir.text, roomOptions, TypedLobby.Default);
+    }
+
+    private void OnJoinedRoom()
+    {
+        PhotonNetwork.LoadLevel("MapaDinamicoFinal");
     }
 }

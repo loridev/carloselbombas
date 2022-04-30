@@ -54,6 +54,11 @@ public class GeneracionMapa : MonoBehaviour
 
     private static int[] scores = {0, 0, 0, 0};
 
+    private List<Vector3> posicionesMulti;
+
+    public GameObject panelMulti;
+    public Text status;
+
 async void Start()
     {
         if (Globals.Modo == "Indiv")
@@ -68,12 +73,14 @@ async void Start()
                 {
                     caja.SetActive(false);
                 }
-            }
-
-            if (Globals.Modo == "Pantalladiv")
+            } else if (Globals.Modo == "Pantalladiv")
             {
                 cajasPlayers[2].SetActive(false);
                 cajasPlayers[3].SetActive(false);
+            } else if (Globals.Modo == "Multi")
+            {
+                posicionesMulti = new List<Vector3>();
+                panelMulti.SetActive(true);
             }
         }
         nivel = await ApiRequests.GetLevel(Globals.WorldNum, Globals.LevelNum);
@@ -160,11 +167,19 @@ async void Start()
                                 (Globals.Modo == "Pantalladiv" && (posicion.x == posicion.z)))
                             {
                                 carlos = Instantiate(prefabCarlos, new Vector3(posicion.x, 1, posicion.z), Quaternion.identity);
+                                carlos.tag = playerCount != 1 && Globals.Modo == "Pantalladiv" ? "Player" + playerCount : "Player";
                             }
-                            carlos.tag = playerCount != 1 && Globals.Modo == "Pantalladiv" ? "Player" + playerCount : "Player";
                             if (Globals.Modo != "Indiv")
                             {
-                                carlos.GetComponent<ComportamientoCarlos>().vidas = 1;
+
+                                if (Globals.Modo == "Multi")
+                                {
+                                    posicionesMulti.Add(new Vector3(posicion.x, 1, posicion.z));
+                                }
+                                else
+                                {
+                                    carlos.GetComponent<ComportamientoCarlos>().vidas = 1;
+                                }
                             }
                             if (nivel.levelNum == 5 && nivel.worldNum != 4)
                             {
@@ -257,8 +272,16 @@ async void Start()
     {
         if (Input.GetKeyUp(KeyCode.Escape))
         {
-            segundos = 0;
-            SceneManager.LoadScene(Globals.Modo == "Pantalladiv" ? "MenuMulti" : "MenuMundos");
+            if (Globals.Modo == "Multi")
+            {
+                PhotonNetwork.LeaveRoom();
+                PhotonNetwork.LoadLevel("MenuMulti");
+            }
+            else
+            {
+                segundos = 0;
+                SceneManager.LoadScene(Globals.Modo == "Pantalladiv" ? "MenuMulti" : "MenuMundos");
+            }
         }
     }
 
@@ -342,6 +365,40 @@ async void Start()
         }
 
         SceneManager.LoadScene(acabada ? "MenuMulti" : "MapaDinamicoFinal");
+    }
+
+    public void SpawnMulti()
+    {
+        Debug.Log(PhotonNetwork.countOfPlayers);
+        if (posicionesMulti.Count == 0)
+        {
+            status.text = "Mapa cargando...\n" +
+                          "Prueba en unos segundos";
+        }
+        switch (PhotonNetwork.countOfPlayers)
+        {
+            case 1:
+                GeneracionMapaMulti.SpawnJugador(prefabCarlos.gameObject,
+                    posicionesMulti[0]);
+                break;
+            case 2:
+                GeneracionMapaMulti.SpawnJugador(prefabCarlos.gameObject,
+                    posicionesMulti[2]);
+                break;
+            case 3:
+                GeneracionMapaMulti.SpawnJugador(prefabCarlos.gameObject,
+                    posicionesMulti[1]);
+                break;
+            case 4:
+                GeneracionMapaMulti.SpawnJugador(prefabCarlos.gameObject,
+                    posicionesMulti[3]);
+                break;
+        }
+
+        if (posicionesMulti.Count != 0)
+        {
+            panelMulti.SetActive(false);
+        }
     }
 }
 

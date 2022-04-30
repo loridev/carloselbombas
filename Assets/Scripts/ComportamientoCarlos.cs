@@ -4,8 +4,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class ComportamientoCarlos : MonoBehaviour
+public class ComportamientoCarlos : Photon.MonoBehaviour
 {
+    public PhotonView photonView;
     private Celda[,] celdas;
     
     // RELATIVO A SKINS
@@ -56,8 +57,15 @@ public class ComportamientoCarlos : MonoBehaviour
     void Start()
     {
         Physics.IgnoreLayerCollision(3, 3);
-        if (!CompareTag("Untagged"))
+        if (!CompareTag("Untagged") && (Globals.Modo != "Multi" || Globals.Modo == "Multi" && photonView.isMine))
         {
+            if (Globals.Modo == "Multi")
+            {
+                if (photonView.isMine)
+                {
+                    name = photonView.owner.NickName;
+                }
+            }
             skinBomba = bombaDefault;
             restarVidas = true;
             celdas = GeneracionMapa.celdas;
@@ -72,7 +80,7 @@ public class ComportamientoCarlos : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!CompareTag("Untagged"))
+        if (!CompareTag("Untagged") && (Globals.Modo != "Multi" || Globals.Modo == "Multi" && photonView.isMine))
         {
             ControladorMovimiento();
             ControladorBate();

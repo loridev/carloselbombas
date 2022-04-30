@@ -47,4 +47,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Eric - Menus2/MenuTienda.unity
     guid: fb9b5848bb24507478866945fd1809d7
+  - enabled: 1
+    path: Assets/Scenes/Eric - Menus2/MenuSalaMulti.unity
+    guid: 196270aaf7bac1d498c2c69c0ea562f3
+  - enabled: 1
+    path: Assets/Scenes/Eric - Multi/PregameMulti.unity
+    guid: 15171098da61fa24495b6ff2475e3e2e
   m_configObjects: {}

@@ -3,11 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SoltarBombas : MonoBehaviour
+public class SoltarBombas : Photon.MonoBehaviour
 {
     private GeneracionMapa mapaCosas;
     public GameObject projectilePrefab;
     private ComportamientoCarlos carlosAtributos;
+
+    public PhotonView photonView;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,7 +23,7 @@ public class SoltarBombas : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!CompareTag("Untagged"))
+        if (!CompareTag("Untagged") && (Globals.Modo != "Multi" || Globals.Modo == "Multi" && photonView.isMine))
         {
             if (Input.GetKeyDown(CompareTag("Player") ? KeyCode.Space : KeyCode.Return))
             {
@@ -36,7 +38,19 @@ public class SoltarBombas : MonoBehaviour
                                         && carlosAtributos.bombasEnMapa < carlosAtributos.limiteBombas)
                 {
                     ++GetComponent<ComportamientoCarlos>().bombasEnMapa;
-                    Transform bomba = Instantiate(projectilePrefab, new Vector3(celdaCerca.posicionCelda.x, 0.25f, celdaCerca.posicionCelda.z), projectilePrefab.transform.rotation).transform;
+                    Transform bomba;
+
+                    if (Globals.Modo == "Multi")
+                    {
+                        bomba = PhotonNetwork.Instantiate(projectilePrefab.name,
+                            new Vector3(celdaCerca.posicionCelda.x, 0.25f, celdaCerca.posicionCelda.z),
+                            projectilePrefab.transform.rotation, 0).transform;
+                    }
+                    else
+                    {
+                        bomba = Instantiate(projectilePrefab, new Vector3(celdaCerca.posicionCelda.x, 0.25f, celdaCerca.posicionCelda.z),
+                            projectilePrefab.transform.rotation).transform;
+                    }
                     celdaCerca.ocupado = true;
                     celdaCerca.objTipoCelda = bomba;
                     foreach (Transform tr in bomba.GetComponentsInChildren<Transform>())
@@ -48,7 +62,10 @@ public class SoltarBombas : MonoBehaviour
                     }
                     // explosionBomba(bomba, celdaCerca, carlosAtributos.alcanceBomba, carlosAtributos.duracionBomba);
                     Debug.Log("hola");
-                    bomba.GetComponent<ComportamientoBomba>().owner = carlosAtributos;
+                    if (Globals.Modo != "Multi")
+                    {
+                        bomba.GetComponent<ComportamientoBomba>().owner = carlosAtributos;
+                    }
                 }
             }
         }
