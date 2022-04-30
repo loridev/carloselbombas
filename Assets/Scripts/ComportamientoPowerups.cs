@@ -17,6 +17,7 @@ public class ComportamientoPowerups : MonoBehaviour
             powerUpAudio = GetComponent<AudioSource>();
             //powerUpAudio.Play();
             //Debug.Log("POWEER");
+            BGSoundScript.PowerUpPlay();
         }
         else
         {

@@ -23,6 +23,7 @@ public class PowerUpAudio : MonoBehaviour
             // powerUpAudio.enabled = true;
             // powerUpAudio.gameObject.SetActive(true);
             // powerUpAudio.Play();
+            BGSoundScript.PowerUpPlay();
         }
     }
 

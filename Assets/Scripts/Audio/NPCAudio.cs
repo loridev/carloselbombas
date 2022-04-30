@@ -21,8 +21,9 @@ public class NPCAudio : MonoBehaviour
     {
         if (colision.gameObject.tag == "Player")
         {
-            ArrayAudio.NpcPlay();
+            //ArrayAudio.NpcPlay();
             //npcSource.Play();
+            BGSoundScript.NpcPlay();
         }
     }
 }
