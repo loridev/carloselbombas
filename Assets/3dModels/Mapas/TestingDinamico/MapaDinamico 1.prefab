@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1197898842953927651
+--- !u!1 &4955872081363630453
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,108 +8,86 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2055739605689448916}
-  - component: {fileID: 3242285106269011799}
+  - component: {fileID: 4955872081363630451}
+  - component: {fileID: 4955872081363630450}
   m_Layer: 0
   m_Name: Mapa
-  m_TagString: Mapa
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2055739605689448916
+--- !u!4 &4955872081363630451
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1197898842953927651}
+  m_GameObject: {fileID: 4955872081363630453}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 2.84667, y: -1.9650726, z: -3.2636566}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 3340552655146392055}
+  m_Father: {fileID: 4955872081634097727}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3242285106269011799
+--- !u!114 &4955872081363630450
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1197898842953927651}
+  m_GameObject: {fileID: 4955872081363630453}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a9e6a9ae2bf5c784e857fdfe117e0ae7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   powerUps:
-  - {fileID: 428872, guid: c0fd323f63263d3468904082cf1e6b1e, type: 3}
-  - {fileID: 447988, guid: 10c7cae010707ff4ebc856a2973c6829, type: 3}
-  - {fileID: 439498, guid: 60f3ca7f4d345dd459a6d5e1215980f3, type: 3}
-  - {fileID: 491876, guid: d55810b424db9b441bcb1920c9574997, type: 3}
-  - {fileID: 447988, guid: e0dc494be9fd4b14aa0089c487e01d56, type: 3}
-  - {fileID: 492858, guid: efbb486e8b868834b8c8cd8490919ca5, type: 3}
+  - {fileID: 428872, guid: c94c9663157ba6b4789e48cb910660ca, type: 3}
+  - {fileID: 447988, guid: 76d08fe3c4761c0458eb8ac71c8af02b, type: 3}
+  - {fileID: 439498, guid: 53d7cb64d159d664d9e71896068c7b71, type: 3}
+  - {fileID: 428872, guid: 22f2978186192ef47883b3965601baca, type: 3}
+  - {fileID: 491876, guid: 58498e7e4e80e6543b44fabd27aa4e35, type: 3}
+  - {fileID: 447988, guid: cbb04dfd7d7f50a4190d42dbfdce7d0a, type: 3}
+  - {fileID: 492858, guid: 900cc89815f4f7a478c98bc712a6934f, type: 3}
   powerDowns:
-  - {fileID: 405930, guid: 610e482d57f037b418a54eb1c284739f, type: 3}
-  - {fileID: 428872, guid: cc6b1a8c26492e54290de86d31169246, type: 3}
-  - {fileID: 443576, guid: 72a5b05dc5257a942a25cca4414505fd, type: 3}
-  - {fileID: 439498, guid: 6ed6da898f38ba74592f61a2e62b4858, type: 3}
-  - {fileID: 490736, guid: 967c5d75f234fa848b1ed90e77371116, type: 3}
-  - {fileID: 428872, guid: 422a2cbd5596dde45bb587fb1e81c25e, type: 3}
+  - {fileID: 405930, guid: 33ab4d9b5d404ff47997f905b076016f, type: 3}
+  - {fileID: 443576, guid: 16e48e2483e21d447b4e1ca911c9bd7e, type: 3}
+  - {fileID: 439498, guid: 4b9f90fedad5a594d9352f3224db8691, type: 3}
+  - {fileID: 490736, guid: 8a46f322034b947ddbecf4b9a42b6c7f, type: 3}
+  - {fileID: 428872, guid: 479c3c1a92ae76b4fb6a18dd644a3ed2, type: 3}
   prefabCelda: {fileID: 6749168954796504676, guid: 307fee33c2462754d84e1f2c8e19be84,
     type: 3}
   prebabPared: {fileID: 1151540309577347458, guid: 5c651e75dce121747a322f9d6211b905,
     type: 3}
   prefabCaja: {fileID: 187356076435918556, guid: c20f16713bf3da242bb00040bb66afbd,
     type: 3}
-  prefabCarlos: {fileID: 2433471343911729294, guid: 40c86469da122d049bb8f13a80f759d0,
+  prefabCarlos: {fileID: 4538347875629000977, guid: aea44e4faab6b4ee69410d1b58d7bc1b,
     type: 3}
   prefabNpcFinal: {fileID: 3353867616600478801, guid: e9519b9be8e97424da71c7ea3ee9293a,
     type: 3}
-  prefabFinal: {fileID: 405930, guid: a500995c06aba6244b433ca02a62186f, type: 3}
-  prefabNpcComunes:
-  - {fileID: 8832749435269383052, guid: c3e3eff8b95c63b419c0b062f20ff525, type: 3}
-  - {fileID: 8282962549086801570, guid: 49f102a8509744ab9975ca7c17e26a61, type: 3}
-  - {fileID: 6432555143518248226, guid: d53d4e27fb748477fac945c029f0beea, type: 3}
-  texturaSuelos:
-  - {fileID: 2100000, guid: 82b3a75aca7ed6f4abe443d8019d9ddb, type: 2}
-  - {fileID: 2100000, guid: 00494841d457c5e40beb347b6483f7c9, type: 2}
-  - {fileID: 2100000, guid: f70d582ac8795e94fbba81f1bda57848, type: 2}
-  - {fileID: 2100000, guid: f112b988042d5844d86a06f124d4ea41, type: 2}
-  texturaParedes:
-  - {fileID: 2100000, guid: 363270fb71ae7aa45ac7c91408bbe012, type: 2}
-  - {fileID: 2100000, guid: 9b56e06f8d3f8584597ec8a11bd1f200, type: 2}
-  - {fileID: 2100000, guid: 058595cb07ad23946a0a151be620489b, type: 2}
-  - {fileID: 2100000, guid: 759f0740a4cb77047931846c47ae6924, type: 2}
+  prefabFinal: {fileID: 0}
+  prefabNpcComunes: []
+  texturaSuelos: []
+  texturaParedes: []
   interfazIndividual: {fileID: 0}
   interfazMultijugador: {fileID: 0}
   labelVidas: {fileID: 0}
   labelVelocidad:
   - {fileID: 0}
-  - {fileID: 0}
   labelAlcance:
-  - {fileID: 0}
   - {fileID: 0}
   labelTiempoDet:
   - {fileID: 0}
-  - {fileID: 0}
   labelCargaBat:
-  - {fileID: 0}
   - {fileID: 0}
   labelNumBom:
   - {fileID: 0}
-  - {fileID: 0}
   mainCamera: {fileID: 0}
   labelTime: {fileID: 0}
-  cajasPlayers:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  panelMulti: {fileID: 0}
-  status: {fileID: 0}
---- !u!1 &2267347590941763419
+  cajasPlayers: []
+--- !u!1 &4955872081634097665
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -117,37 +95,37 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 3340552655146392055}
-  - component: {fileID: 9027568578965683207}
+  - component: {fileID: 4955872081634097727}
+  - component: {fileID: -9087186340333817380}
   m_Layer: 0
-  m_Name: MapaDinamico
+  m_Name: MapaDinamico 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &3340552655146392055
+--- !u!4 &4955872081634097727
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2267347590941763419}
+  m_GameObject: {fileID: 4955872081634097665}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.8179737, y: -101.33294, z: 75.643906}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 2055739605689448916}
+  - {fileID: 4955872081363630451}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &9027568578965683207
+--- !u!114 &-9087186340333817380
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2267347590941763419}
+  m_GameObject: {fileID: 4955872081634097665}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 78396926cbbfc4ac3b48fc5fc34a87d1, type: 3}
@@ -155,7 +133,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 1
   data:
-    dataString: UEsDBBQAAAgIAAAIIeyiNXIUNQAAAD4AAAAJACQAbWV0YS5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0Bq1YqSy0qzszPU7JSMNEz0jM011FQSi9KLMgoBooYgDilmSkgdnQskFNSWZDql5ibChGoBQBQSwECLQAUAAAICAAACCHsojVyFDUAAAA+AAAACQAkAAAAAAAAAAAAAAAAAAAAbWV0YS5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsFBgAAAAABAAEAWwAAAIAAAAAAAA==
+    dataString: UEsDBBQAAAgIAAAIIeyvF0aa5gEAAMUDAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFtU01z2jAQ/SuMzw2DbWJIjyVMeijQsXPIpNPDIq1tTWSJyhIQGP57tf4Ap+lJ1tt9b7Vv1+eAlWCAWTQpcOHq4OsoHN9/GQVMK6udWcFxaYw2Ho8IRSkzcUJ/nTRpB5BvsJX4HUVR2i6rBxdSVNtragXHTOodceNJe1/yAn+gKmxJzAYUKsVCaNVViT2GXFhtnoXEDgyjuYdtB7x8Ql6viKuReNSWNQ49YlDiHpR9MrArM2dyYLjSnGSDR73WNsU/ThgMKBdqb4wXXGgpBUdDOjnIGofBFdblhwp94BmNAaH+FzE4ZLBOPu3jj2hBSOqiNap+89/nUbAH6eild+HoQv1CsWpjv37Tta2XQbW7WkX+GW3BektbjSMNxKPv3Xmis5HLtWHIv2mneL1A5eVujIdxeP8PaTaePXzidWU7VtwXCjtO3FaqS30g2zbOSqHw5gQF1n4aC60UMnr00PKe1o3tRlMIBmub+YOVGyXfX14HNFS0jGvYV567cNYKVdy4hRP8o7vBPGHzaDLFOeYsmeP0LuTTJJlFebiNkzBkUdB0IZSwAuRPry9t74xf8MHEFVSNYorMz3bULB1tFjdweBKnSg+2QKhcZ8xvhtq0Gte2/U6A9MbyZfMnZNi0QNTgfAkufwFQSwMEFAAACAgAAAgh7ApZTuhvAAAAegAAAAkAJABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQGrVipLLSrOzM9TslIw0TPSMzTXUVBKL0osyCgGihiCOKWZKSB2tJKFWbKFkYFJqkVqWrKZRaqJrmGKiZmZuVGaYZKxmaFhspFSLFB9SWVBql9ibipET0BiSUZaZl5KZl66XlBqcmJxiTvIcKXYWgBQSwECLQAUAAAICAAACCHsrxdGmuYBAADFAwAACwAkAAAAAAAAAAAAAAAAAAAAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFQSwECLQAUAAAICAAACCHsCllO6G8AAAB6AAAACQAkAAAAAAAAAAAAAAAzAgAAbWV0YS5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsFBgAAAAACAAIAuAAAAO0CAAAAAA==
     upgradeData: 
     file_cachedStartup: {fileID: 0}
     data_cachedStartup: 
@@ -164,7 +142,7 @@ MonoBehaviour:
   showUnwalkableNodes: 1
   debugMode: 0
   debugFloor: 0
-  debugRoof: 1
+  debugRoof: 20000
   manualDebugFloorRoof: 0
   showSearchTree: 0
   unwalkableNodeDebugSize: 0.3

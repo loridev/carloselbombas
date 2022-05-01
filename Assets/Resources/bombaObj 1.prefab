@@ -338,7 +338,7 @@ MonoBehaviour:
   particulaExplosion: {fileID: 4441266138185142, guid: 1de73fcfce641e64ba24c84e5bbd6484,
     type: 3}
   indicadores:
-  - {fileID: 7281132044891145329, guid: a0543f5528a0e4a40938625fe3f6b0db, type: 3}
+  - {fileID: 7281132044891145329, guid: 66c55c76bc9c1f84cb049f0a76d6deb6, type: 3}
   explotada: 0
   owner: {fileID: 0}
 --- !u!114 &1000943185973155805

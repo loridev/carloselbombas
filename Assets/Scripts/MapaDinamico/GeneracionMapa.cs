@@ -146,7 +146,16 @@ async void Start()
             {
                 limiteMapa = false;
                 Vector3 posicion = new Vector3(i, 0, j);
-                Transform obj = Instantiate(prefabCelda, posicion, Quaternion.identity);
+                Transform obj;
+                if (Globals.Modo != "Multi")
+                {
+                    obj = Instantiate(prefabCelda, posicion, Quaternion.identity);
+                }
+                else
+                {
+                    obj = PhotonNetwork.Instantiate(prefabCelda.name, posicion, Quaternion.identity, 0)
+                        .transform;
+                }
                 Transform objTipoCelda = null;
                 bool ocupado = false;
 
@@ -204,7 +213,16 @@ async void Start()
                             ocupado = true;
                             break;
                         case "Box":
-                            Transform caja = Instantiate(prefabCaja, new Vector3(posicion.x, 0.25f, posicion.z), Quaternion.identity);
+                            Transform caja;
+                            if (Globals.Modo != "Multi")
+                            {
+                                caja = Instantiate(prefabCaja, new Vector3(posicion.x, 0.25f, posicion.z), Quaternion.identity);
+                            }
+                            else
+                            {
+                                caja = PhotonNetwork.Instantiate(prefabCaja.name, new Vector3(posicion.x, 0.25f, posicion.z),
+                                    Quaternion.identity, 0).transform;
+                            }
                             objTipoCelda = caja;
                             ocupado = true;
                             break;
@@ -347,7 +365,7 @@ async void Start()
 
         foreach (ComportamientoBomba bomba in bombas)
         {
-            Destroy(bomba.gameObject);
+            PhotonNetwork.Destroy(bomba.gameObject);
         }
         
         scores[muerto.CompareTag("Player") ? 1 : 0]++;

@@ -208,8 +208,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 115007544}
-        m_TargetAssemblyTypeName: SelectMulti, Assembly-CSharp
-        m_MethodName: cargarMundo
+        m_TargetAssemblyTypeName: MenuMultiplayer, Assembly-CSharp
+        m_MethodName: cargarMenuSala
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -266,7 +266,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 115007539}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 397eddfdbf14e7145a934e06a9115141, type: 3}
+  m_Script: {fileID: 11500000, guid: eb28eeff8f529b94f8993b62834142ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &179244973
@@ -1131,7 +1131,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
+  m_BackGroundColor: {r: 0, g: 0, b: 0.003921569, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Utils;
 
 public class ComportamientoBomba : MonoBehaviour
 {
@@ -26,7 +27,16 @@ public class ComportamientoBomba : MonoBehaviour
         if (diagonal)
         {
             owner.siguienteDiagonal = false;
-            Transform indicador = Instantiate(indicadores[0], transform.position, Quaternion.identity);
+            Transform indicador;
+            if (Globals.Modo != "Multi")
+            {
+                indicador = Instantiate(indicadores[0], transform.position, Quaternion.identity);
+            }
+            else
+            {
+                indicador = PhotonNetwork.Instantiate(indicadores[0].name, transform.position, Quaternion.identity, 0)
+                    .transform;
+            }
 
             indicador.parent = transform;
         }
@@ -233,7 +243,15 @@ public class ComportamientoBomba : MonoBehaviour
                 {
                     if (celdasExplosion[i].objTipoCelda.tag == "Caja")
                     {
-                        Destroy(celdasExplosion[i].objTipoCelda.gameObject, 0.1f);
+                        if (Globals.Modo != "Multi")
+                        {
+                            Destroy(celdasExplosion[i].objTipoCelda.gameObject, 0.1f);
+                        }
+                        else
+                        {
+                            StartCoroutine(PhotonUtils
+                                .PhotonDestroyWithDelay(celdasExplosion[i].objTipoCelda.gameObject, 0.1f));
+                        }
                         celdasExplosion[i].objTipoCelda = null;
 
                         bool aparecer = UnityEngine.Random.Range(0, 10) <= 5;
@@ -245,11 +263,33 @@ public class ComportamientoBomba : MonoBehaviour
 
                             if (powerUp)
                             {
-                                Instantiate(powerUps[positionPower], new Vector3(celdasExplosion[i].posicionCelda.x, 0.5f, celdasExplosion[i].posicionCelda.z), Quaternion.identity);
+                                if (Globals.Modo != "Multi")
+                                {
+                                    Instantiate(powerUps[positionPower], 
+                                        new Vector3(celdasExplosion[i].posicionCelda.x, 0.5f, celdasExplosion[i].posicionCelda.z), 
+                                        Quaternion.identity);
+                                }
+                                else
+                                {
+                                    PhotonNetwork.Instantiate(powerUps[positionPower].name, 
+                                        new Vector3(celdasExplosion[i].posicionCelda.x, 0.5f, celdasExplosion[i].posicionCelda.z), 
+                                        Quaternion.identity, 0);
+                                }
                             }
                             else
                             {
-                                Instantiate(powerDowns[positionPower], new Vector3(celdasExplosion[i].posicionCelda.x, 0.5f, celdasExplosion[i].posicionCelda.z), Quaternion.identity);
+                                if (Globals.Modo != "Multi")
+                                {
+                                    Instantiate(powerDowns[positionPower], 
+                                        new Vector3(celdasExplosion[i].posicionCelda.x, 0.5f, celdasExplosion[i].posicionCelda.z), 
+                                        Quaternion.identity);
+                                }
+                                else
+                                {
+                                    PhotonNetwork.Instantiate(powerDowns[positionPower].name, 
+                                        new Vector3(celdasExplosion[i].posicionCelda.x, 0.5f, celdasExplosion[i].posicionCelda.z), 
+                                        Quaternion.identity, 0);
+                                }
                             }
                         }
                     }
@@ -261,7 +301,15 @@ public class ComportamientoBomba : MonoBehaviour
                 }
             }
         }
-        Destroy(gameObject);
+
+        if (Globals.Modo != "Multi")
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            PhotonNetwork.Destroy(gameObject);
+        }
         celda.objTipoCelda = null;
         celda.ocupado = false;
         StopAllCoroutines();

@@ -51,6 +51,7 @@ public class SoltarBombas : Photon.MonoBehaviour
                         bomba = Instantiate(projectilePrefab, new Vector3(celdaCerca.posicionCelda.x, 0.25f, celdaCerca.posicionCelda.z),
                             projectilePrefab.transform.rotation).transform;
                     }
+                    bomba.GetComponent<ComportamientoBomba>().owner = carlosAtributos;
                     celdaCerca.ocupado = true;
                     celdaCerca.objTipoCelda = bomba;
                     foreach (Transform tr in bomba.GetComponentsInChildren<Transform>())
@@ -62,10 +63,6 @@ public class SoltarBombas : Photon.MonoBehaviour
                     }
                     // explosionBomba(bomba, celdaCerca, carlosAtributos.alcanceBomba, carlosAtributos.duracionBomba);
                     Debug.Log("hola");
-                    if (Globals.Modo != "Multi")
-                    {
-                        bomba.GetComponent<ComportamientoBomba>().owner = carlosAtributos;
-                    }
                 }
             }
         }
