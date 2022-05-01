@@ -31,23 +31,23 @@ public class BGSoundScript : MonoBehaviour
 
     public static void NpcPlay()
     {
-
-        Debug.Log(allAudios[1].clip.ToString());
-        if (allAudios[1] != null)
-        {
-            Debug.Log("PLAYY");
-            allAudios[1].Play();
-           
-        }
-        else
-        {
-            Debug.Log("NUUULL");
-        }
+        allAudios[1].Play();
     }
 
     public static void PowerUpPlay()
     {
         allAudios[2].Play();
+    }
+
+    public static void CoinPlay()
+    {
+        allAudios[3].Play();
+    }
+
+    public static void PowerDownPlay()
+    {
+        allAudios[4].Play();
+        Debug.Log(allAudios[4].clip.ToString());
     }
 
     void Update()

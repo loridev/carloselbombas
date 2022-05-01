@@ -14,10 +14,10 @@ public class ComportamientoPowerups : MonoBehaviour
         if (gameObject.tag.StartsWith("PU"))
         {
             indicador = Instantiate(indicadores[0], transform.position, Quaternion.identity);
-            powerUpAudio = GetComponent<AudioSource>();
+            //powerUpAudio = GetComponent<AudioSource>();
             //powerUpAudio.Play();
             //Debug.Log("POWEER");
-            BGSoundScript.PowerUpPlay();
+            //BGSoundScript.PowerUpPlay();
         }
         else
         {

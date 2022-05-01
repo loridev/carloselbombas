@@ -15,7 +15,7 @@ public class AudioCoin : MonoBehaviour
     {
         if (colision.gameObject.tag == "Player")
         {
-            coinSource.Play();
+            BGSoundScript.CoinPlay();
         }
     }
 }
