@@ -144,7 +144,6 @@ async void Start()
             int playerCount = 0;
             for (int j = 0; j < nivel.content.Count + 2; j++)
             {
-                limiteMapa = false;
                 Vector3 posicion = new Vector3(i, 0, j);
                 Transform obj = Instantiate(prefabCelda, posicion, Quaternion.identity);
                 Transform objTipoCelda = null;
@@ -155,7 +154,6 @@ async void Start()
                     Transform pared = Instantiate(prebabPared, posicion, Quaternion.identity);
                     pared.GetComponent<Renderer>().material = texturaParedes[nivel.worldNum - 1];
                     objTipoCelda = pared;
-                    limiteMapa = true;
                     ocupado = true;
                 } else
                 {
@@ -238,7 +236,7 @@ async void Start()
                 }
                 obj.GetComponent<Renderer>().material = texturaSuelos[nivel.worldNum - 1];
                 obj.name = "Celda " + i + "-" + j;
-                celdas[i, j] = new Celda(ocupado, posicion, obj, objTipoCelda, limiteMapa);
+                celdas[i, j] = new Celda(ocupado, posicion, objTipoCelda);
             }
         }
 
@@ -415,15 +413,11 @@ public class Celda
 {
     public bool ocupado;
     public Vector3 posicionCelda;
-    public Transform obj;
     public Transform objTipoCelda;
-    public bool limiteMapa;
-    public Celda(bool ocupado, Vector3 posicionCelda, Transform obj, Transform objTipoCelda, bool limiteMapa)
+    public Celda(bool ocupado, Vector3 posicionCelda, Transform objTipoCelda)
     {
         this.ocupado = ocupado;
         this.posicionCelda = posicionCelda;
-        this.obj = obj;
         this.objTipoCelda = objTipoCelda;
-        this.limiteMapa = limiteMapa;
     }
 }
