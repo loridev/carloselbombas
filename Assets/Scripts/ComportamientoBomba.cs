@@ -18,6 +18,17 @@ public class ComportamientoBomba : MonoBehaviour
 
     private void Start()
     {
+        Collider[] colliders = Physics.OverlapSphere(transform.position, 0.00001f);
+        
+        foreach (Collider collider in colliders)
+        {
+            ComportamientoCarlos carlosScript = collider.GetComponent<ComportamientoCarlos>();
+            if (carlosScript != null)
+            {
+                owner = carlosScript;
+                break;
+            }
+        }
         explotada = false;
         celdas = GeneracionMapa.celdas;
         mapaCosas = GameObject.FindGameObjectWithTag("Mapa").GetComponent<GeneracionMapa>();
@@ -249,8 +260,9 @@ public class ComportamientoBomba : MonoBehaviour
                         }
                         else
                         {
-                            StartCoroutine(PhotonUtils
-                                .PhotonDestroyWithDelay(celdasExplosion[i].objTipoCelda.gameObject, 0.1f));
+                            PhotonNetwork.Destroy(celdasExplosion[i].objTipoCelda.gameObject);
+                            //StartCoroutine(PhotonUtils
+                                //.PhotonDestroyWithDelay(celdasExplosion[i].objTipoCelda.gameObject, 0.1f));
                         }
                         celdasExplosion[i].objTipoCelda = null;
 

@@ -146,16 +146,7 @@ async void Start()
             {
                 limiteMapa = false;
                 Vector3 posicion = new Vector3(i, 0, j);
-                Transform obj;
-                if (Globals.Modo != "Multi")
-                {
-                    obj = Instantiate(prefabCelda, posicion, Quaternion.identity);
-                }
-                else
-                {
-                    obj = PhotonNetwork.Instantiate(prefabCelda.name, posicion, Quaternion.identity, 0)
-                        .transform;
-                }
+                Transform obj = Instantiate(prefabCelda, posicion, Quaternion.identity);
                 Transform objTipoCelda = null;
                 bool ocupado = false;
 

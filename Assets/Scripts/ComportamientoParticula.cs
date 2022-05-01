@@ -25,7 +25,7 @@ public class ComportamientoParticula : MonoBehaviour
                 break;
             case "Bomba":
                 ComportamientoBomba cb = other.GetComponent<ComportamientoBomba>();
-                if (!cb.explotada)
+                if (cb != null && !cb.explotada)
                 {
                     cb.ExplosionBomba(cb.owner.alcanceBomba);
                 }
