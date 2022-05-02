@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class NPCAudio : MonoBehaviour
 {
-    public AudioSource npcSource;
+    // public AudioSource npcSource;
     // Start is called before the first frame update
     void Start()
     {
-        npcSource = GetComponent<AudioSource>();
+        // npcSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame

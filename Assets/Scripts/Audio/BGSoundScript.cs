@@ -50,8 +50,4 @@ public class BGSoundScript : MonoBehaviour
         Debug.Log(allAudios[4].clip.ToString());
     }
 
-    void Update()
-    {
-        
-    }
 }
