@@ -4908,7 +4908,7 @@ GameObject:
   - component: {fileID: 405930}
   - component: {fileID: 4414427372129748102}
   - component: {fileID: -7796237107585771064}
-  - component: {fileID: 1772835647307173762}
+  - component: {fileID: 4992789945031597995}
   m_Layer: 0
   m_Name: AlcanceBombaMenos
   m_TagString: PDalcancebomba
@@ -4960,7 +4960,7 @@ MonoBehaviour:
   - {fileID: 7281132044891145329, guid: 3ea7459cf98320a4b9f2f7870ac61832, type: 3}
   - {fileID: 7281132044891145329, guid: e30f289deb108bd4ba6fc4b9d9de24f7, type: 3}
   powerUpAudio: {fileID: 0}
---- !u!114 &1772835647307173762
+--- !u!114 &4992789945031597995
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

@@ -4910,6 +4910,7 @@ GameObject:
   - component: {fileID: -7796237107585771064}
   - component: {fileID: 733882268786150139}
   - component: {fileID: -6436922751173189587}
+  - component: {fileID: 7982830728512873950}
   m_Layer: 0
   m_Name: AlcanceBombaMenos 1
   m_TagString: PDalcancebomba
@@ -4960,7 +4961,6 @@ MonoBehaviour:
   indicadores:
   - {fileID: 7281132044891145329, guid: 3ea7459cf98320a4b9f2f7870ac61832, type: 3}
   - {fileID: 7281132044891145329, guid: e30f289deb108bd4ba6fc4b9d9de24f7, type: 3}
-  powerUpAudio: {fileID: 0}
 --- !u!82 &733882268786150139
 AudioSource:
   m_ObjectHideFlags: 0
@@ -5077,9 +5077,22 @@ MonoBehaviour:
   onSerializeTransformOption: 3
   onSerializeRigidBodyOption: 2
   ownershipTransfer: 0
-  ObservedComponents: []
+  ObservedComponents:
+  - {fileID: 0}
   ObservedComponentsFoldoutOpen: 1
   viewIdField: 0
   instantiationId: -1
   currentMasterID: -1
   isRuntimeInstantiated: 0
+--- !u!114 &7982830728512873950
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 105930}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b28a587df746b6e4797f2c9e05edfac4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

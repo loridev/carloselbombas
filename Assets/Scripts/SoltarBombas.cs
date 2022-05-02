@@ -29,9 +29,6 @@ public class SoltarBombas : Photon.MonoBehaviour
 
                 celdaCerca = carlosAtributos.EncontrarCeldaMasCerca(transform.position);
 
-                // Debug.Log(minDistancia);
-                // Debug.Log(celdaCercana.obj.name);
-
                 if (!celdaCerca.ocupado && !carlosAtributos.cargando
                                         && carlosAtributos.bombasEnMapa < carlosAtributos.limiteBombas)
                 {
@@ -59,7 +56,6 @@ public class SoltarBombas : Photon.MonoBehaviour
                         }
                     }
                     // explosionBomba(bomba, celdaCerca, carlosAtributos.alcanceBomba, carlosAtributos.duracionBomba);
-                    Debug.Log("hola");
                 }
             }
         }

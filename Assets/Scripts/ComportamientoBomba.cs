@@ -106,9 +106,6 @@ public class ComportamientoBomba : MonoBehaviour
                 minDistancia = distancia;
                 celdaCercana = celda;
             }
-
-            // Debug.Log(distancia);
-            // Debug.Log(celda.obj.name);
         }
 
         return celdaCercana;
@@ -244,10 +241,8 @@ public class ComportamientoBomba : MonoBehaviour
         // Poner particulas de la bomba
         for (int i = 0; i < celdasExplosion.Count; i++)
         {
-            //Debug.Log(celdasExplosion[i].posicionCelda);
             if (celdasExplosion[i] != null)
             {
-                Debug.Log("Entrando celda" + i);
                 if (Globals.Modo != "Multi")
                 {
                     Instantiate(particulaExplosion, new Vector3(celdasExplosion[i].posicionCelda.x, 0.25f, celdasExplosion[i].posicionCelda.z), Quaternion.identity);
@@ -262,6 +257,9 @@ public class ComportamientoBomba : MonoBehaviour
                 {
                     if (celdasExplosion[i].objTipoCelda.tag == "Caja")
                     {
+                        //Sonido explosion caja
+                        BGSoundScript.DestroyedBoxPlay();
+                        Debug.Log("Box Destroyeddddddd");
                         if (Globals.Modo != "Multi")
                         {
                             Destroy(celdasExplosion[i].objTipoCelda.gameObject, 0.1f);

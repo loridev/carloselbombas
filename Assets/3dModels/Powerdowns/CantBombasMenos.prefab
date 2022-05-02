@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 428872}
   - component: {fileID: 3467334222470504882}
   - component: {fileID: -5041530479080760202}
-  - component: {fileID: 1352130014975319158}
+  - component: {fileID: 5944260215299985889}
   m_Layer: 0
   m_Name: CantBombasMenos
   m_TagString: PDcantbombas
@@ -63,7 +63,7 @@ MonoBehaviour:
   - {fileID: 7281132044891145329, guid: 3ea7459cf98320a4b9f2f7870ac61832, type: 3}
   - {fileID: 7281132044891145329, guid: e30f289deb108bd4ba6fc4b9d9de24f7, type: 3}
   powerUpAudio: {fileID: 0}
---- !u!114 &1352130014975319158
+--- !u!114 &5944260215299985889
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

@@ -29,7 +29,7 @@ public class BGSoundScript : MonoBehaviour
     }
 
 
-    public static void NpcPlay()
+    public static void LoseLifePlay()
     {
         allAudios[1].Play();
     }
@@ -47,11 +47,18 @@ public class BGSoundScript : MonoBehaviour
     public static void PowerDownPlay()
     {
         allAudios[4].Play();
-        Debug.Log(allAudios[4].clip.ToString());
     }
 
-    void Update()
+    public static void DeathCarlosPlay()
     {
-        
+        allAudios[5].Play();
     }
+
+    public static void DestroyedBoxPlay()
+    {
+        allAudios[6].Play();
+    }
+
+    //TODO: Sonido muerte de npc
+    //TODO: Sonido CARLOS EL BOMBAS en el countdown de multi
 }
