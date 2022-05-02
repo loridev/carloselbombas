@@ -15401,6 +15401,8 @@ MonoBehaviour:
   - {fileID: 562051931}
   prefabCarlos: {fileID: 4305222971606537627, guid: 40c86469da122d049bb8f13a80f759d0,
     type: 3}
+  prefabCaja: {fileID: 2163354304539082712, guid: 0fe833806771abd4096dd2805b4d965b,
+    type: 3}
   powerUps:
   - {fileID: 428872, guid: c0fd323f63263d3468904082cf1e6b1e, type: 3}
   - {fileID: 447988, guid: 10c7cae010707ff4ebc856a2973c6829, type: 3}
