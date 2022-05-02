@@ -8,8 +8,8 @@ public class PowerDownAudio : MonoBehaviour
     {
         if (colision.gameObject.tag == "Player")
         {
-            Debug.Log("Entra POWERDOWN");
             BGSoundScript.PowerDownPlay();
         }
     }
+
 }

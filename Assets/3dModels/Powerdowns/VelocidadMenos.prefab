@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 428872}
   - component: {fileID: 7911983036265175399}
   - component: {fileID: -4155110104304275005}
-  - component: {fileID: 8108069695777506036}
+  - component: {fileID: 8453936734929959715}
   m_Layer: 0
   m_Name: VelocidadMenos
   m_TagString: PDvelocidad
@@ -63,7 +63,7 @@ MonoBehaviour:
   - {fileID: 7281132044891145329, guid: 3ea7459cf98320a4b9f2f7870ac61832, type: 3}
   - {fileID: 7281132044891145329, guid: e30f289deb108bd4ba6fc4b9d9de24f7, type: 3}
   powerUpAudio: {fileID: 0}
---- !u!114 &8108069695777506036
+--- !u!114 &8453936734929959715
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

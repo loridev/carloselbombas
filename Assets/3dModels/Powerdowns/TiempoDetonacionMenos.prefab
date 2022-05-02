@@ -115,7 +115,7 @@ GameObject:
   - component: {fileID: 490736}
   - component: {fileID: -5797150473101433302}
   - component: {fileID: 333679103318594196}
-  - component: {fileID: 2559916172744013342}
+  - component: {fileID: 4477292380457237025}
   m_Layer: 0
   m_Name: TiempoDetonacionMenos
   m_TagString: PDtiempodetonacion
@@ -167,7 +167,7 @@ MonoBehaviour:
   - {fileID: 7281132044891145329, guid: 3ea7459cf98320a4b9f2f7870ac61832, type: 3}
   - {fileID: 7281132044891145329, guid: e30f289deb108bd4ba6fc4b9d9de24f7, type: 3}
   powerUpAudio: {fileID: 0}
---- !u!114 &2559916172744013342
+--- !u!114 &4477292380457237025
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

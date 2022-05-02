@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 443576}
   - component: {fileID: 7243474487368679976}
   - component: {fileID: -763767203075081162}
-  - component: {fileID: 7107195776500434228}
+  - component: {fileID: 3445766424538863271}
   m_Layer: 0
   m_Name: CargaBateMenos
   m_TagString: PDcargabate
@@ -63,7 +63,7 @@ MonoBehaviour:
   - {fileID: 7281132044891145329, guid: 3ea7459cf98320a4b9f2f7870ac61832, type: 3}
   - {fileID: 7281132044891145329, guid: e30f289deb108bd4ba6fc4b9d9de24f7, type: 3}
   powerUpAudio: {fileID: 0}
---- !u!114 &7107195776500434228
+--- !u!114 &3445766424538863271
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

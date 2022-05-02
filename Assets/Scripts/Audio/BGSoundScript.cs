@@ -47,7 +47,6 @@ public class BGSoundScript : MonoBehaviour
     public static void PowerDownPlay()
     {
         allAudios[4].Play();
-        Debug.Log(allAudios[4].clip.ToString());
     }
 
 }

@@ -341,12 +341,10 @@ public class ComportamientoCarlos : Photon.MonoBehaviour
     {
         if (other.tag.StartsWith("PU"))
         {
-            // other.GetComponent<ComportamientoPowerups>().powerUpAudio.Play();
             GestionarPowerUps(other.tag);
             Destroy(other.gameObject);
         } else if (other.tag.StartsWith("PD"))
         {
-            //other.GetComponent<ComportamientoPowerups>().powerUpAudio.Play();
             GestionarPowerDowns(other.tag);
             Destroy(other.gameObject);
         } else if (other.CompareTag("Particula") || other.CompareTag("cNpc") || other.CompareTag("fNpc"))
