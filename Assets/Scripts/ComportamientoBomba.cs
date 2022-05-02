@@ -249,6 +249,9 @@ public class ComportamientoBomba : MonoBehaviour
                 {
                     if (celdasExplosion[i].objTipoCelda.tag == "Caja")
                     {
+                        //Sonido explosion caja
+                        BGSoundScript.DestroyedBoxPlay();
+                        Debug.Log("Box Destroyeddddddd");
                         if (Globals.Modo != "Multi")
                         {
                             Destroy(celdasExplosion[i].objTipoCelda.gameObject, 0.1f);
