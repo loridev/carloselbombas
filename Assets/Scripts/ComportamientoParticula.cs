@@ -6,11 +6,10 @@ using UnityEngine.SceneManagement;
 public class ComportamientoParticula : MonoBehaviour
 {
     private List<Transform> colliderEnters;
-    // Start is called before the first frame update
+
     void Start()
     {
         Destroy(GetComponent<BoxCollider>(), 0.1f);
-        //StartCoroutine(EsperarDestruccion());
         Destroy(gameObject, 1);
 
     }
@@ -21,6 +20,7 @@ public class ComportamientoParticula : MonoBehaviour
         {
             case "cNpc":
             case "fNpc":
+                BGSoundScript.DieNpcPlay();
                 Destroy(other.gameObject);
                 break;
             case "Bomba":
@@ -29,7 +29,6 @@ public class ComportamientoParticula : MonoBehaviour
                 {
                     cb.ExplosionBomba(cb.owner.alcanceBomba);
                 }
-                //Destroy(other.gameObject);
                 break;
 
         }
