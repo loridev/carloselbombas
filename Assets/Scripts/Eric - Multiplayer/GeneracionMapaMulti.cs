@@ -79,6 +79,7 @@ public class GeneracionMapaMulti : MonoBehaviour
             celdas[(int) posicionCelda.x, (int) posicionCelda.z] = new Celda(
                     objTipoCelda != null, posicionCelda, objTipoCelda
             );
+            // TODO: REDUCIR CAJAS + PHOTON INSTANCIAR
         }
     }
 }
