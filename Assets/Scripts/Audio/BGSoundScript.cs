@@ -59,6 +59,20 @@ public class BGSoundScript : MonoBehaviour
         allAudios[6].Play();
     }
 
-    //TODO: Sonido muerte de npc
+    public static void DieNpcPlay()
+    {
+        allAudios[7].Play();
+    }
+
+    public static void NachetePlay()
+    {
+        allAudios[8].Play();
+    }
+
+    public static void NacheteStop()
+    {
+        allAudios[8].Stop();
+    }
+
     //TODO: Sonido CARLOS EL BOMBAS en el countdown de multi
 }

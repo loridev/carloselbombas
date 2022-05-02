@@ -279,6 +279,10 @@ async void Start()
     {
         if (Input.GetKeyUp(KeyCode.Escape))
         {
+            if (BGSoundScript.allAudios[8].isPlaying)
+            {
+                BGSoundScript.NacheteStop();
+            }
             if (Globals.Modo == "Multi")
             {
                 PhotonNetwork.LeaveRoom();
@@ -306,9 +310,12 @@ async void Start()
         while (segundos > 0)
         {
             segundos -= 1;
+            if (segundos == 20 )
+            {
+                BGSoundScript.NachetePlay();
+            }
             yield return new WaitForSeconds(1);
         }
-
         MuerteSubita();
     }
 
@@ -350,6 +357,10 @@ async void Start()
 
     public static IEnumerator EntreRondas(GameObject muerto)
     {
+        if (BGSoundScript.allAudios[8].isPlaying)
+        {
+            BGSoundScript.NacheteStop();
+        }
         ComportamientoBomba[] bombas = FindObjectsOfType<ComportamientoBomba>();
 
         foreach (ComportamientoBomba bomba in bombas)
