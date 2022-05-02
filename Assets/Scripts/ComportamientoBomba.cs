@@ -18,7 +18,7 @@ public class ComportamientoBomba : MonoBehaviour
 
     private void Start()
     {
-        Collider[] colliders = Physics.OverlapSphere(transform.position, 0.00001f);
+        Collider[] colliders = Physics.OverlapSphere(transform.position, 1f);
         
         foreach (Collider collider in colliders)
         {
