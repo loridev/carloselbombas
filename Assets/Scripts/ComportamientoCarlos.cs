@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class ComportamientoCarlos : Photon.MonoBehaviour
 {
     public PhotonView photonView;
-    private Celda[,] celdas;
+    public Celda[,] celdas;
     
     // RELATIVO A SKINS
     public Material[] skins;
@@ -68,7 +68,7 @@ public class ComportamientoCarlos : Photon.MonoBehaviour
             }
             skinBomba = bombaDefault;
             restarVidas = true;
-            celdas = GeneracionMapa.celdas;
+            celdas = Globals.Modo != "Multi" ? GeneracionMapa.celdas : GeneracionMapaMulti.celdas;
             controlador = GetComponent<CharacterController>();
             velocidad = velocidadInicial;
             materialPersonaje = Globals.CurrentUser.character == "CARLOS" ? coloresPersonajes[0] : coloresPersonajes[1];

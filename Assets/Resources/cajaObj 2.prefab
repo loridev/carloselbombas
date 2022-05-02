@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1210454397304658153}
   - component: {fileID: 2634971847815207431}
   - component: {fileID: 4903526275652222590}
-  - component: {fileID: 6845376548551571421}
+  - component: {fileID: 1476871172818044338}
   m_Layer: 8
   m_Name: cajaObj 2
   m_TagString: Caja
@@ -113,7 +113,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &6845376548551571421
+--- !u!114 &1476871172818044338
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -133,7 +133,8 @@ MonoBehaviour:
   onSerializeTransformOption: 3
   onSerializeRigidBodyOption: 2
   ownershipTransfer: 0
-  ObservedComponents: []
+  ObservedComponents:
+  - {fileID: 0}
   ObservedComponentsFoldoutOpen: 1
   viewIdField: 0
   instantiationId: -1

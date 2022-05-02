@@ -373,40 +373,6 @@ async void Start()
 
         SceneManager.LoadScene(acabada ? "MenuMulti" : "MapaDinamicoFinal");
     }
-
-    public void SpawnMulti()
-    {
-        Debug.Log(PhotonNetwork.countOfPlayers);
-        if (posicionesMulti.Count == 0)
-        {
-            status.text = "Mapa cargando...\n" +
-                          "Prueba en unos segundos";
-        }
-        switch (PhotonNetwork.countOfPlayers)
-        {
-            case 1:
-                GeneracionMapaMulti.SpawnJugador(prefabCarlos.gameObject,
-                    posicionesMulti[0]);
-                break;
-            case 2:
-                GeneracionMapaMulti.SpawnJugador(prefabCarlos.gameObject,
-                    posicionesMulti[2]);
-                break;
-            case 3:
-                GeneracionMapaMulti.SpawnJugador(prefabCarlos.gameObject,
-                    posicionesMulti[1]);
-                break;
-            case 4:
-                GeneracionMapaMulti.SpawnJugador(prefabCarlos.gameObject,
-                    posicionesMulti[3]);
-                break;
-        }
-
-        if (posicionesMulti.Count != 0)
-        {
-            panelMulti.SetActive(false);
-        }
-    }
 }
 
 public class Celda

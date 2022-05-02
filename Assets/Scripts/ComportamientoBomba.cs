@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Utils;
 
 public class ComportamientoBomba : MonoBehaviour
 {
@@ -12,6 +11,7 @@ public class ComportamientoBomba : MonoBehaviour
     private Transform[] powerDowns;
     private Celda[,] celdas;
     private GeneracionMapa mapaCosas;
+    private GeneracionMapaMulti mapaMultiCosas;
     public bool explotada;
     private Coroutine temporizador;
     public ComportamientoCarlos owner;
@@ -30,10 +30,18 @@ public class ComportamientoBomba : MonoBehaviour
             }
         }
         explotada = false;
-        celdas = GeneracionMapa.celdas;
-        mapaCosas = GameObject.FindGameObjectWithTag("Mapa").GetComponent<GeneracionMapa>();
-        powerUps = mapaCosas.powerUps;
-        powerDowns = mapaCosas.powerDowns;
+        celdas = Globals.Modo != "Multi" ? GeneracionMapa.celdas : GeneracionMapaMulti.celdas;
+
+        if (Globals.Modo != "Multi")
+        {
+            mapaCosas = GameObject.FindGameObjectWithTag("Mapa").GetComponent<GeneracionMapa>();
+        }
+        else
+        {
+            mapaMultiCosas = GameObject.FindGameObjectWithTag("Mapa").GetComponent<GeneracionMapaMulti>();
+        }
+        powerUps = Globals.Modo != "Multi" ? mapaCosas.powerUps : mapaMultiCosas.powerUps;
+        powerDowns = Globals.Modo != "Multi" ? mapaCosas.powerDowns : mapaMultiCosas.powerDowns;
         diagonal = owner.siguienteDiagonal;
         if (diagonal)
         {
@@ -260,7 +268,10 @@ public class ComportamientoBomba : MonoBehaviour
                         }
                         else
                         {
-                            PhotonNetwork.Destroy(celdasExplosion[i].objTipoCelda.gameObject);
+                            if (celdasExplosion[i].objTipoCelda.GetComponent<PhotonView>().isMine)
+                            {
+                                PhotonNetwork.Destroy(celdasExplosion[i].objTipoCelda.gameObject);
+                            }
                             //StartCoroutine(PhotonUtils
                                 //.PhotonDestroyWithDelay(celdasExplosion[i].objTipoCelda.gameObject, 0.1f));
                         }

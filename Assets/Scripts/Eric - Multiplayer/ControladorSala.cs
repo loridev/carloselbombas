@@ -43,6 +43,6 @@ public class ControladorSala : MonoBehaviour
 
     private void OnJoinedRoom()
     {
-        PhotonNetwork.LoadLevel("MapaDinamicoFinal");
+        PhotonNetwork.LoadLevel("MapaMulti");
     }
 }

@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class SoltarBombas : Photon.MonoBehaviour
 {
-    private GeneracionMapa mapaCosas;
     public GameObject projectilePrefab;
     private ComportamientoCarlos carlosAtributos;
 
@@ -15,7 +14,6 @@ public class SoltarBombas : Photon.MonoBehaviour
     {
         if (!CompareTag("Untagged"))
         {
-            mapaCosas = GameObject.FindGameObjectWithTag("Mapa").GetComponent<GeneracionMapa>();
             carlosAtributos = GetComponent<ComportamientoCarlos>();
         }
     }
