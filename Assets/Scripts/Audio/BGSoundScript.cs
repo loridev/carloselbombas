@@ -29,7 +29,7 @@ public class BGSoundScript : MonoBehaviour
     }
 
 
-    public static void NpcPlay()
+    public static void LoseLifePlay()
     {
         allAudios[1].Play();
     }
@@ -49,4 +49,8 @@ public class BGSoundScript : MonoBehaviour
         allAudios[4].Play();
     }
 
+    public static void DeathCarlosPlay()
+    {
+        allAudios[5].Play();
+    }
 }

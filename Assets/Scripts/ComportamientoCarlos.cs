@@ -370,9 +370,10 @@ public class ComportamientoCarlos : Photon.MonoBehaviour
             if (restarVidas)
             {
                 --vidas;
-
                 if (vidas == 0)
                 {
+                    // Sonido para cuando muere
+                    BGSoundScript.DeathCarlosPlay();
                     GeneracionMapa.segundos = 0;
                     if (Globals.Modo == "Indiv" || Globals.Modo == "Contrarreloj")
                     {
@@ -385,6 +386,11 @@ public class ComportamientoCarlos : Photon.MonoBehaviour
                             StartCoroutine(GeneracionMapa.EntreRondas(gameObject));
                         }
                     }
+                } else
+                {
+                    // Sonido cuando se le quita una vida
+                    Debug.Log("Tocadoooooo");
+                    BGSoundScript.LoseLifePlay();
                 }
                 StartCoroutine(EsperarVidas());
             }
