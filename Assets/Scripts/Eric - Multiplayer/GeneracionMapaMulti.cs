@@ -10,6 +10,7 @@ public class GeneracionMapaMulti : MonoBehaviour
     public GameObject interfazMultijugador;
     public GameObject[] cajasPlayers;
     public GameObject prefabCarlos;
+    public GameObject prefabCaja;
     
     public Transform[] powerUps;
     public Transform[] powerDowns;
@@ -34,7 +35,7 @@ public class GeneracionMapaMulti : MonoBehaviour
             carloses[i] = carlosActivos[i].gameObject;
         }
         celdas = new Celda[15, 15];
-        AsignarCeldas(); // TODO: POSICIONES CARLOS Y INTERFAZ CON BOTON
+        AsignarCeldas(); // TODO: POSICIONES CARLOS
     }
 
     public void SpawnJugador()
@@ -52,8 +53,14 @@ public class GeneracionMapaMulti : MonoBehaviour
         GameObject carlitos = PhotonNetwork.Instantiate(prefabCarlos.name, posicionesMulti[index], Quaternion.identity, 0);
         carloses[index] = carlitos;
         cajasPlayers[index].SetActive(true);
-        carlitos.GetComponent<ComportamientoCarlos>().vidas = 1;
-        carlitos.GetComponent<ComportamientoCarlos>().celdas = celdas;
+        ComportamientoCarlos carlosScript = carlitos.GetComponent<ComportamientoCarlos>();
+        carlosScript.vidas = 1;
+        carlosScript.celdas = celdas;
+        carlosScript.velocidadInicial = 4;
+        carlosScript.tiempoCargaBate = 4;
+        carlosScript.alcanceBomba = 4;
+        carlosScript.duracionBomba = 4;
+        carlosScript.limiteBombas = 4;
         
         panelMulti.SetActive(false);
     }
@@ -68,7 +75,7 @@ public class GeneracionMapaMulti : MonoBehaviour
             Transform objTipoCelda = null;
             foreach (Collider collider in colliders)
             {
-                if (collider.CompareTag("Pared") || collider.CompareTag("Caja"))
+                if (collider.CompareTag("Pared"))
                 {
                     objTipoCelda = collider.transform;
                     break;
@@ -79,7 +86,6 @@ public class GeneracionMapaMulti : MonoBehaviour
             celdas[(int) posicionCelda.x, (int) posicionCelda.z] = new Celda(
                     objTipoCelda != null, posicionCelda, objTipoCelda
             );
-            // TODO: REDUCIR CAJAS + PHOTON INSTANCIAR
         }
     }
 }

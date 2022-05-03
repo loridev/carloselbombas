@@ -260,19 +260,8 @@ public class ComportamientoBomba : MonoBehaviour
                         //Sonido explosion caja
                         BGSoundScript.DestroyedBoxPlay();
                         Debug.Log("Box Destroyeddddddd");
-                        if (Globals.Modo != "Multi")
-                        {
-                            Destroy(celdasExplosion[i].objTipoCelda.gameObject, 0.1f);
-                        }
-                        else
-                        {
-                            if (celdasExplosion[i].objTipoCelda.GetComponent<PhotonView>().isMine)
-                            {
-                                PhotonNetwork.Destroy(celdasExplosion[i].objTipoCelda.gameObject);
-                            }
-                            //StartCoroutine(PhotonUtils
-                                //.PhotonDestroyWithDelay(celdasExplosion[i].objTipoCelda.gameObject, 0.1f));
-                        }
+                     
+                        Destroy(celdasExplosion[i].objTipoCelda.gameObject, 0.1f);
                         celdasExplosion[i].objTipoCelda = null;
 
                         bool aparecer = UnityEngine.Random.Range(0, 10) <= 5;

@@ -162,7 +162,8 @@ async void Start()
                         case "Player":
                             playerCount++;
                             if (Globals.Modo == "Indiv" ||
-                                (Globals.Modo == "Pantalladiv" && (posicion.x == posicion.z)))
+                                (Globals.Modo == "Pantalladiv" && (posicion.x == posicion.z))
+                                || Globals.Modo == "Contrarreloj")
                             {
                                 carlos = Instantiate(prefabCarlos, new Vector3(posicion.x, 1, posicion.z), Quaternion.identity);
                                 carlos.tag = playerCount != 1 && Globals.Modo == "Pantalladiv" ? "Player" + playerCount : "Player";
