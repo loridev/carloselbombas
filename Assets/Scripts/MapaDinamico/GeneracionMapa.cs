@@ -77,10 +77,6 @@ async void Start()
             {
                 cajasPlayers[2].SetActive(false);
                 cajasPlayers[3].SetActive(false);
-            } else if (Globals.Modo == "Multi")
-            {
-                posicionesMulti = new List<Vector3>();
-                panelMulti.SetActive(true);
             }
         }
         nivel = await ApiRequests.GetLevel(Globals.WorldNum, Globals.LevelNum);
@@ -105,7 +101,7 @@ async void Start()
         if (Globals.Modo == "Contrarreloj")
         {
             StartCoroutine(ContadorSegundos());
-        } else if (Globals.Modo == "Multi" || Globals.Modo == "Pantalladiv")
+        } else if (Globals.Modo == "Pantalladiv")
         {
             segundos = 180;
             StartCoroutine(ContadorDesc());
@@ -170,15 +166,7 @@ async void Start()
                             }
                             if (Globals.Modo != "Indiv")
                             {
-
-                                if (Globals.Modo == "Multi")
-                                {
-                                    posicionesMulti.Add(new Vector3(posicion.x, 1, posicion.z));
-                                }
-                                else
-                                {
-                                    carlos.GetComponent<ComportamientoCarlos>().vidas = 1;
-                                }
+                                carlos.GetComponent<ComportamientoCarlos>().vidas = 1;
                             }
                             if (nivel.levelNum == 5 && nivel.worldNum != 4)
                             {
@@ -204,15 +192,7 @@ async void Start()
                             break;
                         case "Box":
                             Transform caja;
-                            if (Globals.Modo != "Multi")
-                            {
-                                caja = Instantiate(prefabCaja, new Vector3(posicion.x, 0.25f, posicion.z), Quaternion.identity);
-                            }
-                            else
-                            {
-                                caja = PhotonNetwork.Instantiate(prefabCaja.name, new Vector3(posicion.x, 0.25f, posicion.z),
-                                    Quaternion.identity, 0).transform;
-                            }
+                            caja = Instantiate(prefabCaja, new Vector3(posicion.x, 0.25f, posicion.z), Quaternion.identity);
                             objTipoCelda = caja;
                             ocupado = true;
                             break;
@@ -284,16 +264,8 @@ async void Start()
             {
                 BGSoundScript.NacheteStop();
             }
-            if (Globals.Modo == "Multi")
-            {
-                PhotonNetwork.LeaveRoom();
-                PhotonNetwork.LoadLevel("MenuMulti");
-            }
-            else
-            {
-                segundos = 0;
-                SceneManager.LoadScene(Globals.Modo == "Pantalladiv" ? "MenuMulti" : "MenuMundos");
-            }
+            segundos = 0;
+            SceneManager.LoadScene(Globals.Modo == "Pantalladiv" ? "MenuMulti" : "MenuMundos");
         }
     }
 
