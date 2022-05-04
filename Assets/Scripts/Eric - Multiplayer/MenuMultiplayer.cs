@@ -13,6 +13,6 @@ public class MenuMultiplayer : MonoBehaviour
     public void cargarDividida()
     {
         Globals.Modo = "Pantalladiv";
-        SceneManager.LoadScene("MapaDinamicoFinal");
+        SceneManager.LoadScene("MenuLoginDividida");
     }
 }

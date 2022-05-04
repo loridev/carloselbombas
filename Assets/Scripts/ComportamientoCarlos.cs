@@ -8,6 +8,7 @@ public class ComportamientoCarlos : Photon.MonoBehaviour
 {
     public PhotonView photonView;
     public Celda[,] celdas;
+    private bool dividida;
     
     // RELATIVO A SKINS
     public Material[] skins;
@@ -57,30 +58,19 @@ public class ComportamientoCarlos : Photon.MonoBehaviour
     void Start()
     {
         Physics.IgnoreLayerCollision(3, 3);
-        if (!CompareTag("Untagged") && (Globals.Modo != "Multi" || Globals.Modo == "Multi" && photonView.isMine))
+        if (!CompareTag("Untagged"))
         {
-            if (Globals.Modo == "Multi")
-            {
-                if (photonView.isMine)
-                {
-                    name = photonView.owner.NickName;
-                }
-            }
-            skinBomba = bombaDefault;
             restarVidas = true;
-            celdas = Globals.Modo != "Multi" ? GeneracionMapa.celdas : GeneracionMapaMulti.celdas;
+            celdas = GeneracionMapa.celdas;
             controlador = GetComponent<CharacterController>();
             velocidad = velocidadInicial;
-            materialPersonaje = Globals.CurrentUser.character == "CARLOS" ? coloresPersonajes[0] : coloresPersonajes[1];
-
-            CargarSkins();  
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!CompareTag("Untagged") && (Globals.Modo != "Multi" || Globals.Modo == "Multi" && photonView.isMine))
+        if (!CompareTag("Untagged"))
         {
             ControladorMovimiento();
             ControladorBate();
@@ -161,6 +151,17 @@ public class ComportamientoCarlos : Photon.MonoBehaviour
             GolpearBomba(fuerzaBateCargado);
             temporizadorCargado = 0;
             cargando = false;
+            Collider[] colliders = Physics.OverlapSphere(transform.position, 0.11f);
+            foreach (Collider collider in colliders)
+            {
+                if (collider.GetComponent<ComportamientoCarlos>() != null)
+                {
+                    if (!CompareTag(collider.tag))
+                    {
+                        collider.GetComponent<ComportamientoCarlos>().RestarVida();
+                    }
+                }
+            }
         } else if (Input.GetKeyUp(CompareTag("Player") ? KeyCode.B : KeyCode.Equals) && temporizadorCargado < tiempoCargaBate)
         {
             Destroy(indicadorBateCargando.gameObject);
@@ -168,6 +169,17 @@ public class ComportamientoCarlos : Photon.MonoBehaviour
             GolpearBomba(fuerzaBateNormal);
             temporizadorCargado = 0;
             cargando = false;
+            Collider[] colliders = Physics.OverlapSphere(transform.position, 0.11f);
+            foreach (Collider collider in colliders)
+            {
+                if (collider.GetComponent<ComportamientoCarlos>() != null)
+                {
+                    if (!CompareTag(collider.tag))
+                    {
+                        StartCoroutine(collider.GetComponent<ComportamientoCarlos>().StunCarlos());
+                    }
+                }
+            }
         }
     }
 
@@ -177,7 +189,7 @@ public class ComportamientoCarlos : Photon.MonoBehaviour
         Celda celdaActual = EncontrarCeldaMasCerca(transform.position);
         if (celdaActual.objTipoCelda != null)
         {
-            if (celdaActual.objTipoCelda.tag == "Bomba") celdaBomba = celdaActual;
+            if (celdaActual.objTipoCelda.CompareTag("Bomba")) celdaBomba = celdaActual;
         } 
         Vector3 supuestaPosBomba = new Vector3(0, 0, 0);
 
@@ -219,7 +231,7 @@ public class ComportamientoCarlos : Photon.MonoBehaviour
 
         if (celdaBomba.objTipoCelda != null)
         {
-            if (celdaBomba.objTipoCelda.tag == "Bomba")
+            if (celdaBomba.objTipoCelda.CompareTag("Bomba"))
             {
                 Celda celdaFinal;
                 if (celdasColindantes.Count > fuerza)
@@ -366,34 +378,8 @@ public class ComportamientoCarlos : Photon.MonoBehaviour
                     }
                 }
             }
+            RestarVida();
 
-            if (restarVidas)
-            {
-                --vidas;
-                if (vidas == 0)
-                {
-                    // Sonido para cuando muere
-                    BGSoundScript.DeathCarlosPlay();
-                    GeneracionMapa.segundos = 0;
-                    if (Globals.Modo == "Indiv" || Globals.Modo == "Contrarreloj")
-                    {
-                        SceneManager.LoadScene("MenuMundos");
-                    }
-                    else
-                    {
-                        if (Globals.Modo == "Pantalladiv")
-                        {
-                            StartCoroutine(GeneracionMapa.EntreRondas(gameObject));
-                        }
-                    }
-                } else
-                {
-                    // Sonido cuando se le quita una vida
-                    Debug.Log("Tocadoooooo");
-                    BGSoundScript.LoseLifePlay();
-                }
-                StartCoroutine(EsperarVidas());
-            }
         }
     }
 
@@ -543,9 +529,11 @@ public class ComportamientoCarlos : Photon.MonoBehaviour
         restarVidas = true;
     }
 
-    private void CargarSkins()
+    public void CargarSkins(User userLoad)
     {
-        List<Item> equipped = Globals.CurrentUser.equippedItems;
+        skinBomba = bombaDefault;
+        materialPersonaje = userLoad.character == "CARLOS" ? coloresPersonajes[0] : coloresPersonajes[1];
+        List<Item> equipped = userLoad.equippedItems;
         for (int i = 0; i < skins.Length; i++)
         {
             for (int j = 0; j < equipped.Count; j++)
@@ -570,15 +558,15 @@ public class ComportamientoCarlos : Photon.MonoBehaviour
             }
         }
 
-        if (Globals.CurrentUser.equippedItems.Find((item) => item.type == "HELMET") == null)
+        if (userLoad.equippedItems.Find((item) => item.type == "HELMET") == null)
         {
             partesPersonalizables[0].SetActive(false);
         }
-        if (Globals.CurrentUser.equippedItems.Find((item) => item.type == "BODY") == null)
+        if (userLoad.equippedItems.Find((item) => item.type == "BODY") == null)
         {
             partesPersonalizables[1].GetComponent<MeshRenderer>().material = materialPersonaje;
         }
-        if (Globals.CurrentUser.equippedItems.Find((item) => item.type == "BAT") == null)
+        if (userLoad.equippedItems.Find((item) => item.type == "BAT") == null)
         {
             partesPersonalizables[2].GetComponent<MeshRenderer>().material = materialPersonaje;
         }
@@ -598,5 +586,50 @@ public class ComportamientoCarlos : Photon.MonoBehaviour
         {
             transform.position = new Vector3(transform.position.x, 1, transform.position.z);
         }
+    }
+
+    private void RestarVida()
+    {
+        if (restarVidas)
+        {
+            --vidas;
+            if (vidas == 0)
+            {
+                // Sonido para cuando muere
+                BGSoundScript.DeathCarlosPlay();
+                GeneracionMapa.segundos = 0;
+                if (Globals.Modo == "Indiv" || Globals.Modo == "Contrarreloj")
+                {
+                    SceneManager.LoadScene("MenuMundos");
+                }
+                else
+                {
+                    if (Globals.Modo == "Pantalladiv")
+                    {
+                        StartCoroutine(GeneracionMapa.EntreRondas(gameObject));
+                    }
+                }
+            } else
+            {
+                // Sonido cuando se le quita una vida
+                Debug.Log("Tocadoooooo");
+                BGSoundScript.LoseLifePlay();
+            }
+            StartCoroutine(EsperarVidas());
+        }
+    }
+
+    private IEnumerator StunCarlos()
+    {
+        int bombasAux = limiteBombas;
+        float velocidadAux = velocidadInicial;
+
+        limiteBombas = 0;
+        velocidadInicial = 0;
+
+        yield return new WaitForSeconds(1);
+
+        limiteBombas = bombasAux;
+        velocidadInicial = velocidadAux;
     }
 }

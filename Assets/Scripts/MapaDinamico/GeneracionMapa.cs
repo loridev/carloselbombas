@@ -1,6 +1,6 @@
 using Pathfinding;
 using System.Collections;
-using System.Collections.Generic;
+using System.Collections.Generic;using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -112,7 +112,10 @@ async void Start()
     void Update()
     {
         ActualizarAtributos();
-        ActualizarScore();
+        if (Globals.Modo == "Pantalladiv")
+        {
+            ActualizarScore();
+        }
         ControlarSalida();
         if (cargado && (Globals.Modo == "Contrarreloj" || Globals.Modo == "Pantalladiv"))
         {
@@ -163,6 +166,8 @@ async void Start()
                             {
                                 carlos = Instantiate(prefabCarlos, new Vector3(posicion.x, 1, posicion.z), Quaternion.identity);
                                 carlos.tag = playerCount != 1 && Globals.Modo == "Pantalladiv" ? "Player" + playerCount : "Player";
+                                carlos.GetComponent<ComportamientoCarlos>()
+                                    .CargarSkins(playerCount > 1 ? Globals.Player2 : Globals.CurrentUser);
                             }
                             if (Globals.Modo != "Indiv")
                             {
@@ -321,11 +326,8 @@ async void Start()
 
     public void ActualizarScore()
     {
-        for (int i = 0; i < cajasPlayers.Length; i++)
-        {
-            cajasPlayers[i].GetComponentInChildren<Text>().text = "Jugador " + (i + 1) + "\n" + "Rondas: " + scores[i]
-                                                                  + "/3";
-        }
+        cajasPlayers[0].GetComponentInChildren<Text>().text = Globals.CurrentUser.name + "\n" + "Rondas: " + scores[0] + "/3";
+        cajasPlayers[1].GetComponentInChildren<Text>().text = Globals.Player2.name + "\n" + "Rondas: " + scores[1] + "/3";
     }
 
     public static IEnumerator EntreRondas(GameObject muerto)
@@ -344,20 +346,40 @@ async void Start()
         scores[muerto.CompareTag("Player") ? 1 : 0]++;
         muerto.transform.position = new Vector3(0, 50, 0);
         yield return new WaitForSeconds(3);
+        bool acabada;
+        Task<bool> taskAcabada = IsAcabada();
+        yield return new WaitUntil(() => taskAcabada.IsCompleted);
+        acabada = taskAcabada.Result;
+        SceneManager.LoadScene(acabada ? "MenuMulti" : "MapaDinamicoFinal");
+    }
+    
+    private static async Task<bool> IsAcabada()
+    {
         bool acabada = false;
-        foreach (int score in scores)
+        for (int i = 0; i < scores.Length; i++)
         {
-            if (score == 3)
+            if (scores[i] == 3)
             {
                 acabada = true;
-                Globals.Modo = "Multi";
+                User winner = i == 0 ? Globals.CurrentUser : Globals.Player2;
+                User loser = i == 1 ? Globals.Player2 : Globals.CurrentUser;
+                if (await ApiRequests.SaveMultiProgress(winner, loser, ++winner.multi_wins,
+                        i == 0 ? scores[0] - scores[1] : scores[1] - scores[0]))
+                {
+                    Debug.Log("MULTI BIEN");
+                }
+                else
+                {
+                    Debug.Log("MULTI MAL :(");
+                }
                 break;
             }
         }
 
-        SceneManager.LoadScene(acabada ? "MenuMulti" : "MapaDinamicoFinal");
+        return acabada;
     }
 }
+
 
 public class Celda
 {

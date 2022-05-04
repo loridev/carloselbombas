@@ -33,7 +33,7 @@ public static class ApiRequests
         return responseLevel;
     }
 
-    public static async Task<User> Login(string name, string password)
+    public static async Task<User> Login(string name, string password, bool dividida)
     {
         string url = "https://caboomgame.herokuapp.com/api/v1/auth/login";
 
@@ -57,7 +57,14 @@ public static class ApiRequests
 
             JObject userJson = JObject.Parse(JObject.Parse(await response.Content.ReadAsStringAsync())["user"].ToString());
 
-            Globals.Token = (string)JObject.Parse(await response.Content.ReadAsStringAsync())["token"];
+            if (!dividida)
+            {
+                Globals.Token = (string)JObject.Parse(await response.Content.ReadAsStringAsync())["token"];
+            }
+            else
+            {
+                Globals.Token2 = (string)JObject.Parse(await response.Content.ReadAsStringAsync())["token"];
+            }
             responseUser = JsonConvert.DeserializeObject<User>(userJson.ToString());
         }
 
@@ -133,8 +140,16 @@ public static class ApiRequests
         
         if (response.IsSuccessStatusCode)
         {
-            Globals.CurrentUser.equippedItems = JsonConvert
-                .DeserializeObject<List<Item>>(response.Content.ReadAsStringAsync().Result);
+            if (Globals.Token == token)
+            {
+                Globals.CurrentUser.equippedItems = JsonConvert
+                    .DeserializeObject<List<Item>>(response.Content.ReadAsStringAsync().Result);
+            }
+            else
+            {
+                Globals.Player2.equippedItems = JsonConvert
+                    .DeserializeObject<List<Item>>(response.Content.ReadAsStringAsync().Result);
+            }
         }
 
         return response.IsSuccessStatusCode;
@@ -227,14 +242,73 @@ public static class ApiRequests
 
         HttpClient client = new HttpClient();
 
+        int worldCoins = 0;
+
+        switch (Globals.WorldNum)
+        {
+            case 1:
+                worldCoins = 5;
+                break;
+            case 2:
+                worldCoins = 15;
+                break;
+            case 3:
+                worldCoins = 30;
+                break;
+        }
+
         JObject json = new JObject(
-            new JProperty("indiv_level", indivLevel)
+            new JProperty("indiv_level", indivLevel),
+            new JProperty("money", user.money + worldCoins * Globals.LevelNum * 5)
         );
 
         StringContent body = new StringContent(json.ToString(), Encoding.UTF8, "application/json");
 
         HttpResponseMessage responseMessage = await client.PutAsync(url, body);
 
+        if (responseMessage.IsSuccessStatusCode)
+        {
+            user.money += worldCoins * Globals.LevelNum * 5;
+        }
+
+        return responseMessage.IsSuccessStatusCode;
+    }
+
+    public static async Task<bool> SaveMultiProgress(User winner, User loser, int wins, int roundDiff)
+    {
+        string url = "https://caboomgame.herokuapp.com/api/v1/users/" + winner.id;
+
+        HttpClient client = new HttpClient();
+
+        int rewardCoins = 0;
+        int multiplier = loser.multi_wins >= (winner.multi_wins - 1) ? loser.multi_wins - (winner.multi_wins - 1) : 1;
+
+        switch (roundDiff)
+        {
+            case 1:
+                rewardCoins = 5 * multiplier;
+                break;
+            case 2:
+                rewardCoins = 15 * multiplier;
+                break;
+            case 3:
+                rewardCoins = 30 * multiplier;
+                break;
+        }
+
+        JObject json = new JObject(
+            new JProperty("multi_wins", wins),
+            new JProperty("money", winner.money + rewardCoins)
+        );
+
+        StringContent body = new StringContent(json.ToString(), Encoding.UTF8, "application/json");
+
+        HttpResponseMessage responseMessage = await client.PutAsync(url, body);
+
+        if (responseMessage.IsSuccessStatusCode)
+        {
+            winner.money += rewardCoins;
+        }
         return responseMessage.IsSuccessStatusCode;
     }
 

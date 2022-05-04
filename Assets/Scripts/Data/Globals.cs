@@ -13,8 +13,10 @@ public static class Globals
 
     // ############################  INFO RELATIVA A AUTENTICACION ######################## //
     public static string Token;
+    public static string Token2;
     public static User CurrentUser;
-    
+    public static User Player2;
+
     // ###########################  INFO RELATIVA A UBICACIÓN  ########################### //
     public static string City = null;
 }

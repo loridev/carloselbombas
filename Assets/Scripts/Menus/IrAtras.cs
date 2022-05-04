@@ -12,6 +12,9 @@ public class IrAtras : MonoBehaviour
         if (escenaActual.name == "MenuMundos")
         {
             SceneManager.LoadScene("MenuIndiv");
+        } else if (escenaActual.name == "MenuLoginDividida")
+        {
+            SceneManager.LoadScene("MenuMulti");
         } else
         {
             SceneManager.LoadScene("MenuPrincipal");

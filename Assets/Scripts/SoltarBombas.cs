@@ -21,7 +21,7 @@ public class SoltarBombas : Photon.MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!CompareTag("Untagged") && (Globals.Modo != "Multi" || Globals.Modo == "Multi" && photonView.isMine))
+        if (!CompareTag("Untagged"))
         {
             if (Input.GetKeyDown(CompareTag("Player") ? KeyCode.Space : KeyCode.Return))
             {
@@ -34,18 +34,9 @@ public class SoltarBombas : Photon.MonoBehaviour
                 {
                     ++GetComponent<ComportamientoCarlos>().bombasEnMapa;
                     Transform bomba;
-
-                    if (Globals.Modo == "Multi")
-                    {
-                        bomba = PhotonNetwork.Instantiate(projectilePrefab.name,
-                            new Vector3(celdaCerca.posicionCelda.x, 0.25f, celdaCerca.posicionCelda.z),
-                            projectilePrefab.transform.rotation, 0).transform;
-                    }
-                    else
-                    {
-                        bomba = Instantiate(projectilePrefab, new Vector3(celdaCerca.posicionCelda.x, 0.25f, celdaCerca.posicionCelda.z),
-                            projectilePrefab.transform.rotation).transform;
-                    }
+                
+                    bomba = Instantiate(projectilePrefab, new Vector3(celdaCerca.posicionCelda.x, 0.25f, celdaCerca.posicionCelda.z),
+                        projectilePrefab.transform.rotation).transform;
                     celdaCerca.ocupado = true;
                     celdaCerca.objTipoCelda = bomba;
                     foreach (Transform tr in bomba.GetComponentsInChildren<Transform>())
