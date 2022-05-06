@@ -234,7 +234,7 @@ async void Start()
         if (carlos != null)
         {
             ComportamientoCarlos carlosScript = carlos.GetComponent<ComportamientoCarlos>();
-            int index = interfazIndividual.GetActive() ? 0 : 1;
+            int index = interfazIndividual.activeSelf ? 0 : 1;
             vidasConst = carlosScript.vidas;
             velocidadConst = (int) carlosScript.velocidadInicial;
             alcanceConst = carlosScript.alcanceBomba;
@@ -340,7 +340,7 @@ async void Start()
 
         foreach (ComportamientoBomba bomba in bombas)
         {
-            PhotonNetwork.Destroy(bomba.gameObject);
+            Destroy(bomba.gameObject);
         }
         
         scores[muerto.CompareTag("Player") ? 1 : 0]++;

@@ -202,7 +202,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 115007542}
   m_OnClick:
     m_PersistentCalls:
@@ -402,7 +402,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: DUELO
+  m_Text: DUELO (MUY PRONTO)
 --- !u!222 &405300297
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -736,7 +736,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 723620174}
   m_OnClick:
     m_PersistentCalls:
@@ -973,7 +973,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1139695981}
   m_OnClick:
     m_PersistentCalls:
@@ -1086,7 +1086,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: EQUIPOS
+  m_Text: EQUIPOS (MUY PRONTO)
 --- !u!222 &1209538301
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1393,7 +1393,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: TORNEO
+  m_Text: TORNEO (MUY PRONTO)
 --- !u!222 &1558810083
 CanvasRenderer:
   m_ObjectHideFlags: 0
