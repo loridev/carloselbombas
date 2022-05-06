@@ -269,6 +269,7 @@ async void Start()
                 BGSoundScript.NacheteStop();
             }
             segundos = 0;
+            BGSoundScript.BackMusicPlay();
             SceneManager.LoadScene(Globals.Modo == "Pantalladiv" ? "MenuMulti" : "MenuMundos");
         }
     }

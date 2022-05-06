@@ -7,14 +7,11 @@ public class PauseAudio : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GameObject music = GameObject.Find("Audio");
+        //GameObject music = GameObject.Find("Audio");
 
-        music.GetComponent<AudioSource>().Pause();
+        //music.GetComponent<AudioSource>().Pause();
+
+        BGSoundScript.BackMusicPause();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
