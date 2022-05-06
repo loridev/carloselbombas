@@ -136,7 +136,6 @@ async void Start()
             }
         }
         celdas = new Celda[nivel.content.Count + 2, nivel.content.Count + 2];
-        bool limiteMapa;
 
         for (int i = 0; i < nivel.content.Count + 2; i++)
         {
