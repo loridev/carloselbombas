@@ -596,6 +596,7 @@ public class ComportamientoCarlos : MonoBehaviour
             {
                 // Sonido para cuando muere
                 BGSoundScript.DeathCarlosPlay();
+                BGSoundScript.BackMusicPlay();
                 GeneracionMapa.segundos = 0;
                 if (Globals.Modo == "Indiv" || Globals.Modo == "Contrarreloj")
                 {

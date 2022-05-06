@@ -9,6 +9,7 @@ public class AudioCoin : MonoBehaviour
         if (colision.gameObject.tag == "Player")
         {
             BGSoundScript.CoinPlay();
+            BGSoundScript.BackMusicPlay();
         }
     }
 }
