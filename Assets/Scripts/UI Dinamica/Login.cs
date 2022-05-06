@@ -46,7 +46,14 @@ public class Login : MonoBehaviour
         {
             if (await ApiRequests.GetEquipped(escenaActual.name == "MenuLogin" ? Globals.Token : Globals.Token2))
             {
+                if (escenaActual.name == "MenuLogin")
+                {
+                    BGSoundScript.BackMusicPlay();
+                    Debug.Log("entra en la escena");
+                }
+
                 SceneManager.LoadScene(escenaActual.name == "MenuLogin" ? "MenuPrincipal" : "MapaDinamicoFinal");
+
             }
             else
             {

@@ -28,7 +28,15 @@ public class BGSoundScript : MonoBehaviour
         }
     }
 
+    public static void BackMusicPlay()
+    {
+        allAudios[0].Play();
+    }
 
+    public static void BackMusicPause()
+    {
+        allAudios[0].Pause();
+    }
     public static void LoseLifePlay()
     {
         allAudios[1].Play();
