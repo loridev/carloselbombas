@@ -232,6 +232,7 @@ async void Start()
     {
         if (carlos != null)
         {
+            ComportamientoCarlos carlosScript2 = GameObject.FindWithTag("Player2").GetComponent<ComportamientoCarlos>();
             ComportamientoCarlos carlosScript = carlos.GetComponent<ComportamientoCarlos>();
             int index = interfazIndividual.activeSelf ? 0 : 1;
             vidasConst = carlosScript.vidas;
@@ -241,12 +242,18 @@ async void Start()
             cargaBatConst = (int) carlosScript.tiempoCargaBate;
             limiteConst = carlosScript.limiteBombas;
 
-            labelVidas.text = "" + carlosScript.vidas;
-            labelVelocidad[index].text = "" + carlosScript.velocidadInicial;
-            labelAlcance[index].text = "" + carlosScript.alcanceBomba;
-            labelTiempoDet[index].text = "" + carlosScript.duracionBomba;
-            labelCargaBat[index].text = "" + carlosScript.tiempoCargaBate;
-            labelNumBom[index].text = carlosScript.limiteBombas - carlosScript.bombasEnMapa + "/" + carlosScript.limiteBombas;
+            labelVidas.text = Globals.Modo != "Pantalladiv" ? "" + carlosScript.vidas
+                : "" + carlosScript.vidas + "|" + carlosScript2.vidas;
+            labelVelocidad[index].text = Globals.Modo != "Pantalladiv" ? "" + carlosScript.velocidadInicial
+                : "" + carlosScript.velocidadInicial + "|" + carlosScript2.velocidadInicial;
+            labelAlcance[index].text = Globals.Modo != "Pantalladiv" ? "" + carlosScript.alcanceBomba
+                : "" + carlosScript.alcanceBomba + "|" + carlosScript2.alcanceBomba;
+            labelTiempoDet[index].text = Globals.Modo != "Pantalladiv" ? "" + carlosScript.duracionBomba
+                : "" + carlosScript.duracionBomba + "|" + carlosScript2.duracionBomba;
+            labelCargaBat[index].text = Globals.Modo != "Pantalladiv" ? "" + carlosScript.tiempoCargaBate
+                : "" + carlosScript.tiempoCargaBate + "|" + carlosScript2.tiempoCargaBate;
+            labelNumBom[index].text = Globals.Modo != "Pantalladiv" ? carlosScript.limiteBombas - carlosScript.bombasEnMapa + "/" + carlosScript.limiteBombas
+                    : (carlosScript.limiteBombas - carlosScript.bombasEnMapa) + "|" + (carlosScript2.limiteBombas - carlosScript2.bombasEnMapa);
         }
     }
 
