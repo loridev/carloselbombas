@@ -35,7 +35,7 @@ public class BGSoundScript : MonoBehaviour
 
     public static void BackMusicPause()
     {
-        allAudios[0].Pause();
+        allAudios[0].Stop();
     }
     public static void LoseLifePlay()
     {
