@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571336, b: 0.3069219, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571328, b: 0.3069217, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2312,13 +2312,13 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 892859237}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 24300002, guid: 066a63a24e7a64f42b51a7882be01bf9,
     type: 2}
   m_audioClip: {fileID: 8300000, guid: ee0974ae95e78e84a85be3f1694c70ec, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: 1
+  m_PlayOnAwake: 0
+  m_Volume: 0.15
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -2423,7 +2423,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 892859237}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9a345279c3928d4479bfe5d149a99a7f, type: 3}
   m_Name: 
@@ -2435,9 +2435,10 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 892859237}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 1d7b84ff293b0634885e125d19b95409,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: be49484c27c59d846a6410069e365315, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -2531,9 +2532,10 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 892859237}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 1d7b84ff293b0634885e125d19b95409,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: 8f8c861d9551eda4b9a0dfc44fea3eb9, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -2627,9 +2629,10 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 892859237}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 1d7b84ff293b0634885e125d19b95409,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: 61fdce82269f80c4fa9ef96829e09129, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -2723,9 +2726,10 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 892859237}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 1d7b84ff293b0634885e125d19b95409,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: eea7a2179df61ef47b3c53b9fa5d6b30, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -2819,9 +2823,10 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 892859237}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 1d7b84ff293b0634885e125d19b95409,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: 6722f221e74c8094db22b58ebfb24936, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -2915,9 +2920,10 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 892859237}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 1d7b84ff293b0634885e125d19b95409,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: 5c13ca72e10276b4ba28fd7f7aba7a70, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -3011,9 +3017,10 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 892859237}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 1d7b84ff293b0634885e125d19b95409,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: 3a6c8e0df91ee4d5697f41e712cb2244, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -3107,7 +3114,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 892859237}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 3e1169a52c76d4e62ba4c388e6f68203, type: 3}
@@ -3443,7 +3450,7 @@ MonoBehaviour:
   m_MinValue: 0.0001
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 1
+  m_Value: 0.15
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -4644,6 +4651,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1532721572}
   - component: {fileID: 1532721573}
+  - component: {fileID: 1532721574}
   m_Layer: 5
   m_Name: Slider
   m_TagString: Untagged
@@ -4717,13 +4725,38 @@ MonoBehaviour:
   m_FillRect: {fileID: 1406952061}
   m_HandleRect: {fileID: 395100438}
   m_Direction: 0
-  m_MinValue: 0
+  m_MinValue: 0.0001
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1532721574}
+        m_TargetAssemblyTypeName: SetVolumeSE, Assembly-CSharp
+        m_MethodName: SetLevel
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1532721574
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1532721571}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff9fe8aaae1d2d141965261542368b0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mixer: {fileID: 24100000, guid: 1d7b84ff293b0634885e125d19b95409, type: 2}
 --- !u!1 &1557552559
 GameObject:
   m_ObjectHideFlags: 0
