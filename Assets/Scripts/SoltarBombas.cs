@@ -8,7 +8,6 @@ public class SoltarBombas : Photon.MonoBehaviour
     public GameObject projectilePrefab;
     private ComportamientoCarlos carlosAtributos;
 
-    public PhotonView photonView;
     // Start is called before the first frame update
     void Start()
     {
@@ -46,11 +45,9 @@ public class SoltarBombas : Photon.MonoBehaviour
                             tr.GetComponent<MeshRenderer>().material = carlosAtributos.skinBomba;
                         }
                     }
-                    // explosionBomba(bomba, celdaCerca, carlosAtributos.alcanceBomba, carlosAtributos.duracionBomba);
                 }
             }
         }
     }
-
 }
 

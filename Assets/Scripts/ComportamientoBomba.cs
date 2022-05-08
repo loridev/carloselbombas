@@ -79,7 +79,6 @@ public class ComportamientoBomba : MonoBehaviour
     public IEnumerator EsperarExplosion(int alcanceBomba, int duracionBomba)
     {
         yield return new WaitForSeconds(duracionBomba);
-        // ExplosionBomba(alcanceBomba);
         if (Globals.Modo != "Multi")
         {
             Instantiate(particulaExplosion, new Vector3(transform.position.x, 0.25f, transform.position.z),
@@ -91,24 +90,6 @@ public class ComportamientoBomba : MonoBehaviour
                 new Vector3(transform.position.x, 0.25f, transform.position.z),
                 Quaternion.identity, 0);
         }
-    }
-
-    private Celda EncontrarCeldaMasCerca(Vector3 posicion)
-    {
-        float minDistancia = float.MaxValue;
-        Celda celdaCercana = null;
-
-        foreach (Celda celda in celdas)
-        {
-            float distancia = Vector3.Distance(posicion, celda.posicionCelda);
-            if (distancia < minDistancia)
-            {
-                minDistancia = distancia;
-                celdaCercana = celda;
-            }
-        }
-
-        return celdaCercana;
     }
 
     private Celda[] EncontrarCeldasDiagonal(string direccion, int distancia, Celda celdaInicial)
@@ -210,7 +191,7 @@ public class ComportamientoBomba : MonoBehaviour
 
     public void ExplosionBomba(int alcanceBomba)
     {
-        Celda celda = EncontrarCeldaMasCerca(transform.position);
+        Celda celda = owner.EncontrarCeldaMasCerca(transform.position);
         List<Celda> celdasExplosion = new List<Celda>();
 
         if (diagonal)
@@ -236,9 +217,6 @@ public class ComportamientoBomba : MonoBehaviour
             explotada = true;
         }
 
-        //Destroy(gameObject);
-
-        // Poner particulas de la bomba
         for (int i = 0; i < celdasExplosion.Count; i++)
         {
             if (celdasExplosion[i] != null)
@@ -306,8 +284,6 @@ public class ComportamientoBomba : MonoBehaviour
 
                     celdasExplosion[i].ocupado = false;
                     celdasExplosion[i].objTipoCelda = null;
-
-
                 }
             }
         }

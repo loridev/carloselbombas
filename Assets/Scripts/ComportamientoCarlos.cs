@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class ComportamientoCarlos : Photon.MonoBehaviour
 {
-    public PhotonView photonView;
     public Celda[,] celdas;
     private bool dividida;
     
@@ -50,10 +49,7 @@ public class ComportamientoCarlos : Photon.MonoBehaviour
 
     // INDIVIDUAL
     public int vidas = 3;
-    // SONIDOS
     
-
-
     // Start is called before the first frame update
     void Start()
     {
@@ -379,7 +375,6 @@ public class ComportamientoCarlos : Photon.MonoBehaviour
                 }
             }
             RestarVida();
-
         }
     }
 
@@ -513,11 +508,7 @@ public class ComportamientoCarlos : Photon.MonoBehaviour
                 minDistancia = distancia;
                 celdaCercana = celda;
             }
-
-            // Debug.Log(distancia);
-            // Debug.Log(celda.obj.name);
         }
-
         return celdaCercana;
     }
 
@@ -612,7 +603,6 @@ public class ComportamientoCarlos : Photon.MonoBehaviour
             } else
             {
                 // Sonido cuando se le quita una vida
-                Debug.Log("Tocadoooooo");
                 BGSoundScript.LoseLifePlay();
             }
             StartCoroutine(EsperarVidas());
