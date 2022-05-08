@@ -5,18 +5,6 @@ using UnityEngine.Audio;
 
 public class SetVolume : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public AudioMixer mixer;
 
     public void SetLevel (float sliderValue)

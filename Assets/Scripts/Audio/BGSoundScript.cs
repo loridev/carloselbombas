@@ -81,6 +81,4 @@ public class BGSoundScript : MonoBehaviour
     {
         allAudios[8].Stop();
     }
-
-    //TODO: Sonido CARLOS EL BOMBAS en el countdown de multi
 }

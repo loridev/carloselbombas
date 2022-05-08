@@ -64,7 +64,5 @@ public class Login : MonoBehaviour
         {
             status.text = "Nombre o contraseña incorrectos";
         }
-
-
     }
 }

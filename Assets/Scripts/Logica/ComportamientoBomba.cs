@@ -235,7 +235,6 @@ public class ComportamientoBomba : MonoBehaviour
                 }
             }
         }
-
        
         Destroy(gameObject);
         celda.objTipoCelda = null;

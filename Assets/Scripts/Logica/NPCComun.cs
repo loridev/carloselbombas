@@ -25,6 +25,5 @@ public class NPCComun : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag != "ground" && !other.tag.StartsWith("PU") && !other.tag.StartsWith("PD")) transform.Rotate(0, 180, 0, Space.Self);
-        // speed = -speed;
     }
 }

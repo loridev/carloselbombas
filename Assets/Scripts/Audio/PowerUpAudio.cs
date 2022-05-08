@@ -11,5 +11,4 @@ public class PowerUpAudio : MonoBehaviour
             BGSoundScript.PowerUpPlay();
         }
     }
-
 }

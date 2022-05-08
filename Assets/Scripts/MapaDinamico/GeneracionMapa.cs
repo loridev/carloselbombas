@@ -108,7 +108,6 @@ async void Start()
         }
     }
 
-
     void Update()
     {
         ActualizarAtributos();

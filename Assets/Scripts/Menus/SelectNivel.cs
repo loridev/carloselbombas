@@ -31,7 +31,4 @@ public class SelectNivel : MonoBehaviour
         Globals.Modo = "Contrarreloj";
         CargarNivel();
     }
-
-    
-
 }
