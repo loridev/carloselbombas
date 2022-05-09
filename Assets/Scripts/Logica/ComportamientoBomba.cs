@@ -43,7 +43,7 @@ public class ComportamientoBomba : MonoBehaviour
 
                 indicador.parent = transform;
         }
-        StartCoroutine(EsperarExplosion(owner.alcanceBomba, owner.duracionBomba));
+        StartCoroutine(EsperarExplosion(owner.duracionBomba));
     }
     private void OnTriggerExit(Collider other)
     {
@@ -60,7 +60,7 @@ public class ComportamientoBomba : MonoBehaviour
         }
     }
 
-    public IEnumerator EsperarExplosion(int alcanceBomba, int duracionBomba)
+    public IEnumerator EsperarExplosion(int duracionBomba)
     {
         yield return new WaitForSeconds(duracionBomba);
         Instantiate(particulaExplosion, new Vector3(transform.position.x, 0.25f, transform.position.z),
