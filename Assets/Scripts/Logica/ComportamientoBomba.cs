@@ -203,7 +203,6 @@ public class ComportamientoBomba : MonoBehaviour
                     {
                         //Sonido explosion caja
                         BGSoundScript.DestroyedBoxPlay();
-                        Debug.Log("Box Destroyeddddddd");
                      
                         Destroy(celdasExplosion[i].objTipoCelda.gameObject, 0.1f);
                         celdasExplosion[i].objTipoCelda = null;
