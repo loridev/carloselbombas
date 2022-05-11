@@ -231,7 +231,8 @@ async void Start()
     {
         if (carlos != null)
         {
-            ComportamientoCarlos carlosScript2 = GameObject.FindWithTag("Player2").GetComponent<ComportamientoCarlos>();
+            ComportamientoCarlos carlosScript2 = Globals.Modo == "Pantalladiv" ?
+                GameObject.FindWithTag("Player2").GetComponent<ComportamientoCarlos>() : null;
             ComportamientoCarlos carlosScript = carlos.GetComponent<ComportamientoCarlos>();
             int index = interfazIndividual.activeSelf ? 0 : 1;
             vidasConst = carlosScript.vidas;
