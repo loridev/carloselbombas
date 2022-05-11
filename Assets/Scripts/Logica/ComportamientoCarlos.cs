@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -380,6 +381,15 @@ public class ComportamientoCarlos : MonoBehaviour
 
     private IEnumerator NoBombas()
     {
+        ComportamientoBomba[] bombas = FindObjectsOfType<ComportamientoBomba>();
+        foreach (ComportamientoBomba bomba in bombas)
+        {
+            if (bomba.owner == this)
+            {
+                Destroy(bomba.gameObject);
+                --bombasEnMapa;
+            }
+        }
         int limiteBombasAux = limiteBombas;
         limiteBombas = 0;
         Transform indicadorNoBombas = Instantiate(indicadores[2], new Vector3(transform.position.x, 0, transform.position.z), Quaternion.identity);
