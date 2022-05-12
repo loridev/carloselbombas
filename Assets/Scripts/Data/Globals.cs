@@ -5,11 +5,11 @@ using UnityEngine;
 public static class Globals
 {
     // ############################  INFO RELATIVA A NIVELES ################################# //
-    public static int WorldNum = 4;
-    public static int LevelNum = 5;
+    public static int WorldNum = 1;
+    public static int LevelNum = 1;
 
     // ############################  INFO RELATIVA A MODO  ################################ //
-    public static string Modo = "Pantalladiv";
+    public static string Modo = "Indiv";
 
     // ############################  INFO RELATIVA A AUTENTICACION ######################## //
     public static string Token;
