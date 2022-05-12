@@ -386,6 +386,8 @@ public class ComportamientoCarlos : MonoBehaviour
         {
             if (bomba.owner == this)
             {
+                EncontrarCelda(new Vector3(bomba.transform.position.x, 0, bomba.transform.position.z))
+                    .ocupado = false;
                 Destroy(bomba.gameObject);
                 --bombasEnMapa;
             }
