@@ -23,7 +23,7 @@ public class SelectNivel : MonoBehaviour
                 break;
         }
 
-        SceneManager.LoadScene("MapaDinamicoFinal");
+        SceneManager.LoadScene(Globals.CurrentUser.indiv_level == "1-1" ? "MenuTutorial" : "MapaDinamicoFinal");
     }
 
     public void CargarNivelContrarreloj()

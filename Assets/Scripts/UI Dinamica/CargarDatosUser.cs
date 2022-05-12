@@ -28,6 +28,7 @@ public class CargarDatosUser : MonoBehaviour
     public async void Logout()
     {
         if (await ApiRequests.Logout(Globals.Token)) {
+            BGSoundScript.BackMusicPause();
             SceneManager.LoadScene("MenuLogin");
         }
     }
